@@ -115,8 +115,3 @@ Consider using a Linux VM or dual booting.**
 The project can be built with Android Studio or from the command line with gradle:
 
 `./gradlew assembleAfatRelease`
-
-# DIGITAL RESISTANCE
-
-![DIGITALRESISTANCE](/DigitalResistance.jpg?raw=true "DIGITALRESISTANCE")
-
