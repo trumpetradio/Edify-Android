@@ -4413,7 +4413,8 @@ public class MessageObject {
                             return null;
                         }
                         try {
-                            return "athumb://itunes.apple.com/search?term=" + URLEncoder.encode(performer + " - " + title, "UTF-8") + "&entity=song&limit=4" + (small ? "&s=1" : "");
+                            return null;
+                            //return "athumb://itunes.apple.com/search?term=" + URLEncoder.encode(performer + " - " + title, "UTF-8") + "&entity=song&limit=4" + (small ? "&s=1" : "");
                         } catch (Exception ignore) {
 
                         }
