@@ -1332,8 +1332,7 @@
     <string name="LanguageUnknownCustomAlertX">Sfortunatamente, questa lingua personalizza (**%1$s**) non contiene dati per Telegram Android.</string>
     <string name="AskAQuestionInfoX">Per favore nota che l\'assistenza di Telegram è gestita da volontari. Proviamo a rispondere quanto prima, ma potrebbe volerci del tempo.\n\nDai un\'occhiata alle <![CDATA[<a href=\"https://telegram.org/faq/it#domande-generali\">FAQ di Telegram</a>]]>: contengono suggerimenti importanti per <![CDATA[<a href=\"https://telegram.org/faq/it#risoluzione-dei-problemi\">risolvere i problemi</a>]]> e risposte a quasi tutte le domande.</string>
     <string name="AskButton">Chiedi a un volontario</string>
-    <string name="TelegramFAQX">FAQ Telegram</string>
-    <string name="TelegramFAQX">FAQ Telegram</string>
+    <string name="TelegramFAQX">FAQ Edify</string>
     <string name="AddAccount">Aggiungi account</string>
     <string name="SelectAccount">Seleziona Account</string>
     <string name="TelegramFaqUrl">https://telegram.org/faq/it</string>
