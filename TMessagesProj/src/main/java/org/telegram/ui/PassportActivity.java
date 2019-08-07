@@ -995,7 +995,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
                                     int num = a;
                                     AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
                                     builder.setMessage(LocaleController.formatString("PassportNameCheckAlert", R.string.PassportNameCheckAlert, firstName, middleName, lastName));
-                                    builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                                    builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                                     builder.setPositiveButton(LocaleController.getString("Done", R.string.Done), (dialogInterface, i) -> {
                                         inputFields[FIELD_NAME].setText(firstName);
                                         inputFields[FIELD_MIDNAME].setText(middleName);
@@ -1115,7 +1115,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
                         return;
                     }
                     final TextView message = new TextView(getParentActivity());
-                    String str2 = LocaleController.getString("PassportInfo2", R.string.PassportInfo2);
+                    String str2 = LocaleController.getString("PassportInfo2X", R.string.PassportInfo2X);
                     SpannableStringBuilder spanned = new SpannableStringBuilder(str2);
                     int index1 = str2.indexOf('*');
                     int index2 = str2.lastIndexOf('*');
@@ -1140,7 +1140,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
                     builder.setView(message);
-                    builder.setTitle(LocaleController.getString("PassportInfoTitle", R.string.PassportInfoTitle));
+                    builder.setTitle(LocaleController.getString("PassportInfoTitleX", R.string.PassportInfoTitleX));
                     builder.setNegativeButton(LocaleController.getString("Close", R.string.Close), null);
                     showDialog(builder.create());
                 } else if (id == done_button) {
@@ -1417,7 +1417,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
             if (response != null) {
                 currentPassword = (TLRPC.TL_account_password) response;
                 if (!TwoStepVerificationActivity.canHandleCurrentPassword(currentPassword, false)) {
-                    AlertsCreator.showUpdateAppAlert(getParentActivity(), LocaleController.getString("UpdateAppAlert", R.string.UpdateAppAlert), true);
+                    AlertsCreator.showUpdateAppAlert(getParentActivity(), LocaleController.getString("UpdateAppAlertX", R.string.UpdateAppAlertX), true);
                     return;
                 }
                 TwoStepVerificationActivity.initPasswordNewAlgo(currentPassword);
@@ -1515,7 +1515,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
 
         FrameLayout frameLayout = (FrameLayout) fragmentView;
 
-        actionBar.setTitle(LocaleController.getString("TelegramPassport", R.string.TelegramPassport));
+        actionBar.setTitle(LocaleController.getString("TelegramPassportX", R.string.TelegramPassportX));
 
         emptyView = new EmptyTextProgressView(context);
         emptyView.showProgress();
@@ -1551,7 +1551,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
         noPasswordTextView.setGravity(Gravity.CENTER_HORIZONTAL);
         noPasswordTextView.setPadding(AndroidUtilities.dp(21), AndroidUtilities.dp(10), AndroidUtilities.dp(21), AndroidUtilities.dp(17));
         noPasswordTextView.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteGrayText4));
-        noPasswordTextView.setText(LocaleController.getString("TelegramPassportCreatePasswordInfo", R.string.TelegramPassportCreatePasswordInfo));
+        noPasswordTextView.setText(LocaleController.getString("TelegramPassportCreatePasswordInfoX", R.string.TelegramPassportCreatePasswordInfoX));
         linearLayout2.addView(noPasswordTextView, LayoutHelper.createFrame(LayoutHelper.WRAP_CONTENT, LayoutHelper.WRAP_CONTENT, (LocaleController.isRTL ? Gravity.RIGHT : Gravity.LEFT) | Gravity.TOP, 21, 10, 21, 0));
 
         noPasswordSetTextView = new TextView(context);
@@ -1622,7 +1622,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
 
         passwordInfoRequestTextView = new TextInfoPrivacyCell(context);
         passwordInfoRequestTextView.setBackgroundDrawable(Theme.getThemedDrawable(context, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
-        passwordInfoRequestTextView.setText(LocaleController.formatString("PassportRequestPasswordInfo", R.string.PassportRequestPasswordInfo));
+        passwordInfoRequestTextView.setText(LocaleController.formatString("PassportRequestPasswordInfoX", R.string.PassportRequestPasswordInfoX));
         linearLayout2.addView(passwordInfoRequestTextView, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
 
         passwordForgotButton = new TextView(context);
@@ -1641,7 +1641,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
                         final TLRPC.TL_auth_passwordRecovery res = (TLRPC.TL_auth_passwordRecovery) response;
                         AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
                         builder.setMessage(LocaleController.formatString("RestoreEmailSent", R.string.RestoreEmailSent, res.email_pattern));
-                        builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                        builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                         builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), (dialogInterface, i) -> {
                             TwoStepVerificationActivity fragment = new TwoStepVerificationActivity(currentAccount, 1);
                             fragment.setRecoveryParams(currentPassword);
@@ -1662,9 +1662,9 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
                             } else {
                                 timeString = LocaleController.formatPluralString("Minutes", time / 60);
                             }
-                            showAlertWithText(LocaleController.getString("AppName", R.string.AppName), LocaleController.formatString("FloodWaitTime", R.string.FloodWaitTime, timeString));
+                            showAlertWithText(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.formatString("FloodWaitTime", R.string.FloodWaitTime, timeString));
                         } else {
-                            showAlertWithText(LocaleController.getString("AppName", R.string.AppName), error.text);
+                            showAlertWithText(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), error.text);
                         }
                     }
                 }), ConnectionsManager.RequestFlagFailOnServerErrors | ConnectionsManager.RequestFlagWithoutLogin);
@@ -1851,7 +1851,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
                                     secure_salt = algo.salt;
                                     saltedPassword = Utilities.computePBKDF2(AndroidUtilities.getStringBytes(textPassword), algo.salt);
                                 } else if (settings.secure_settings.secure_algo instanceof TLRPC.TL_securePasswordKdfAlgoUnknown) {
-                                    AndroidUtilities.runOnUIThread(() -> AlertsCreator.showUpdateAppAlert(getParentActivity(), LocaleController.getString("UpdateAppAlert", R.string.UpdateAppAlert), true));
+                                    AndroidUtilities.runOnUIThread(() -> AlertsCreator.showUpdateAppAlert(getParentActivity(), LocaleController.getString("UpdateAppAlertX", R.string.UpdateAppAlertX), true));
                                     return;
                                 } else {
                                     secure_salt = new byte[0];
@@ -1901,9 +1901,9 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
                                             openRequestInterface();
                                         } else {
                                             if ("APP_VERSION_OUTDATED".equals(error1.text)) {
-                                                AlertsCreator.showUpdateAppAlert(getParentActivity(), LocaleController.getString("UpdateAppAlert", R.string.UpdateAppAlert), true);
+                                                AlertsCreator.showUpdateAppAlert(getParentActivity(), LocaleController.getString("UpdateAppAlertX", R.string.UpdateAppAlertX), true);
                                             } else {
-                                                showAlertWithText(LocaleController.getString("AppName", R.string.AppName), error1.text);
+                                                showAlertWithText(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), error1.text);
                                             }
                                             showEditDoneProgress(true, false);
                                         }
@@ -1935,9 +1935,9 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
                                     } else {
                                         timeString = LocaleController.formatPluralString("Minutes", time / 60);
                                     }
-                                    showAlertWithText(LocaleController.getString("AppName", R.string.AppName), LocaleController.formatString("FloodWaitTime", R.string.FloodWaitTime, timeString));
+                                    showAlertWithText(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.formatString("FloodWaitTime", R.string.FloodWaitTime, timeString));
                                 } else {
-                                    showAlertWithText(LocaleController.getString("AppName", R.string.AppName), error.text);
+                                    showAlertWithText(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), error.text);
                                 }
                             }
                         });
@@ -1993,7 +1993,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
 
         FrameLayout frameLayout = (FrameLayout) fragmentView;
 
-        actionBar.setTitle(LocaleController.getString("TelegramPassport", R.string.TelegramPassport));
+        actionBar.setTitle(LocaleController.getString("TelegramPassportX", R.string.TelegramPassportX));
 
         actionBar.createMenu().addItem(info_item, R.drawable.profile_info);
 
@@ -2392,9 +2392,9 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
                 } else {
                     showEditDoneProgress(false, false);
                     if ("APP_VERSION_OUTDATED".equals(error.text)) {
-                        AlertsCreator.showUpdateAppAlert(getParentActivity(), LocaleController.getString("UpdateAppAlert", R.string.UpdateAppAlert), true);
+                        AlertsCreator.showUpdateAppAlert(getParentActivity(), LocaleController.getString("UpdateAppAlertX", R.string.UpdateAppAlertX), true);
                     } else {
-                        showAlertWithText(LocaleController.getString("AppName", R.string.AppName), error.text);
+                        showAlertWithText(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), error.text);
                     }
                 }
             }));
@@ -2423,7 +2423,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
     private void createManageInterface(Context context) {
         FrameLayout frameLayout = (FrameLayout) fragmentView;
 
-        actionBar.setTitle(LocaleController.getString("TelegramPassport", R.string.TelegramPassport));
+        actionBar.setTitle(LocaleController.getString("TelegramPassportX", R.string.TelegramPassportX));
 
         actionBar.createMenu().addItem(info_item, R.drawable.profile_info);
 
@@ -2445,7 +2445,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
         deletePassportCell = new TextSettingsCell(context);
         deletePassportCell.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteRedText3));
         deletePassportCell.setBackgroundDrawable(Theme.getSelectorDrawable(true));
-        deletePassportCell.setText(LocaleController.getString("TelegramPassportDelete", R.string.TelegramPassportDelete), false);
+        deletePassportCell.setText(LocaleController.getString("TelegramPassportDeleteX", R.string.TelegramPassportDeleteX), false);
         linearLayout2.addView(deletePassportCell, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
         deletePassportCell.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
@@ -2471,8 +2471,8 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
                 }));
             });
             builder.setNegativeButton(LocaleController.getString("Cancel", R.string.Cancel), null);
-            builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
-            builder.setMessage(LocaleController.getString("TelegramPassportDeleteAlert", R.string.TelegramPassportDeleteAlert));
+            builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
+            builder.setMessage(LocaleController.getString("TelegramPassportDeleteAlertX", R.string.TelegramPassportDeleteAlertX));
             showDialog(builder.create());
         });
 
@@ -2729,7 +2729,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
 
             bottomCell = new TextInfoPrivacyCell(context);
             bottomCell.setBackgroundDrawable(Theme.getThemedDrawable(context, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
-            bottomCell.setText(LocaleController.getString("PassportPhoneUseSameEmailInfo", R.string.PassportPhoneUseSameEmailInfo));
+            bottomCell.setText(LocaleController.getString("PassportPhoneUseSameEmailInfoX", R.string.PassportPhoneUseSameEmailInfoX));
             linearLayout2.addView(bottomCell, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
         }
 
@@ -2815,7 +2815,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
 
         bottomCell = new TextInfoPrivacyCell(context);
         bottomCell.setBackgroundDrawable(Theme.getThemedDrawable(context, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
-        bottomCell.setText(LocaleController.getString("PassportPhoneUseSameInfo", R.string.PassportPhoneUseSameInfo));
+        bottomCell.setText(LocaleController.getString("PassportPhoneUseSameInfoX", R.string.PassportPhoneUseSameInfoX));
         linearLayout2.addView(bottomCell, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
 
         headerCell = new HeaderCell(context);
@@ -3536,7 +3536,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
             finishFragment();
         });
         builder.setNegativeButton(LocaleController.getString("Cancel", R.string.Cancel), null);
-        builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+        builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
         if (documentOnly && currentDocumentsType == null && currentType.type instanceof TLRPC.TL_secureValueTypeAddress) {
             builder.setMessage(LocaleController.getString("PassportDeleteAddressAlert", R.string.PassportDeleteAddressAlert));
         } else if (documentOnly && currentDocumentsType == null && currentType.type instanceof TLRPC.TL_secureValueTypePersonalDetails) {
@@ -4884,7 +4884,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
                 builder.setMessage(LocaleController.getString("PassportDeleteScan", R.string.PassportDeleteScan));
             }
             builder.setNegativeButton(LocaleController.getString("Cancel", R.string.Cancel), null);
-            builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+            builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
             builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), (dialog, which) -> {
                 documentsCells.remove(document);
                 if (type == UPLOADING_TYPE_SELFIE) {
@@ -5802,7 +5802,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
                 if (errorRunnable != null) {
                     errorRunnable.onError(error.text, null);
                 }
-                showAlertWithText(LocaleController.getString("AppName", R.string.AppName), error.text);
+                showAlertWithText(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), error.text);
             } else {
                 if (documentOnly) {
                     if (documentRequiredType != null) {
@@ -5964,7 +5964,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
                             deleteValueInternal(requiredType, null, null, true, this::needHideProgress, (error, text) -> needHideProgress(), documentOnly);
                         });
                         builder.setNegativeButton(LocaleController.getString("Cancel", R.string.Cancel), null);
-                        builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                        builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                         builder.setMessage(phoneField ? LocaleController.getString("PassportDeletePhoneAlert", R.string.PassportDeletePhoneAlert) : LocaleController.getString("PassportDeleteEmailAlert", R.string.PassportDeleteEmailAlert));
                         showDialog(builder.create());
                         return;
@@ -6262,9 +6262,9 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
                 if (!permissionsItems.isEmpty()) {
                     if (getParentActivity().shouldShowRequestPermissionRationale(Manifest.permission.READ_PHONE_STATE)) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
-                        builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                        builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                         builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), null);
-                        builder.setMessage(LocaleController.getString("AllowReadCall", R.string.AllowReadCall));
+                        builder.setMessage(LocaleController.getString("AllowReadCallX", R.string.AllowReadCallX));
                         permissionsDialog = showDialog(builder.create());
                     } else {
                         getParentActivity().requestPermissions(permissionsItems.toArray(new String[0]), 6);
@@ -6632,8 +6632,8 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
                 }
                 if (grantResults != null && grantResults.length != 0 && grantResults[0] != PackageManager.PERMISSION_GRANTED) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
-                    builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
-                    builder.setMessage(LocaleController.getString("PermissionNoAudioVideo", R.string.PermissionNoAudioVideo));
+                    builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
+                    builder.setMessage(LocaleController.getString("PermissionNoAudioVideoX", R.string.PermissionNoAudioVideoX));
                     builder.setNegativeButton(LocaleController.getString("PermissionOpenSettings", R.string.PermissionOpenSettings), (dialog, which) -> {
                         try {
                             Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
@@ -6802,7 +6802,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
             return;
         }
         if (uploadingFileType == UPLOADING_TYPE_DOCUMENTS && documents.size() >= 20) {
-            showAlertWithText(LocaleController.getString("AppName", R.string.AppName), LocaleController.formatString("PassportUploadMaxReached", R.string.PassportUploadMaxReached, LocaleController.formatPluralString("Files", 20)));
+            showAlertWithText(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.formatString("PassportUploadMaxReached", R.string.PassportUploadMaxReached, LocaleController.formatPluralString("Files", 20)));
             return;
         }
         createChatAttachView();
@@ -7342,7 +7342,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
                     blueImageView.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_chats_actionBackground), PorterDuff.Mode.MULTIPLY));
                     frameLayout.addView(blueImageView, LayoutHelper.createFrame(LayoutHelper.WRAP_CONTENT, LayoutHelper.WRAP_CONTENT, Gravity.LEFT | Gravity.TOP, 0, 0, 0, 0));
 
-                    titleTextView.setText(LocaleController.getString("SentAppCodeTitle", R.string.SentAppCodeTitle));
+                    titleTextView.setText(LocaleController.getString("SentAppCodeTitleX", R.string.SentAppCodeTitleX));
                 } else {
                     blueImageView = new ImageView(context);
                     blueImageView.setImageResource(R.drawable.sms_code);
@@ -7639,7 +7639,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
             if (verificationType == 2) {
                 str = AndroidUtilities.replaceTags(LocaleController.formatString("SentSmsCode", R.string.SentSmsCode, LocaleController.addNbsp(number)));
             } else if (verificationType == 3) {
-                str = AndroidUtilities.replaceTags(LocaleController.formatString("SentCallCode", R.string.SentCallCode, LocaleController.addNbsp(number)));
+                str = AndroidUtilities.replaceTags(LocaleController.formatString("SentCallCodeX", R.string.SentCallCodeX, LocaleController.addNbsp(number)));
             } else if (verificationType == 4) {
                 str = AndroidUtilities.replaceTags(LocaleController.formatString("SentCallOnly", R.string.SentCallOnly, LocaleController.addNbsp(number)));
             }
@@ -7660,13 +7660,13 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
                 problemText.setVisibility(GONE);
                 timeText.setVisibility(VISIBLE);
                 if (nextType == 4) {
-                    timeText.setText(LocaleController.formatString("CallText", R.string.CallText, 1, 0));
+                    timeText.setText(LocaleController.formatString("CallTextX", R.string.CallTextX, 1, 0));
                 } else if (nextType == 2) {
                     timeText.setText(LocaleController.formatString("SmsText", R.string.SmsText, 1, 0));
                 }
                 createTimer();
             } else if (verificationType == 2 && (nextType == 4 || nextType == 3)) {
-                timeText.setText(LocaleController.formatString("CallText", R.string.CallText, 2, 0));
+                timeText.setText(LocaleController.formatString("CallTextX", R.string.CallTextX, 2, 0));
                 problemText.setVisibility(time < 1000 ? VISIBLE : GONE);
                 timeText.setVisibility(time < 1000 ? GONE : VISIBLE);
                 createTimer();
@@ -7742,7 +7742,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
                                 int minutes = time / 1000 / 60;
                                 int seconds = time / 1000 - minutes * 60;
                                 if (nextType == 4 || nextType == 3) {
-                                    timeText.setText(LocaleController.formatString("CallText", R.string.CallText, minutes, seconds));
+                                    timeText.setText(LocaleController.formatString("CallTextX", R.string.CallTextX, minutes, seconds));
                                 } else if (nextType == 2) {
                                     timeText.setText(LocaleController.formatString("SmsText", R.string.SmsText, minutes, seconds));
                                 }
@@ -7882,7 +7882,7 @@ public class PassportActivity extends BaseFragment implements NotificationCenter
         public boolean onBackPressed(boolean force) {
             if (!force) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
-                builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                 builder.setMessage(LocaleController.getString("StopVerification", R.string.StopVerification));
                 builder.setPositiveButton(LocaleController.getString("Continue", R.string.Continue), null);
                 builder.setNegativeButton(LocaleController.getString("Stop", R.string.Stop), (dialogInterface, i) -> {

@@ -112,7 +112,7 @@ public class SessionsActivity extends BaseFragment implements NotificationCenter
         if (currentType == 0) {
             actionBar.setTitle(LocaleController.getString("SessionsTitle", R.string.SessionsTitle));
         } else {
-            actionBar.setTitle(LocaleController.getString("WebSessionsTitle", R.string.WebSessionsTitle));
+            actionBar.setTitle(LocaleController.getString("WebSessionsTitleX", R.string.WebSessionsTitleX));
         }
         actionBar.setActionBarMenuOnItemClick(new ActionBar.ActionBarMenuOnItemClick() {
             @Override
@@ -162,9 +162,9 @@ public class SessionsActivity extends BaseFragment implements NotificationCenter
         textView2.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 17);
         textView2.setPadding(AndroidUtilities.dp(20), 0, AndroidUtilities.dp(20), 0);
         if (currentType == 0) {
-            textView2.setText(LocaleController.getString("NoOtherSessionsInfo", R.string.NoOtherSessionsInfo));
+            textView2.setText(LocaleController.getString("NoOtherSessionsInfoX", R.string.NoOtherSessionsInfoX));
         } else {
-            textView2.setText(LocaleController.getString("NoOtherWebSessionsInfo", R.string.NoOtherWebSessionsInfo));
+            textView2.setText(LocaleController.getString("NoOtherWebSessionsInfoX", R.string.NoOtherWebSessionsInfoX));
         }
         emptyLayout.addView(textView2, LayoutHelper.createLinear(LayoutHelper.WRAP_CONTENT, LayoutHelper.WRAP_CONTENT, Gravity.CENTER, 0, 14, 0, 0));
 
@@ -187,9 +187,9 @@ public class SessionsActivity extends BaseFragment implements NotificationCenter
                 if (currentType == 0) {
                     builder.setMessage(LocaleController.getString("AreYouSureSessions", R.string.AreYouSureSessions));
                 } else {
-                    builder.setMessage(LocaleController.getString("AreYouSureWebSessions", R.string.AreYouSureWebSessions));
+                    builder.setMessage(LocaleController.getString("AreYouSureWebSessionsX", R.string.AreYouSureWebSessionsX));
                 }
-                builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                 builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), (dialogInterface, i) -> {
                     if (currentType == 0) {
                         TLRPC.TL_auth_resetAuthorizations req = new TLRPC.TL_auth_resetAuthorizations();
@@ -240,7 +240,7 @@ public class SessionsActivity extends BaseFragment implements NotificationCenter
                     return;
                 }
                 AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
-                builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                 final boolean[] param = new boolean[1];
                 if (currentType == 0) {
                     builder.setMessage(LocaleController.getString("TerminateSessionQuestion", R.string.TerminateSessionQuestion));
@@ -515,14 +515,14 @@ public class SessionsActivity extends BaseFragment implements NotificationCenter
                         if (currentType == 0) {
                             privacyCell.setText(LocaleController.getString("ClearOtherSessionsHelp", R.string.ClearOtherSessionsHelp));
                         } else {
-                            privacyCell.setText(LocaleController.getString("ClearOtherWebSessionsHelp", R.string.ClearOtherWebSessionsHelp));
+                            privacyCell.setText(LocaleController.getString("ClearOtherWebSessionsHelpX", R.string.ClearOtherWebSessionsHelpX));
                         }
                         privacyCell.setBackgroundDrawable(Theme.getThemedDrawable(mContext, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
                     } else if (position == otherSessionsTerminateDetail) {
                         if (currentType == 0) {
                             privacyCell.setText(LocaleController.getString("TerminateSessionInfo", R.string.TerminateSessionInfo));
                         } else {
-                            privacyCell.setText(LocaleController.getString("TerminateWebSessionInfo", R.string.TerminateWebSessionInfo));
+                            privacyCell.setText(LocaleController.getString("TerminateWebSessionInfoX", R.string.TerminateWebSessionInfoX));
                         }
                         privacyCell.setBackgroundDrawable(Theme.getThemedDrawable(mContext, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
                     } else if (position == passwordSessionsDetailRow) {

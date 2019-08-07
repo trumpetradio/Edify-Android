@@ -993,7 +993,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                         int action = actions.get(i);
                         if (action == 1 && (channelParticipant instanceof TLRPC.TL_channelParticipantAdmin || participant instanceof TLRPC.TL_chatParticipantAdmin)) {
                             AlertDialog.Builder builder2 = new AlertDialog.Builder(getParentActivity());
-                            builder2.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                            builder2.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                             builder2.setMessage(LocaleController.formatString("AdminWillBeRemoved", R.string.AdminWillBeRemoved, ContactsController.formatName(user.first_name, user.last_name)));
                             builder2.setPositiveButton(LocaleController.getString("OK", R.string.OK), (dialog, which) -> openRightsEdit(action, user.id, participant, channelParticipant != null ? channelParticipant.admin_rights : null, channelParticipant != null ? channelParticipant.banned_rights : null));
                             builder2.setNegativeButton(LocaleController.getString("Cancel", R.string.Cancel), null);
@@ -1318,7 +1318,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
             ArrayList<CharSequence> items = new ArrayList<>();
             final ArrayList<Integer> actions = new ArrayList<>();
             if (userInfo != null && userInfo.phone_calls_available) {
-                items.add(LocaleController.getString("CallViaTelegram", R.string.CallViaTelegram));
+                items.add(LocaleController.getString("CallViaTelegramX", R.string.CallViaTelegramX));
                 actions.add(2);
             }
             items.add(LocaleController.getString("Call", R.string.Call));

@@ -183,7 +183,7 @@ public class LoginActivity extends BaseFragment {
 
     @Override
     public View createView(Context context) {
-        actionBar.setTitle(LocaleController.getString("AppName", R.string.AppName));
+        actionBar.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
         actionBar.setActionBarMenuOnItemClick(new ActionBar.ActionBarMenuOnItemClick() {
             @Override
             public void onItemClick(int id) {
@@ -193,7 +193,7 @@ public class LoginActivity extends BaseFragment {
                             return;
                         }
                         AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
-                        builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                        builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                         builder.setMessage(LocaleController.getString("StopLoading", R.string.StopLoading));
                         builder.setPositiveButton(LocaleController.getString("WaitMore", R.string.WaitMore), null);
                         builder.setNegativeButton(LocaleController.getString("Stop", R.string.Stop), (dialogInterface, i) -> {
@@ -485,7 +485,7 @@ public class LoginActivity extends BaseFragment {
             return;
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
-        builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+        builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
         if (banned) {
             builder.setMessage(LocaleController.getString("BannedPhoneNumber", R.string.BannedPhoneNumber));
         } else {
@@ -508,7 +508,7 @@ public class LoginActivity extends BaseFragment {
                 }
                 getParentActivity().startActivity(Intent.createChooser(mailer, "Send email..."));
             } catch (Exception e) {
-                needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("NoMailInstalled", R.string.NoMailInstalled));
+                needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("NoMailInstalled", R.string.NoMailInstalled));
             }
         });
         builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), null);
@@ -1190,9 +1190,9 @@ public class LoginActivity extends BaseFragment {
                         } else if (preferences.getBoolean("firstlogin", true) || getParentActivity().shouldShowRequestPermissionRationale(Manifest.permission.READ_PHONE_STATE)) {
                             preferences.edit().putBoolean("firstlogin", false).commit();
                             AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
-                            builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                            builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                             builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), null);
-                            builder.setMessage(LocaleController.getString("AllowReadCall", R.string.AllowReadCall));
+                            builder.setMessage(LocaleController.getString("AllowReadCallX", R.string.AllowReadCallX));
                             permissionsDialog = showDialog(builder.create());
                         } else {
                             try {
@@ -1209,14 +1209,14 @@ public class LoginActivity extends BaseFragment {
             }
 
             if (countryState == 1) {
-                needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("ChooseCountry", R.string.ChooseCountry));
+                needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("ChooseCountry", R.string.ChooseCountry));
                 return;
             } else if (countryState == 2 && !BuildVars.DEBUG_VERSION) {
-                needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("WrongCountry", R.string.WrongCountry));
+                needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("WrongCountry", R.string.WrongCountry));
                 return;
             }
             if (codeField.length() == 0) {
-                needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("InvalidPhoneNumber", R.string.InvalidPhoneNumber));
+                needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("InvalidPhoneNumber", R.string.InvalidPhoneNumber));
                 return;
             }
             String phone = PhoneFormat.stripExceptNumbers("" + codeField.getText() + phoneField.getText());
@@ -1230,7 +1230,7 @@ public class LoginActivity extends BaseFragment {
                     if (PhoneNumberUtils.compare(phone, userPhone)) {
                         final int num = a;
                         AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
-                        builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                        builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                         builder.setMessage(LocaleController.getString("AccountAlreadyLoggedIn", R.string.AccountAlreadyLoggedIn));
                         builder.setPositiveButton(LocaleController.getString("AccountSwitch", R.string.AccountSwitch), (dialog, which) -> {
                             if (UserConfig.selectedAccount != num) {
@@ -1308,19 +1308,19 @@ public class LoginActivity extends BaseFragment {
                         if (error.text.contains("PHONE_NUMBER_INVALID")) {
                             needShowInvalidAlert(req.phone_number, false);
                         } else if (error.text.contains("PHONE_PASSWORD_FLOOD")) {
-                            needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("FloodWait", R.string.FloodWait));
+                            needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("FloodWait", R.string.FloodWait));
                         } else if (error.text.contains("PHONE_NUMBER_FLOOD")) {
-                            needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("PhoneNumberFlood", R.string.PhoneNumberFlood));
+                            needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("PhoneNumberFlood", R.string.PhoneNumberFlood));
                         } else if (error.text.contains("PHONE_NUMBER_BANNED")) {
                             needShowInvalidAlert(req.phone_number, true);
                         } else if (error.text.contains("PHONE_CODE_EMPTY") || error.text.contains("PHONE_CODE_INVALID")) {
-                            needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("InvalidCode", R.string.InvalidCode));
+                            needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("InvalidCode", R.string.InvalidCode));
                         } else if (error.text.contains("PHONE_CODE_EXPIRED")) {
-                            needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("CodeExpired", R.string.CodeExpired));
+                            needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("CodeExpired", R.string.CodeExpired));
                         } else if (error.text.startsWith("FLOOD_WAIT")) {
-                            needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("FloodWait", R.string.FloodWait));
+                            needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("FloodWait", R.string.FloodWait));
                         } else if (error.code != -1000) {
-                            needShowAlert(LocaleController.getString("AppName", R.string.AppName), error.text);
+                            needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), error.text);
                         }
                     }
                 }
@@ -1346,9 +1346,9 @@ public class LoginActivity extends BaseFragment {
                                 if (preferences.getBoolean("firstloginshow", true) || getParentActivity().shouldShowRequestPermissionRationale(Manifest.permission.READ_PHONE_STATE)) {
                                     preferences.edit().putBoolean("firstloginshow", false).commit();
                                     AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
-                                    builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                                    builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                                     builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), null);
-                                    builder.setMessage(LocaleController.getString("AllowFillNumber", R.string.AllowFillNumber));
+                                    builder.setMessage(LocaleController.getString("AllowFillNumberX", R.string.AllowFillNumberX));
                                     permissionsShowDialog = showDialog(builder.create());
                                 } else {
                                     getParentActivity().requestPermissions(permissionsShowItems.toArray(new String[0]), 7);
@@ -1529,7 +1529,7 @@ public class LoginActivity extends BaseFragment {
                     blueImageView.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_chats_actionBackground), PorterDuff.Mode.MULTIPLY));
                     frameLayout.addView(blueImageView, LayoutHelper.createFrame(LayoutHelper.WRAP_CONTENT, LayoutHelper.WRAP_CONTENT, Gravity.LEFT | Gravity.TOP, 0, 0, 0, 0));
 
-                    titleTextView.setText(LocaleController.getString("SentAppCodeTitle", R.string.SentAppCodeTitle));
+                    titleTextView.setText(LocaleController.getString("SentAppCodeTitleX", R.string.SentAppCodeTitleX));
                 } else {
                     blueImageView = new ImageView(context);
                     blueImageView.setImageResource(R.drawable.sms_code);
@@ -1610,7 +1610,7 @@ public class LoginActivity extends BaseFragment {
                         mailer.putExtra(Intent.EXTRA_TEXT, "Phone: " + requestPhone + "\nApp version: " + version + "\nOS version: SDK " + Build.VERSION.SDK_INT + "\nDevice Name: " + Build.MANUFACTURER + Build.MODEL + "\nLocale: " + Locale.getDefault() + "\nError: " + lastError);
                         getContext().startActivity(Intent.createChooser(mailer, "Send email..."));
                     } catch (Exception e) {
-                        needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("NoMailInstalled", R.string.NoMailInstalled));
+                        needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("NoMailInstalled", R.string.NoMailInstalled));
                     }
                 }
             });
@@ -1683,17 +1683,17 @@ public class LoginActivity extends BaseFragment {
                 } else {
                     if (error.text != null) {
                         if (error.text.contains("PHONE_NUMBER_INVALID")) {
-                            needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("InvalidPhoneNumber", R.string.InvalidPhoneNumber));
+                            needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("InvalidPhoneNumber", R.string.InvalidPhoneNumber));
                         } else if (error.text.contains("PHONE_CODE_EMPTY") || error.text.contains("PHONE_CODE_INVALID")) {
-                            needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("InvalidCode", R.string.InvalidCode));
+                            needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("InvalidCode", R.string.InvalidCode));
                         } else if (error.text.contains("PHONE_CODE_EXPIRED")) {
                             onBackPressed(true);
                             setPage(0, true, null, true);
-                            needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("CodeExpired", R.string.CodeExpired));
+                            needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("CodeExpired", R.string.CodeExpired));
                         } else if (error.text.startsWith("FLOOD_WAIT")) {
-                            needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("FloodWait", R.string.FloodWait));
+                            needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("FloodWait", R.string.FloodWait));
                         } else if (error.code != -1000) {
-                            needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("ErrorOccurred", R.string.ErrorOccurred) + "\n" + error.text);
+                            needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("ErrorOccurred", R.string.ErrorOccurred) + "\n" + error.text);
                         }
                     }
                 }
@@ -1849,11 +1849,11 @@ public class LoginActivity extends BaseFragment {
             String number = PhoneFormat.getInstance().format(phone);
             CharSequence str = "";
             if (currentType == 1) {
-                str = AndroidUtilities.replaceTags(LocaleController.getString("SentAppCode", R.string.SentAppCode));
+                str = AndroidUtilities.replaceTags(LocaleController.getString("SentAppCodeX", R.string.SentAppCodeX));
             } else if (currentType == 2) {
                 str = AndroidUtilities.replaceTags(LocaleController.formatString("SentSmsCode", R.string.SentSmsCode, LocaleController.addNbsp(number)));
             } else if (currentType == 3) {
-                str = AndroidUtilities.replaceTags(LocaleController.formatString("SentCallCode", R.string.SentCallCode, LocaleController.addNbsp(number)));
+                str = AndroidUtilities.replaceTags(LocaleController.formatString("SentCallCodeX", R.string.SentCallCodeX, LocaleController.addNbsp(number)));
             } else if (currentType == 4) {
                 str = AndroidUtilities.replaceTags(LocaleController.formatString("SentCallOnly", R.string.SentCallOnly, LocaleController.addNbsp(number)));
             }
@@ -1877,7 +1877,7 @@ public class LoginActivity extends BaseFragment {
                 problemText.setVisibility(GONE);
                 timeText.setVisibility(VISIBLE);
                 if (nextType == 4) {
-                    timeText.setText(LocaleController.formatString("CallText", R.string.CallText, 1, 0));
+                    timeText.setText(LocaleController.formatString("CallTextX", R.string.CallTextX, 1, 0));
                 } else if (nextType == 2) {
                     timeText.setText(LocaleController.formatString("SmsText", R.string.SmsText, 1, 0));
                 }
@@ -1896,7 +1896,7 @@ public class LoginActivity extends BaseFragment {
                     createTimer();
                 }
             } else if (currentType == 2 && (nextType == 4 || nextType == 3)) {
-                timeText.setText(LocaleController.formatString("CallText", R.string.CallText, 2, 0));
+                timeText.setText(LocaleController.formatString("CallTextX", R.string.CallTextX, 2, 0));
                 problemText.setVisibility(time < 1000 ? VISIBLE : GONE);
                 timeText.setVisibility(time < 1000 ? GONE : VISIBLE);
 
@@ -1987,7 +1987,7 @@ public class LoginActivity extends BaseFragment {
                             int minutes = time / 1000 / 60;
                             int seconds = time / 1000 - minutes * 60;
                             if (nextType == 4 || nextType == 3) {
-                                timeText.setText(LocaleController.formatString("CallText", R.string.CallText, minutes, seconds));
+                                timeText.setText(LocaleController.formatString("CallTextX", R.string.CallTextX, minutes, seconds));
                             } else if (nextType == 2) {
                                 timeText.setText(LocaleController.formatString("SmsText", R.string.SmsText, minutes, seconds));
                             }
@@ -2114,7 +2114,7 @@ public class LoginActivity extends BaseFragment {
                             if (error1 == null) {
                                 TLRPC.TL_account_password password = (TLRPC.TL_account_password) response1;
                                 if (!TwoStepVerificationActivity.canHandleCurrentPassword(password, true)) {
-                                    AlertsCreator.showUpdateAppAlert(getParentActivity(), LocaleController.getString("UpdateAppAlert", R.string.UpdateAppAlert), true);
+                                    AlertsCreator.showUpdateAppAlert(getParentActivity(), LocaleController.getString("UpdateAppAlertX", R.string.UpdateAppAlertX), true);
                                     return;
                                 }
                                 Bundle bundle = new Bundle();
@@ -2136,7 +2136,7 @@ public class LoginActivity extends BaseFragment {
                                 bundle.putInt("has_recovery", password.has_recovery ? 1 : 0);
                                 setPage(6, true, bundle, false);
                             } else {
-                                needShowAlert(LocaleController.getString("AppName", R.string.AppName), error1.text);
+                                needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), error1.text);
                             }
                         }), ConnectionsManager.RequestFlagFailOnServerErrors | ConnectionsManager.RequestFlagWithoutLogin);
                         destroyTimer();
@@ -2156,9 +2156,9 @@ public class LoginActivity extends BaseFragment {
                         waitingForEvent = true;
                         if (currentType != 3) {
                             if (error.text.contains("PHONE_NUMBER_INVALID")) {
-                                needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("InvalidPhoneNumber", R.string.InvalidPhoneNumber));
+                                needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("InvalidPhoneNumber", R.string.InvalidPhoneNumber));
                             } else if (error.text.contains("PHONE_CODE_EMPTY") || error.text.contains("PHONE_CODE_INVALID")) {
-                                needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("InvalidCode", R.string.InvalidCode));
+                                needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("InvalidCode", R.string.InvalidCode));
                                 for (int a = 0; a < codeField.length; a++) {
                                     codeField[a].setText("");
                                 }
@@ -2166,11 +2166,11 @@ public class LoginActivity extends BaseFragment {
                             } else if (error.text.contains("PHONE_CODE_EXPIRED")) {
                                 onBackPressed(true);
                                 setPage(0, true, null, true);
-                                needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("CodeExpired", R.string.CodeExpired));
+                                needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("CodeExpired", R.string.CodeExpired));
                             } else if (error.text.startsWith("FLOOD_WAIT")) {
-                                needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("FloodWait", R.string.FloodWait));
+                                needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("FloodWait", R.string.FloodWait));
                             } else {
-                                needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("ErrorOccurred", R.string.ErrorOccurred) + "\n" + error.text);
+                                needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("ErrorOccurred", R.string.ErrorOccurred) + "\n" + error.text);
                             }
                         }
                     }
@@ -2188,7 +2188,7 @@ public class LoginActivity extends BaseFragment {
         public boolean onBackPressed(boolean force) {
             if (!force) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
-                builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                 builder.setMessage(LocaleController.getString("StopVerification", R.string.StopVerification));
                 builder.setPositiveButton(LocaleController.getString("Continue", R.string.Continue), null);
                 builder.setNegativeButton(LocaleController.getString("Stop", R.string.Stop), (dialogInterface, i) -> {
@@ -2408,7 +2408,7 @@ public class LoginActivity extends BaseFragment {
                             final TLRPC.TL_auth_passwordRecovery res = (TLRPC.TL_auth_passwordRecovery) response;
                             AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
                             builder.setMessage(LocaleController.formatString("RestoreEmailSent", R.string.RestoreEmailSent, res.email_pattern));
-                            builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                            builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                             builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), (dialogInterface, i) -> {
                                 Bundle bundle = new Bundle();
                                 bundle.putString("email_unconfirmed_pattern", res.email_pattern);
@@ -2428,9 +2428,9 @@ public class LoginActivity extends BaseFragment {
                                 } else {
                                     timeString = LocaleController.formatPluralString("Minutes", time / 60);
                                 }
-                                needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.formatString("FloodWaitTime", R.string.FloodWaitTime, timeString));
+                                needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.formatString("FloodWaitTime", R.string.FloodWaitTime, timeString));
                             } else {
-                                needShowAlert(LocaleController.getString("AppName", R.string.AppName), error.text);
+                                needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), error.text);
                             }
                         }
                     }), ConnectionsManager.RequestFlagFailOnServerErrors | ConnectionsManager.RequestFlagWithoutLogin);
@@ -2473,7 +2473,7 @@ public class LoginActivity extends BaseFragment {
                             setPage(5, true, params, false);
                         } else {
                             if (error.text.equals("2FA_RECENT_CONFIRM")) {
-                                needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("ResetAccountCancelledAlert", R.string.ResetAccountCancelledAlert));
+                                needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("ResetAccountCancelledAlert", R.string.ResetAccountCancelledAlert));
                             } else if (error.text.startsWith("2FA_CONFIRM_WAIT_")) {
                                 Bundle params = new Bundle();
                                 params.putString("phoneFormated", requestPhone);
@@ -2483,7 +2483,7 @@ public class LoginActivity extends BaseFragment {
                                 params.putInt("waitTime", Utilities.parseInt(error.text.replace("2FA_CONFIRM_WAIT_", "")));
                                 setPage(8, true, params, false);
                             } else {
-                                needShowAlert(LocaleController.getString("AppName", R.string.AppName), error.text);
+                                needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), error.text);
                             }
                         }
                     }), ConnectionsManager.RequestFlagWithoutLogin | ConnectionsManager.RequestFlagFailOnServerErrors);
@@ -2628,9 +2628,9 @@ public class LoginActivity extends BaseFragment {
                             } else {
                                 timeString = LocaleController.formatPluralString("Minutes", time / 60);
                             }
-                            needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.formatString("FloodWaitTime", R.string.FloodWaitTime, timeString));
+                            needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.formatString("FloodWaitTime", R.string.FloodWaitTime, timeString));
                         } else {
-                            needShowAlert(LocaleController.getString("AppName", R.string.AppName), error.text);
+                            needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), error.text);
                         }
                     }
                 });
@@ -2777,9 +2777,9 @@ public class LoginActivity extends BaseFragment {
                             setPage(5, true, params, false);
                         } else {
                             if (error.text.equals("2FA_RECENT_CONFIRM")) {
-                                needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("ResetAccountCancelledAlert", R.string.ResetAccountCancelledAlert));
+                                needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("ResetAccountCancelledAlert", R.string.ResetAccountCancelledAlert));
                             } else {
-                                needShowAlert(LocaleController.getString("AppName", R.string.AppName), error.text);
+                                needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), error.text);
                             }
                         }
                     }), ConnectionsManager.RequestFlagWithoutLogin | ConnectionsManager.RequestFlagFailOnServerErrors);
@@ -3009,7 +3009,7 @@ public class LoginActivity extends BaseFragment {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
                     builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), (dialogInterface, i) -> onAuthSuccess((TLRPC.TL_auth_authorization) response));
                     builder.setMessage(LocaleController.getString("PasswordReset", R.string.PasswordReset));
-                    builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                    builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                     Dialog dialog = showDialog(builder.create());
                     if (dialog != null) {
                         dialog.setCanceledOnTouchOutside(false);
@@ -3026,9 +3026,9 @@ public class LoginActivity extends BaseFragment {
                         } else {
                             timeString = LocaleController.formatPluralString("Minutes", time / 60);
                         }
-                        needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.formatString("FloodWaitTime", R.string.FloodWaitTime, timeString));
+                        needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.formatString("FloodWaitTime", R.string.FloodWaitTime, timeString));
                     } else {
-                        needShowAlert(LocaleController.getString("AppName", R.string.AppName), error.text);
+                        needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), error.text);
                     }
                 }
             }), ConnectionsManager.RequestFlagFailOnServerErrors | ConnectionsManager.RequestFlagWithoutLogin);
@@ -3132,7 +3132,7 @@ public class LoginActivity extends BaseFragment {
                 builder.setNegativeButton(LocaleController.getString("Decline", R.string.Decline), (dialog, which) -> {
                     AlertDialog.Builder builder1 = new AlertDialog.Builder(getParentActivity());
                     builder1.setTitle(LocaleController.getString("TermsOfService", R.string.TermsOfService));
-                    builder1.setMessage(LocaleController.getString("TosDecline", R.string.TosDecline));
+                    builder1.setMessage(LocaleController.getString("TosDeclineX", R.string.TosDeclineX));
                     builder1.setPositiveButton(LocaleController.getString("SignUp", R.string.SignUp), (dialog1, which1) -> {
                         currentTermsOfService.popup = false;
                         onNextPressed();
@@ -3403,7 +3403,7 @@ public class LoginActivity extends BaseFragment {
         public boolean onBackPressed(boolean force) {
             if (!force) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
-                builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                 builder.setMessage(LocaleController.getString("AreYouSureRegistration", R.string.AreYouSureRegistration));
                 builder.setNegativeButton(LocaleController.getString("Stop", R.string.Stop), (dialogInterface, i) -> {
                     onBackPressed(true);
@@ -3485,17 +3485,17 @@ public class LoginActivity extends BaseFragment {
                     }
                 } else {
                     if (error.text.contains("PHONE_NUMBER_INVALID")) {
-                        needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("InvalidPhoneNumber", R.string.InvalidPhoneNumber));
+                        needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("InvalidPhoneNumber", R.string.InvalidPhoneNumber));
                     } else if (error.text.contains("PHONE_CODE_EMPTY") || error.text.contains("PHONE_CODE_INVALID")) {
-                        needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("InvalidCode", R.string.InvalidCode));
+                        needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("InvalidCode", R.string.InvalidCode));
                     } else if (error.text.contains("PHONE_CODE_EXPIRED")) {
-                        needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("CodeExpired", R.string.CodeExpired));
+                        needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("CodeExpired", R.string.CodeExpired));
                     } else if (error.text.contains("FIRSTNAME_INVALID")) {
-                        needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("InvalidFirstName", R.string.InvalidFirstName));
+                        needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("InvalidFirstName", R.string.InvalidFirstName));
                     } else if (error.text.contains("LASTNAME_INVALID")) {
-                        needShowAlert(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("InvalidLastName", R.string.InvalidLastName));
+                        needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("InvalidLastName", R.string.InvalidLastName));
                     } else {
-                        needShowAlert(LocaleController.getString("AppName", R.string.AppName), error.text);
+                        needShowAlert(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), error.text);
                     }
                 }
             }), ConnectionsManager.RequestFlagWithoutLogin | ConnectionsManager.RequestFlagFailOnServerErrors);

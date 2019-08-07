@@ -855,9 +855,9 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
                 actionBar.setTitle(LocaleController.getString("ArchivedChats", R.string.ArchivedChats));
             } else {
                 if (BuildVars.DEBUG_VERSION) {
-                    actionBar.setTitle("Telegram Beta"/*LocaleController.getString("AppNameBeta", R.string.AppNameBeta)*/);
+                    actionBar.setTitle("Telegram Beta"/*LocaleController.getString("EdifyAppNameBeta", R.string.EdifyAppNameBeta)*/);
                 } else {
-                    actionBar.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                    actionBar.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                 }
             }
             actionBar.setSupportsHolidayImage(true);
@@ -1382,7 +1382,7 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
                     Object item = dialogsSearchAdapter.getItem(position);
                     /*if (item instanceof String || dialogsSearchAdapter.isRecentSearchDisplayed()) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
-                        builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                        builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                         builder.setMessage(LocaleController.getString("ClearSearch", R.string.ClearSearch));
                         builder.setPositiveButton(LocaleController.getString("ClearButton", R.string.ClearButton).toUpperCase(), (dialogInterface, i) -> {
                             if (dialogsSearchAdapter.isRecentSearchDisplayed()) {
@@ -1961,8 +1961,8 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
                         showDialog(permissionDialog = builder.create());
                     } else if (hasNotStoragePermission && activity.shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                        builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
-                        builder.setMessage(LocaleController.getString("PermissionStorage", R.string.PermissionStorage));
+                        builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
+                        builder.setMessage(LocaleController.getString("PermissionStorageX", R.string.PermissionStorageX));
                         builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), null);
                         showDialog(permissionDialog = builder.create());
                     } else {
@@ -1978,8 +1978,8 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
                 return;
             }
             showDialog(new AlertDialog.Builder(getParentActivity())
-                    .setTitle(LocaleController.getString("AppName", R.string.AppName))
-                    .setMessage(LocaleController.getString("PermissionXiaomiLockscreen", R.string.PermissionXiaomiLockscreen))
+                    .setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName))
+                    .setMessage(LocaleController.getString("PermissionXiaomiLockscreenX", R.string.PermissionXiaomiLockscreenX))
                     .setPositiveButton(LocaleController.getString("PermissionOpenSettings", R.string.PermissionOpenSettings), (dialog, which) -> {
                         Intent intent = XiaomiUtilities.getPermissionManagerIntent();
                         if (intent != null) {
@@ -3145,7 +3145,7 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
                 TLRPC.Chat chat = getMessagesController().getChat(-(int) dialog_id);
                 if (ChatObject.isChannel(chat) && !chat.megagroup && (cantSendToChannels || !ChatObject.isCanWriteToChannel(-(int) dialog_id, currentAccount))) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
-                    builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                    builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                     builder.setMessage(LocaleController.getString("ChannelCantSendMessage", R.string.ChannelCantSendMessage));
                     builder.setNegativeButton(LocaleController.getString("OK", R.string.OK), null);
                     showDialog(builder.create());
@@ -3158,7 +3158,7 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
                 return;
             }
             AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
-            builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+            builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
             int lower_part = (int) dialog_id;
             int high_id = (int) (dialog_id >> 32);
             if (lower_part != 0) {

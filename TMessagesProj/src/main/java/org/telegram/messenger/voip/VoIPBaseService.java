@@ -458,7 +458,7 @@ public abstract class VoIPBaseService extends Service implements SensorEventList
 		Intent intent = new Intent(this, activity);
 		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 		Notification.Builder builder = new Notification.Builder(this)
-				.setContentTitle(LocaleController.getString("VoipOutgoingCall", R.string.VoipOutgoingCall))
+				.setContentTitle(LocaleController.getString("VoipOutgoingCallX", R.string.VoipOutgoingCallX))
 				.setContentText(name)
 				.setSmallIcon(R.drawable.notification)
 				.setContentIntent(PendingIntent.getActivity(this, 0, intent, 0));
@@ -1027,7 +1027,7 @@ public abstract class VoIPBaseService extends Service implements SensorEventList
 		Intent intent = new Intent(this, activityOnClick);
 		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 		Notification.Builder builder = new Notification.Builder(this)
-				.setContentTitle(LocaleController.getString("VoipInCallBranding", R.string.VoipInCallBranding))
+				.setContentTitle(LocaleController.getString("VoipInCallBrandingX", R.string.VoipInCallBrandingX))
 				.setContentText(name)
 				.setSmallIcon(R.drawable.notification)
 				.setSubText(subText)
@@ -1132,9 +1132,9 @@ public abstract class VoIPBaseService extends Service implements SensorEventList
 				subtitleVisible=false;
 				if(UserConfig.getActivatedAccountsCount()>1){
 					TLRPC.User self=UserConfig.getInstance(currentAccount).getCurrentUser();
-					customView.setTextViewText(R.id.title, LocaleController.formatString("VoipInCallBrandingWithName", R.string.VoipInCallBrandingWithName, ContactsController.formatName(self.first_name, self.last_name)));
+					customView.setTextViewText(R.id.title, LocaleController.formatString("VoipInCallBrandingWithNameX", R.string.VoipInCallBrandingWithNameX, ContactsController.formatName(self.first_name, self.last_name)));
 				}else{
-					customView.setTextViewText(R.id.title, LocaleController.getString("VoipInCallBranding", R.string.VoipInCallBranding));
+					customView.setTextViewText(R.id.title, LocaleController.getString("VoipInCallBrandingX", R.string.VoipInCallBrandingX));
 				}
 			}else{
 				if(UserConfig.getActivatedAccountsCount()>1){

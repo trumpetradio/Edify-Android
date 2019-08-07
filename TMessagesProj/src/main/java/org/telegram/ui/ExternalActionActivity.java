@@ -271,8 +271,8 @@ public class ExternalActionActivity extends Activity implements ActionBarLayout.
                     }
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(ExternalActionActivity.this);
-                    builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
-                    builder.setMessage(LocaleController.getString("PleaseLoginPassport", R.string.PleaseLoginPassport));
+                    builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
+                    builder.setMessage(LocaleController.getString("PleaseLoginPassportX", R.string.PleaseLoginPassportX));
                     builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), null);
                     builder.show();
 
@@ -347,7 +347,7 @@ public class ExternalActionActivity extends Activity implements ActionBarLayout.
                         try {
                             progressDialog.dismiss();
                             if ("APP_VERSION_OUTDATED".equals(error.text)) {
-                                AlertDialog dialog = AlertsCreator.showUpdateAppAlert(ExternalActionActivity.this, LocaleController.getString("UpdateAppAlert", R.string.UpdateAppAlert), true);
+                                AlertDialog dialog = AlertsCreator.showUpdateAppAlert(ExternalActionActivity.this, LocaleController.getString("UpdateAppAlertX", R.string.UpdateAppAlertX), true);
                                 if (dialog != null) {
                                     dialog.setOnDismissListener(dialog1 -> {
                                         setResult(RESULT_FIRST_USER, new Intent().putExtra("error", error.text));

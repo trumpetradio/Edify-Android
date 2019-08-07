@@ -3968,7 +3968,7 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
                             linearLayout.addView(textView, LayoutHelper.createLinear(LayoutHelper.WRAP_CONTENT, LayoutHelper.WRAP_CONTENT, Gravity.LEFT | Gravity.TOP, 0, 24, 0, 0));
 
                             textView = new TextView(getContext());
-                            textView.setText(AndroidUtilities.replaceTags(LocaleController.getString("EmojiSuggestionsInfo", R.string.EmojiSuggestionsInfo)));
+                            textView.setText(AndroidUtilities.replaceTags(LocaleController.getString("EmojiSuggestionsInfoX", R.string.EmojiSuggestionsInfoX)));
                             textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15);
                             textView.setTextColor(Theme.getColor(Theme.key_dialogTextBlack));
                             textView.setGravity(LocaleController.isRTL ? Gravity.RIGHT : Gravity.LEFT);

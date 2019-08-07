@@ -480,7 +480,7 @@ public class ProxySettingsActivity extends BaseFragment {
             ((View) inputFields[FIELD_PASSWORD].getParent()).setVisibility(View.VISIBLE);
             ((View) inputFields[FIELD_USER].getParent()).setVisibility(View.VISIBLE);
         } else if (currentType == 1) {
-            bottomCell.setText(LocaleController.getString("UseProxyTelegramInfo", R.string.UseProxyTelegramInfo) + "\n\n" + LocaleController.getString("UseProxyTelegramInfo2", R.string.UseProxyTelegramInfo2));
+            bottomCell.setText(LocaleController.getString("UseProxyTelegramInfo", R.string.UseProxyTelegramInfo) + "\n\n" + LocaleController.getString("UseProxyTelegramInfo2X", R.string.UseProxyTelegramInfo2X));
             ((View) inputFields[FIELD_SECRET].getParent()).setVisibility(View.VISIBLE);
             ((View) inputFields[FIELD_PASSWORD].getParent()).setVisibility(View.GONE);
             ((View) inputFields[FIELD_USER].getParent()).setVisibility(View.GONE);

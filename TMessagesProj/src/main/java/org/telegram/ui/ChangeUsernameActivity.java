@@ -206,7 +206,7 @@ public class ChangeUsernameActivity extends BaseFragment {
         helpTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15);
         helpTextView.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteGrayText8));
         helpTextView.setGravity(LocaleController.isRTL ? Gravity.RIGHT : Gravity.LEFT);
-        helpTextView.setText(infoText = AndroidUtilities.replaceTags(LocaleController.getString("UsernameHelp", R.string.UsernameHelp)));
+        helpTextView.setText(infoText = AndroidUtilities.replaceTags(LocaleController.getString("UsernameHelpX", R.string.UsernameHelpX)));
         helpTextView.setLinkTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteLinkText));
         helpTextView.setHighlightColor(Theme.getColor(Theme.key_windowBackgroundWhiteLinkSelection));
         helpTextView.setMovementMethod(new LinkMovementMethodMy());

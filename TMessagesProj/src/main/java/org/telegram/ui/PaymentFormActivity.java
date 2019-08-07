@@ -1772,7 +1772,7 @@ public class PaymentFormActivity extends BaseFragment implements NotificationCen
                             preferences.edit().putBoolean(botKey, true).commit();
                             AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
                             builder.setTitle(LocaleController.getString("PaymentWarning", R.string.PaymentWarning));
-                            builder.setMessage(LocaleController.formatString("PaymentWarningText", R.string.PaymentWarningText, currentBotName, providerName));
+                            builder.setMessage(LocaleController.formatString("PaymentWarningTextX", R.string.PaymentWarningTextX, currentBotName, providerName));
                             builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), (dialogInterface, i) -> showPayAlert(totalPrice));
                             showDialog(builder.create());
                         } else {
@@ -1915,7 +1915,7 @@ public class PaymentFormActivity extends BaseFragment implements NotificationCen
                 });
                 AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
                 builder.setMessage(LocaleController.getString("ResendCodeInfo", R.string.ResendCodeInfo));
-                builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                 builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), null);
                 showDialog(builder.create());
             });
@@ -1930,10 +1930,10 @@ public class PaymentFormActivity extends BaseFragment implements NotificationCen
                 AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
                 String text = LocaleController.getString("TurnPasswordOffQuestion", R.string.TurnPasswordOffQuestion);
                 if (currentPassword.has_secure_values) {
-                    text += "\n\n" + LocaleController.getString("TurnPasswordOffPassport", R.string.TurnPasswordOffPassport);
+                    text += "\n\n" + LocaleController.getString("TurnPasswordOffPassportX", R.string.TurnPasswordOffPassportX);
                 }
                 builder.setMessage(text);
-                builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                 builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), (dialogInterface, i) -> sendSavePassword(true));
                 builder.setNegativeButton(LocaleController.getString("Cancel", R.string.Cancel), null);
                 showDialog(builder.create());
@@ -2106,7 +2106,7 @@ public class PaymentFormActivity extends BaseFragment implements NotificationCen
             if (error == null) {
                 currentPassword = (TLRPC.TL_account_password) response;
                 if (!TwoStepVerificationActivity.canHandleCurrentPassword(currentPassword, false)) {
-                    AlertsCreator.showUpdateAppAlert(getParentActivity(), LocaleController.getString("UpdateAppAlert", R.string.UpdateAppAlert), true);
+                    AlertsCreator.showUpdateAppAlert(getParentActivity(), LocaleController.getString("UpdateAppAlertX", R.string.UpdateAppAlertX), true);
                     return;
                 }
                 if (paymentForm != null && currentPassword.has_password) {
@@ -2641,9 +2641,9 @@ public class PaymentFormActivity extends BaseFragment implements NotificationCen
                         } else {
                             timeString = LocaleController.formatPluralString("Minutes", time / 60);
                         }
-                        showAlertWithText(LocaleController.getString("AppName", R.string.AppName), LocaleController.formatString("FloodWaitTime", R.string.FloodWaitTime, timeString));
+                        showAlertWithText(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.formatString("FloodWaitTime", R.string.FloodWaitTime, timeString));
                     } else {
-                        showAlertWithText(LocaleController.getString("AppName", R.string.AppName), error.text);
+                        showAlertWithText(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), error.text);
                     }
                 }
             }), ConnectionsManager.RequestFlagFailOnServerErrors | ConnectionsManager.RequestFlagWithoutLogin);
@@ -2742,7 +2742,7 @@ public class PaymentFormActivity extends BaseFragment implements NotificationCen
                                 }
                             } else {
                                 if (error.text.equals("EMAIL_INVALID")) {
-                                    showAlertWithText(LocaleController.getString("AppName", R.string.AppName), LocaleController.getString("PasswordEmailInvalid", R.string.PasswordEmailInvalid));
+                                    showAlertWithText(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.getString("PasswordEmailInvalid", R.string.PasswordEmailInvalid));
                                 } else if (error.text.startsWith("FLOOD_WAIT")) {
                                     int time = Utilities.parseInt(error.text);
                                     String timeString;
@@ -2751,9 +2751,9 @@ public class PaymentFormActivity extends BaseFragment implements NotificationCen
                                     } else {
                                         timeString = LocaleController.formatPluralString("Minutes", time / 60);
                                     }
-                                    showAlertWithText(LocaleController.getString("AppName", R.string.AppName), LocaleController.formatString("FloodWaitTime", R.string.FloodWaitTime, timeString));
+                                    showAlertWithText(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), LocaleController.formatString("FloodWaitTime", R.string.FloodWaitTime, timeString));
                                 } else {
-                                    showAlertWithText(LocaleController.getString("AppName", R.string.AppName), error.text);
+                                    showAlertWithText(LocaleController.getString("EdifyAppName", R.string.EdifyAppName), error.text);
                                 }
                             }
                         }
@@ -3081,7 +3081,7 @@ public class PaymentFormActivity extends BaseFragment implements NotificationCen
             if (error == null) {
                 TLRPC.TL_account_password currentPassword = (TLRPC.TL_account_password) response;
                 if (!TwoStepVerificationActivity.canHandleCurrentPassword(currentPassword, false)) {
-                    AlertsCreator.showUpdateAppAlert(getParentActivity(), LocaleController.getString("UpdateAppAlert", R.string.UpdateAppAlert), true);
+                    AlertsCreator.showUpdateAppAlert(getParentActivity(), LocaleController.getString("UpdateAppAlertX", R.string.UpdateAppAlertX), true);
                     return;
                 }
                 if (!currentPassword.has_password) {

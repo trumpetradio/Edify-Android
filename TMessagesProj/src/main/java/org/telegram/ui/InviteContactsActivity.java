@@ -569,7 +569,7 @@ public class InviteContactsActivity extends BaseFragment implements Notification
         infoTextView.setBackgroundColor(Theme.getColor(Theme.key_contacts_inviteBackground));
         infoTextView.setTextColor(Theme.getColor(Theme.key_contacts_inviteText));
         infoTextView.setGravity(Gravity.CENTER);
-        infoTextView.setText(LocaleController.getString("InviteFriendsHelp", R.string.InviteFriendsHelp));
+        infoTextView.setText(LocaleController.getString("InviteFriendsHelpX", R.string.InviteFriendsHelpX));
         infoTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 13);
         infoTextView.setTypeface(AndroidUtilities.getTypeface("fonts/rmedium.ttf"));
         infoTextView.setPadding(AndroidUtilities.dp(17), AndroidUtilities.dp(9), AndroidUtilities.dp(17), AndroidUtilities.dp(9));
@@ -621,7 +621,7 @@ public class InviteContactsActivity extends BaseFragment implements Notification
         textView.setTextColor(Theme.getColor(Theme.key_contacts_inviteText));
         textView.setGravity(Gravity.CENTER);
         textView.setCompoundDrawablePadding(AndroidUtilities.dp(8));
-        textView.setText(LocaleController.getString("InviteToTelegram", R.string.InviteToTelegram).toUpperCase());
+        textView.setText(LocaleController.getString("InviteToEdify", R.string.InviteToEdify).toUpperCase());
         textView.setTypeface(AndroidUtilities.getTypeface("fonts/rmedium.ttf"));
         linearLayout.addView(textView, LayoutHelper.createLinear(LayoutHelper.WRAP_CONTENT, LayoutHelper.WRAP_CONTENT, Gravity.CENTER_VERTICAL));
 
@@ -745,7 +745,7 @@ public class InviteContactsActivity extends BaseFragment implements Notification
             switch (viewType) {
                 case 1:
                     view = new InviteTextCell(context);
-                    ((InviteTextCell) view).setTextAndIcon(LocaleController.getString("ShareTelegram", R.string.ShareTelegram), R.drawable.share);
+                    ((InviteTextCell) view).setTextAndIcon(LocaleController.getString("ShareTelegramX", R.string.ShareTelegramX), R.drawable.share);
                     break;
                 default:
                     view = new InviteUserCell(context, true);

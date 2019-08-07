@@ -425,7 +425,7 @@ public class NotificationsSettingsActivity extends BaseFragment implements Notif
             } else if (position == resetNotificationsRow) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
                 builder.setMessage(LocaleController.getString("ResetNotificationsAlert", R.string.ResetNotificationsAlert));
-                builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                 builder.setPositiveButton(LocaleController.getString("Reset", R.string.Reset), (dialogInterface, i) -> {
                     if (reseting) {
                         return;
@@ -799,7 +799,7 @@ public class NotificationsSettingsActivity extends BaseFragment implements Notif
                     } else if (position == inappPriorityRow) {
                         checkCell.setTextAndCheck(LocaleController.getString("NotificationsImportance", R.string.NotificationsImportance), preferences.getBoolean("EnableInAppPriority", false), false);
                     } else if (position == contactJoinedRow) {
-                        checkCell.setTextAndCheck(LocaleController.getString("ContactJoined", R.string.ContactJoined), preferences.getBoolean("EnableContactJoined", true), true);
+                        checkCell.setTextAndCheck(LocaleController.getString("ContactJoinedX", R.string.ContactJoinedX), preferences.getBoolean("EnableContactJoined", true), true);
                     } else if (position == pinnedMessageRow) {
                         checkCell.setTextAndCheck(LocaleController.getString("PinnedMessages", R.string.PinnedMessages), preferences.getBoolean("PinnedMessages", true), false);
                     } else if (position == androidAutoAlertRow) {

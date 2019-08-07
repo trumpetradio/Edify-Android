@@ -362,7 +362,7 @@ public class StickersActivity extends BaseFragment implements NotificationCenter
                     break;
                 case 1:
                     if (position == featuredInfoRow) {
-                        String text = LocaleController.getString("FeaturedStickersInfo", R.string.FeaturedStickersInfo);
+                        String text = LocaleController.getString("FeaturedStickersInfoX", R.string.FeaturedStickersInfoX);
                         String botName = "@stickers";
                         int index = text.indexOf(botName);
                         if (index != -1) {

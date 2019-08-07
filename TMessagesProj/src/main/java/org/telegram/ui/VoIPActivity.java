@@ -506,7 +506,7 @@ public class VoIPActivity extends Activity implements VoIPService.StateListener,
 
         TextView branding=new TextView(this);
         branding.setTextColor(0xCCFFFFFF);
-        branding.setText(LocaleController.getString("VoipInCallBranding", R.string.VoipInCallBranding));
+        branding.setText(LocaleController.getString("VoipInCallBrandingX", R.string.VoipInCallBrandingX));
         Drawable logo=getResources().getDrawable(R.drawable.notification).mutate();
         logo.setAlpha(0xCC);
         logo.setBounds(0, 0, AndroidUtilities.dp(15), AndroidUtilities.dp(15));
@@ -1295,7 +1295,7 @@ public class VoIPActivity extends Activity implements VoIPService.StateListener,
                     }else if(lastError==VoIPController.ERROR_LOCALIZED){
                         finish();
                     }else if(lastError==VoIPController.ERROR_CONNECTION_SERVICE){
-                        showErrorDialog(LocaleController.getString("VoipErrorUnknown", R.string.VoipErrorUnknown));
+                        showErrorDialog(LocaleController.getString("VoipErrorUnknownX", R.string.VoipErrorUnknownX));
                     } else {
                         stateText.postDelayed(new Runnable() {
                             @Override

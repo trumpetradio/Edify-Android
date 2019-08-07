@@ -6226,7 +6226,7 @@ public class MessagesController extends BaseController implements NotificationCe
                             FileLog.e(e);
                         }
                         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                        builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                        builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                         builder.setMessage(LocaleController.getString("ErrorOccurred", R.string.ErrorOccurred));
                         builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), null);
                         builder.show().setCanceledOnTouchOutside(true);
@@ -10730,7 +10730,7 @@ public class MessagesController extends BaseController implements NotificationCe
             return;
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(fragment.getParentActivity());
-        builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+        builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
         builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), null);
         builder.setMessage(reason);
         fragment.showDialog(builder.create());
@@ -10900,7 +10900,7 @@ public class MessagesController extends BaseController implements NotificationCe
                 } else {
                     if (fragment != null && fragment.getParentActivity() != null) {
                         try {
-                            Toast.makeText(fragment.getParentActivity(), LocaleController.getString("NoUsernameFound", R.string.NoUsernameFound), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(fragment.getParentActivity(), LocaleController.getString("NoUsernameFoundX", R.string.NoUsernameFoundX), Toast.LENGTH_SHORT).show();
                         } catch (Exception e) {
                             FileLog.e(e);
                         }

@@ -376,7 +376,7 @@ public class PasscodeActivity extends BaseFragment implements NotificationCenter
                     ((TextCheckCell) view).setChecked(SharedConfig.allowScreenCapture);
                     NotificationCenter.getGlobalInstance().postNotificationName(NotificationCenter.didSetPasscode);
                     if (!SharedConfig.allowScreenCapture) {
-                        AlertsCreator.showSimpleAlert(PasscodeActivity.this, LocaleController.getString("ScreenCaptureAlert", R.string.ScreenCaptureAlert));
+                        AlertsCreator.showSimpleAlert(PasscodeActivity.this, LocaleController.getString("ScreenCaptureAlertX", R.string.ScreenCaptureAlertX));
                     }
                 }
             });
@@ -674,7 +674,7 @@ public class PasscodeActivity extends BaseFragment implements NotificationCenter
                 case 2: {
                     TextInfoPrivacyCell cell = (TextInfoPrivacyCell) holder.itemView;
                     if (position == passcodeDetailRow) {
-                        cell.setText(LocaleController.getString("ChangePasscodeInfo", R.string.ChangePasscodeInfo));
+                        cell.setText(LocaleController.getString("ChangePasscodeInfoX", R.string.ChangePasscodeInfoX));
                         if (autoLockDetailRow != -1) {
                             cell.setBackgroundDrawable(Theme.getThemedDrawable(mContext, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
                         } else {

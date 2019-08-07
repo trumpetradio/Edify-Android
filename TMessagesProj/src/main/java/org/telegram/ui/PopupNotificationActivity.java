@@ -536,8 +536,8 @@ public class PopupNotificationActivity extends Activity implements NotificationC
                 return;
             }
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
-            builder.setMessage(LocaleController.getString("PermissionNoAudio", R.string.PermissionNoAudio));
+            builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
+            builder.setMessage(LocaleController.getString("PermissionNoAudioX", R.string.PermissionNoAudioX));
             builder.setNegativeButton(LocaleController.getString("PermissionOpenSettings", R.string.PermissionOpenSettings), (dialog, which) -> {
                 try {
                     Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);

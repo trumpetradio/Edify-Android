@@ -91,7 +91,7 @@ public class AlertsCreator {
             } else if (error.text.startsWith("FLOOD_WAIT")) {
                 showSimpleAlert(fragment, LocaleController.getString("FloodWait", R.string.FloodWait));
             } else if ("APP_VERSION_OUTDATED".equals(error.text)) {
-                showUpdateAppAlert(fragment.getParentActivity(), LocaleController.getString("UpdateAppAlert", R.string.UpdateAppAlert), true);
+                showUpdateAppAlert(fragment.getParentActivity(), LocaleController.getString("UpdateAppAlertX", R.string.UpdateAppAlertX), true);
             } else {
                 showSimpleAlert(fragment, LocaleController.getString("ErrorOccurred", R.string.ErrorOccurred) + "\n" + error.text);
             }
@@ -207,7 +207,7 @@ public class AlertsCreator {
             } else if (error.text.startsWith("FLOOD_WAIT")) {
                 showSimpleAlert(fragment, LocaleController.getString("FloodWait", R.string.FloodWait));
             } else if (error.text.startsWith("PHONE_NUMBER_OCCUPIED")) {
-                showSimpleAlert(fragment, LocaleController.formatString("ChangePhoneNumberOccupied", R.string.ChangePhoneNumberOccupied, (String) args[0]));
+                showSimpleAlert(fragment, LocaleController.formatString("ChangePhoneNumberOccupiedX", R.string.ChangePhoneNumberOccupiedX, (String) args[0]));
             } else {
                 showSimpleAlert(fragment, LocaleController.getString("ErrorOccurred", R.string.ErrorOccurred));
             }
@@ -281,7 +281,7 @@ public class AlertsCreator {
             return null;
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+        builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
         builder.setMessage(text);
         builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), null);
         if (updateApp) {
@@ -313,7 +313,7 @@ public class AlertsCreator {
         } else {
             if (language.strings_count == 0) {
                 builder.setTitle(LocaleController.getString("LanguageUnknownTitle", R.string.LanguageUnknownTitle));
-                str = LocaleController.formatString("LanguageUnknownCustomAlert", R.string.LanguageUnknownCustomAlert, language.name);
+                str = LocaleController.formatString("LanguageUnknownCustomAlertX", R.string.LanguageUnknownCustomAlertX, language.name);
                 builder.setNegativeButton(LocaleController.getString("OK", R.string.OK), null);
             } else {
                 builder.setTitle(LocaleController.getString("LanguageTitle", R.string.LanguageTitle));
@@ -393,7 +393,7 @@ public class AlertsCreator {
             return null;
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+        builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
         builder.setMessage(text);
         builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), null);
         return builder;
@@ -421,7 +421,7 @@ public class AlertsCreator {
         boolean showReport = preferences.getBoolean("dialog_bar_report" + dialog_id, false);
         if (currentUser != null) {
             builder.setTitle(LocaleController.formatString("BlockUserTitle", R.string.BlockUserTitle, UserObject.getFirstName(currentUser)));
-            builder.setMessage(AndroidUtilities.replaceTags(LocaleController.formatString("BlockUserAlert", R.string.BlockUserAlert, UserObject.getFirstName(currentUser))));
+            builder.setMessage(AndroidUtilities.replaceTags(LocaleController.formatString("BlockUserAlertX", R.string.BlockUserAlertX, UserObject.getFirstName(currentUser))));
             reportText = LocaleController.getString("BlockContact", R.string.BlockContact);
 
             cells = new CheckBoxCell[2];
@@ -659,10 +659,10 @@ public class AlertsCreator {
         ArrayList<String> arrayList = new ArrayList<>();
         int providers = MessagesController.getInstance(currentAccount).availableMapProviders;
         if ((providers & 1) != 0) {
-            arrayList.add(LocaleController.getString("MapPreviewProviderTelegram", R.string.MapPreviewProviderTelegram));
+            arrayList.add(LocaleController.getString("MapPreviewProviderTelegramX", R.string.MapPreviewProviderTelegramX));
         }
         if ((providers & 2) != 0) {
-            arrayList.add(LocaleController.getString("MapPreviewProviderGoogle", R.string.MapPreviewProviderGoogle));
+            arrayList.add(LocaleController.getString("MapPreviewProvideeGoogle", R.string.MapPreviewProvideeGoogle));
         }
         if ((providers & 4) != 0) {
             arrayList.add(LocaleController.getString("MapPreviewProviderYandex", R.string.MapPreviewProviderYandex));
@@ -725,7 +725,7 @@ public class AlertsCreator {
             return null;
         }
         final TextView message = new TextView(fragment.getParentActivity());
-        Spannable spanned = new SpannableString(Html.fromHtml(LocaleController.getString("AskAQuestionInfo", R.string.AskAQuestionInfo).replace("\n", "<br>")));
+        Spannable spanned = new SpannableString(Html.fromHtml(LocaleController.getString("AskAQuestionInfoX", R.string.AskAQuestionInfoX).replace("\n", "<br>")));
         URLSpan[] spans = spanned.getSpans(0, spanned.length(), URLSpan.class);
         for (int i = 0; i < spans.length; i++) {
             URLSpan span = spans[i];
@@ -1257,7 +1257,7 @@ public class AlertsCreator {
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(fragment.getParentActivity());
-        builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+        builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
         builder.setMessage(LocaleController.formatString("FloodWaitTime", R.string.FloodWaitTime, timeString));
         builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), null);
         fragment.showDialog(builder.create(), true, null);
@@ -1268,7 +1268,7 @@ public class AlertsCreator {
             return;
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(fragment.getParentActivity());
-        builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+        builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
         if (result == 1) {
             builder.setMessage(LocaleController.getString("ErrorSendRestrictedStickers", R.string.ErrorSendRestrictedStickers));
         } else if (result == 2) {
@@ -1292,7 +1292,7 @@ public class AlertsCreator {
             return;
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(fragment.getParentActivity());
-        builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+        builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
         switch (error) {
             case "PEER_FLOOD":
                 builder.setMessage(LocaleController.getString("NobodyLikesSpam2", R.string.NobodyLikesSpam2));
@@ -1637,7 +1637,7 @@ public class AlertsCreator {
     public static AlertDialog.Builder createContactsPermissionDialog(final Activity parentActivity, final MessagesStorage.IntCallback callback) {
         AlertDialog.Builder builder = new AlertDialog.Builder(parentActivity);
         builder.setTopImage(R.drawable.permissions_contacts, Theme.getColor(Theme.key_dialogTopBackground));
-        builder.setMessage(AndroidUtilities.replaceTags(LocaleController.getString("ContactsPermissionAlert", R.string.ContactsPermissionAlert)));
+        builder.setMessage(AndroidUtilities.replaceTags(LocaleController.getString("ContactsPermissionAlertX", R.string.ContactsPermissionAlertX)));
         builder.setPositiveButton(LocaleController.getString("ContactsPermissionAlertContinue", R.string.ContactsPermissionAlertContinue), (dialog, which) -> callback.run(1));
         builder.setNegativeButton(LocaleController.getString("ContactsPermissionAlertNotNow", R.string.ContactsPermissionAlertNotNow), (dialog, which) -> callback.run(0));
         return builder;
@@ -1705,7 +1705,7 @@ public class AlertsCreator {
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(parentActivity);
         builder.setTitle(LocaleController.getString("LowDiskSpaceTitle", R.string.LowDiskSpaceTitle));
-        builder.setMessage(LocaleController.getString("LowDiskSpaceMessage", R.string.LowDiskSpaceMessage));
+        builder.setMessage(LocaleController.getString("LowDiskSpaceMessageX", R.string.LowDiskSpaceMessageX));
         builder.setView(linearLayout);
         builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), (dialog, which) -> MessagesController.getGlobalMainSettings().edit().putInt("keep_media", selected[0]).commit());
         builder.setNeutralButton(LocaleController.getString("ClearMediaCache", R.string.ClearMediaCache), (dialog, which) -> parentActivity.presentFragment(new CacheControlActivity()));

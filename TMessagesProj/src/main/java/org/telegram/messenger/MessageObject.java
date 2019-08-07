@@ -2044,9 +2044,9 @@ public class MessageObject {
                         }
                     }
                     String name = to_user != null ? UserObject.getFirstName(to_user) : "";
-                    messageText = LocaleController.formatString("NotificationUnrecognizedDevice", R.string.NotificationUnrecognizedDevice, name, date, messageOwner.action.title, messageOwner.action.address);
+                    messageText = LocaleController.formatString("NotificationUnrecognizedDeviceX", R.string.NotificationUnrecognizedDeviceX, name, date, messageOwner.action.title, messageOwner.action.address);
                 } else if (messageOwner.action instanceof TLRPC.TL_messageActionUserJoined || messageOwner.action instanceof TLRPC.TL_messageActionContactSignUp) {
-                    messageText = LocaleController.formatString("NotificationContactJoined", R.string.NotificationContactJoined, UserObject.getUserName(fromUser));
+                    messageText = LocaleController.formatString("NotificationContactJoinedX", R.string.NotificationContactJoinedX, UserObject.getUserName(fromUser));
                 } else if (messageOwner.action instanceof TLRPC.TL_messageActionUserUpdatedPhoto) {
                     messageText = LocaleController.formatString("NotificationContactNewPhoto", R.string.NotificationContactNewPhoto, UserObject.getUserName(fromUser));
                 } else if (messageOwner.action instanceof TLRPC.TL_messageEncryptedAction) {
@@ -2248,7 +2248,7 @@ public class MessageObject {
             } else if (messageOwner.media instanceof TLRPC.TL_messageMediaInvoice) {
                 messageText = messageOwner.media.description;
             } else if (messageOwner.media instanceof TLRPC.TL_messageMediaUnsupported) {
-                messageText = LocaleController.getString("UnsupportedMedia", R.string.UnsupportedMedia).replace("https://telegram.org/update","https://github.com/Telegram-FOSS-Team/Telegram-FOSS/blob/master/Update.md");
+                messageText = LocaleController.getString("UnsupportedMediaX", R.string.UnsupportedMediaX).replace("https://telegram.org/update","https://github.com/Telegram-FOSS-Team/Telegram-FOSS/blob/master/Update.md");
             } else if (messageOwner.media instanceof TLRPC.TL_messageMediaDocument) {
                 if (isSticker() || isAnimatedSticker()) {
                     String sch = getStrickerChar();

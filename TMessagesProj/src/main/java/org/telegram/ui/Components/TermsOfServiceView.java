@@ -88,8 +88,8 @@ public class TermsOfServiceView extends FrameLayout {
             builder.setTitle(LocaleController.getString("TermsOfService", R.string.TermsOfService));
             builder.setPositiveButton(LocaleController.getString("DeclineDeactivate", R.string.DeclineDeactivate), (dialog, which) -> {
                 AlertDialog.Builder builder12 = new AlertDialog.Builder(getContext());
-                builder12.setMessage(LocaleController.getString("TosDeclineDeleteAccount", R.string.TosDeclineDeleteAccount));
-                builder12.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                builder12.setMessage(LocaleController.getString("TosDeclineDeleteAccountX", R.string.TosDeclineDeleteAccountX));
+                builder12.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                 builder12.setPositiveButton(LocaleController.getString("Deactivate", R.string.Deactivate), (dialogInterface, i) -> {
                     final AlertDialog progressDialog = new AlertDialog(getContext(), 3);
                     progressDialog.setCanCacnel(false);
@@ -110,7 +110,7 @@ public class TermsOfServiceView extends FrameLayout {
                                 errorText += "\n" + error.text;
                             }
                             AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
-                            builder1.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                            builder1.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                             builder1.setMessage(errorText);
                             builder1.setPositiveButton(LocaleController.getString("OK", R.string.OK), null);
                             builder1.show();
@@ -122,7 +122,7 @@ public class TermsOfServiceView extends FrameLayout {
                 builder12.show();
             });
             builder.setNegativeButton(LocaleController.getString("Back", R.string.Back), null);
-            builder.setMessage(LocaleController.getString("TosUpdateDecline", R.string.TosUpdateDecline));
+            builder.setMessage(LocaleController.getString("TosUpdateDeclineX", R.string.TosUpdateDeclineX));
             builder.show();
         });
 

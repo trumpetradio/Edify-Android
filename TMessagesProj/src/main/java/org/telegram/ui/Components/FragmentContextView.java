@@ -156,7 +156,7 @@ public class FragmentContextView extends FrameLayout implements NotificationCent
         closeButton.setOnClickListener(v -> {
             if (currentStyle == 2) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(fragment.getParentActivity());
-                builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                 if (fragment instanceof DialogsActivity) {
                     builder.setMessage(LocaleController.getString("StopLiveLocationAlertAll", R.string.StopLiveLocationAlertAll));
                 } else {

@@ -184,7 +184,7 @@ public class PrivacySettingsActivity extends BaseFragment implements Notificatio
                 presentFragment(new SessionsActivity(1));
             } else if (position == clearDraftsRow) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
-                builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                 builder.setMessage(LocaleController.getString("AreYouSureClearDrafts", R.string.AreYouSureClearDrafts));
                 builder.setPositiveButton(LocaleController.getString("Delete", R.string.Delete), (dialogInterface, i) -> {
                     TLRPC.TL_messages_clearAllDrafts req = new TLRPC.TL_messages_clearAllDrafts();
@@ -271,7 +271,7 @@ public class PrivacySettingsActivity extends BaseFragment implements Notificatio
                 }
                 AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
                 builder.setTitle(LocaleController.getString("Contacts", R.string.Contacts));
-                builder.setMessage(LocaleController.getString("SyncContactsDeleteInfo", R.string.SyncContactsDeleteInfo));
+                builder.setMessage(LocaleController.getString("SyncContactsDeleteInfoX", R.string.SyncContactsDeleteInfoX));
                 builder.setPositiveButton(LocaleController.getString("Cancel", R.string.Cancel), null);
                 builder.setNegativeButton(LocaleController.getString("OK", R.string.OK), (dialogInterface, i) -> {
                     AlertDialog.Builder builder12 = new AlertDialog.Builder(getParentActivity(), 3);
@@ -289,7 +289,7 @@ public class PrivacySettingsActivity extends BaseFragment implements Notificatio
                 final TextCheckCell cell = (TextCheckCell) view;
                 if (newSuggest) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
-                    builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                    builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                     builder.setMessage(LocaleController.getString("SuggestContactsAlert", R.string.SuggestContactsAlert));
                     builder.setPositiveButton(LocaleController.getString("MuteDisable", R.string.MuteDisable), (dialogInterface, i) -> {
                         TLRPC.TL_payments_clearSavedInfo req = new TLRPC.TL_payments_clearSavedInfo();
@@ -355,8 +355,8 @@ public class PrivacySettingsActivity extends BaseFragment implements Notificatio
                         FileLog.e(e);
                     }
                     AlertDialog.Builder builder1 = new AlertDialog.Builder(getParentActivity());
-                    builder1.setTitle(LocaleController.getString("AppName", R.string.AppName));
-                    builder1.setMessage(LocaleController.getString("PrivacyPaymentsClearAlert", R.string.PrivacyPaymentsClearAlert));
+                    builder1.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
+                    builder1.setMessage(LocaleController.getString("PrivacyPaymentsClearAlertX", R.string.PrivacyPaymentsClearAlertX));
                     builder1.setPositiveButton(LocaleController.getString("OK", R.string.OK), (dialogInterface, i) -> {
                         TLRPC.TL_payments_clearSavedInfo req = new TLRPC.TL_payments_clearSavedInfo();
                         req.credentials = clear[1];
@@ -635,7 +635,7 @@ public class PrivacySettingsActivity extends BaseFragment implements Notificatio
                     } else if (position == sessionsRow) {
                         textCell.setText(LocaleController.getString("SessionsTitle", R.string.SessionsTitle), false);
                     } else if (position == webSessionsRow) {
-                        textCell.setText(LocaleController.getString("WebSessionsTitle", R.string.WebSessionsTitle), false);
+                        textCell.setText(LocaleController.getString("WebSessionsTitleX", R.string.WebSessionsTitleX), false);
                     } else if (position == passwordRow) {
                         textCell.setText(LocaleController.getString("TwoStepVerification", R.string.TwoStepVerification), true);
                     } else if (position == passcodeRow) {
@@ -689,7 +689,7 @@ public class PrivacySettingsActivity extends BaseFragment implements Notificatio
                         }
                         textCell.setTextAndValue(LocaleController.getString("PrivacyForwards", R.string.PrivacyForwards), value, true);
                     } else if (position == passportRow) {
-                        textCell.setText(LocaleController.getString("TelegramPassport", R.string.TelegramPassport), true);
+                        textCell.setText(LocaleController.getString("TelegramPassportX", R.string.TelegramPassportX), true);
                     } else if (position == deleteAccountRow) {
                         String value;
                         if (ContactsController.getInstance(currentAccount).getLoadingDeleteInfo()) {
@@ -713,10 +713,10 @@ public class PrivacySettingsActivity extends BaseFragment implements Notificatio
                         String value;
                         switch (SharedConfig.mapPreviewType) {
                             case 0:
-                                value = LocaleController.getString("MapPreviewProviderTelegram", R.string.MapPreviewProviderTelegram);
+                                value = LocaleController.getString("MapPreviewProviderTelegramX", R.string.MapPreviewProviderTelegramX);
                                 break;
                             case 1:
-                                value = LocaleController.getString("MapPreviewProviderGoogle", R.string.MapPreviewProviderGoogle);
+                                value = LocaleController.getString("MapPreviewProvideeGoogle", R.string.MapPreviewProvideeGoogle);
                                 break;
                             case 2:
                             default:
@@ -740,10 +740,10 @@ public class PrivacySettingsActivity extends BaseFragment implements Notificatio
                         privacyCell.setText(LocaleController.getString("SessionsInfo", R.string.SessionsInfo));
                         privacyCell.setBackgroundDrawable(Theme.getThemedDrawable(mContext, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
                     } else if (position == secretDetailRow) {
-                        privacyCell.setText(LocaleController.getString("SecretWebPageInfo", R.string.SecretWebPageInfo));
+                        privacyCell.setText(LocaleController.getString("SecretWebPageInfoX", R.string.SecretWebPageInfoX));
                         privacyCell.setBackgroundDrawable(Theme.getThemedDrawable(mContext, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
                     } else if (position == botsDetailRow) {
-                        privacyCell.setText(LocaleController.getString("PrivacyBotsInfo", R.string.PrivacyBotsInfo));
+                        privacyCell.setText(LocaleController.getString("PrivacyBotsInfoX", R.string.PrivacyBotsInfoX));
                         privacyCell.setBackgroundDrawable(Theme.getThemedDrawable(mContext, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
                     } else if (position == contactsDetailRow) {
                         /*if (newSync) {

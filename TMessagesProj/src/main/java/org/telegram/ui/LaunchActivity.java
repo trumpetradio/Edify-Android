@@ -1228,7 +1228,7 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
                                         url = url.replace("tg:resolve", "tg://telegram.org").replace("tg://resolve", "tg://telegram.org");
                                         data = Uri.parse(url);
                                         username = data.getQueryParameter("domain");
-                                        if ("telegrampassport".equals(username)) {
+                                        if ("TelegramPassportX".equals(username)) {
                                             username = null;
                                             auth = new HashMap<>();
                                             String scope = data.getQueryParameter("scope");
@@ -1661,8 +1661,8 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
                 NotificationCenter.getGlobalInstance().postNotificationName(NotificationCenter.didReceiveSmsCode, code);
             } else {
                 AlertDialog.Builder builder = new AlertDialog.Builder(LaunchActivity.this);
-                builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
-                builder.setMessage(AndroidUtilities.replaceTags(LocaleController.formatString("OtherLoginCode", R.string.OtherLoginCode, code)));
+                builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
+                builder.setMessage(AndroidUtilities.replaceTags(LocaleController.formatString("OtherLoginCodeX", R.string.OtherLoginCodeX, code)));
                 builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), null);
                 showAlertDialog(builder);
             }
@@ -1802,7 +1802,7 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
                         }
                     } else {
                         try {
-                            Toast.makeText(LaunchActivity.this, LocaleController.getString("NoUsernameFound", R.string.NoUsernameFound), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LaunchActivity.this, LocaleController.getString("NoUsernameFoundX", R.string.NoUsernameFoundX), Toast.LENGTH_SHORT).show();
                         } catch (Exception e) {
                             FileLog.e(e);
                         }
@@ -1840,7 +1840,7 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
                                     fragment.showDialog(new JoinGroupAlert(LaunchActivity.this, invite, group, fragment));
                                 } else {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(LaunchActivity.this);
-                                    builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                                    builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                                     builder.setMessage(LocaleController.formatString("ChannelJoinTo", R.string.ChannelJoinTo, invite.chat != null ? invite.chat.title : invite.title));
                                     builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), (dialogInterface, i) -> runLinkRequest(intentAccount, username, group, sticker, botUser, botChat, message, hasUrl, messageId, channelId, game, auth, lang, unsupportedUrl, code, wallPaper, 1));
                                     builder.setNegativeButton(LocaleController.getString("Cancel", R.string.Cancel), null);
@@ -1849,7 +1849,7 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
                             }
                         } else {
                             AlertDialog.Builder builder = new AlertDialog.Builder(LaunchActivity.this);
-                            builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                            builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                             if (error.text.startsWith("FLOOD_WAIT")) {
                                 builder.setMessage(LocaleController.getString("FloodWait", R.string.FloodWait));
                             } else {
@@ -1895,7 +1895,7 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
                                 }
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LaunchActivity.this);
-                                builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                                builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                                 if (error.text.startsWith("FLOOD_WAIT")) {
                                     builder.setMessage(LocaleController.getString("FloodWait", R.string.FloodWait));
                                 } else if (error.text.equals("USERS_TOO_MUCH")) {
@@ -1982,7 +1982,7 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
                         try {
                             progressDialog.dismiss();
                             if ("APP_VERSION_OUTDATED".equals(error.text)) {
-                                AlertsCreator.showUpdateAppAlert(LaunchActivity.this, LocaleController.getString("UpdateAppAlert", R.string.UpdateAppAlert), true);
+                                AlertsCreator.showUpdateAppAlert(LaunchActivity.this, LocaleController.getString("UpdateAppAlertX", R.string.UpdateAppAlertX), true);
                             } else {
                                 showAlertDialog(AlertsCreator.createSimpleAlert(LaunchActivity.this, LocaleController.getString("ErrorOccurred", R.string.ErrorOccurred) + "\n" + error.text));
                             }
@@ -2401,15 +2401,15 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
             }
             if (showAlert) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                 if (requestCode == 3) {
-                    builder.setMessage(LocaleController.getString("PermissionNoAudio", R.string.PermissionNoAudio));
+                    builder.setMessage(LocaleController.getString("PermissionNoAudioX", R.string.PermissionNoAudioX));
                 } else if (requestCode == 4) {
-                    builder.setMessage(LocaleController.getString("PermissionStorage", R.string.PermissionStorage));
+                    builder.setMessage(LocaleController.getString("PermissionStorageX", R.string.PermissionStorageX));
                 } else if (requestCode == 5) {
-                    builder.setMessage(LocaleController.getString("PermissionContacts", R.string.PermissionContacts));
+                    builder.setMessage(LocaleController.getString("PermissionContactsX", R.string.PermissionContactsX));
                 } else if (requestCode == 19 || requestCode == 20 || requestCode == 22) {
-                    builder.setMessage(LocaleController.getString("PermissionNoCamera", R.string.PermissionNoCamera));
+                    builder.setMessage(LocaleController.getString("PermissionNoCameraX", R.string.PermissionNoCameraX));
                 }
                 builder.setNegativeButton(LocaleController.getString("PermissionOpenSettings", R.string.PermissionOpenSettings), (dialog, which) -> {
                     try {
@@ -2642,7 +2642,7 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
                 return;
             }
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+            builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
             if (reason != 2 && reason != 3) {
                 builder.setNegativeButton(LocaleController.getString("MoreInfo", R.string.MoreInfo), (dialogInterface, i) -> {
                     if (!mainFragmentsStack.isEmpty()) {
@@ -2680,7 +2680,7 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
         } else if (id == NotificationCenter.wasUnableToFindCurrentLocation) {
             final HashMap<String, MessageObject> waitingForLocation = (HashMap<String, MessageObject>) args[0];
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+            builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
             builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), null);
             builder.setNegativeButton(LocaleController.getString("ShareYouLocationUnableManually", R.string.ShareYouLocationUnableManually), (dialogInterface, i) -> {
                 if (mainFragmentsStack.isEmpty()) {
@@ -2747,7 +2747,7 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
 
             AlertDialog.Builder builder = new AlertDialog.Builder(LaunchActivity.this);
             builder.setTitle(LocaleController.getString("UpdateContactsTitle", R.string.UpdateContactsTitle));
-            builder.setMessage(LocaleController.getString("UpdateContactsMessage", R.string.UpdateContactsMessage));
+            builder.setMessage(LocaleController.getString("UpdateContactsMessageX", R.string.UpdateContactsMessageX));
             builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), (dialogInterface, i) -> ContactsController.getInstance(account).syncPhoneBookByAlert(contactHashMap, first, schedule, false));
             builder.setNegativeButton(LocaleController.getString("Cancel", R.string.Cancel), (dialog, which) -> ContactsController.getInstance(account).syncPhoneBookByAlert(contactHashMap, first, schedule, true));
             builder.setOnBackButtonListener((dialogInterface, i) -> ContactsController.getInstance(account).syncPhoneBookByAlert(contactHashMap, first, schedule, true));

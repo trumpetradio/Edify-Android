@@ -463,7 +463,7 @@ public class DataSettingsActivity extends BaseFragment {
                 case 4: {
                     TextInfoPrivacyCell cell = (TextInfoPrivacyCell) holder.itemView;
                     if (position == enableAllStreamInfoRow) {
-                        cell.setText(LocaleController.getString("EnableAllStreamingInfo", R.string.EnableAllStreamingInfo));
+                        cell.setText(LocaleController.getString("EnableAllStreamingInfoX", R.string.EnableAllStreamingInfoX));
                     }
                     break;
                 }

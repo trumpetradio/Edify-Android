@@ -409,7 +409,7 @@ public class ActionIntroActivity extends BaseFragment implements LocationControl
                 case ACTION_TYPE_CHANGE_PHONE_NUMBER: {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
                     builder.setTitle(LocaleController.getString("PhoneNumberChangeTitle", R.string.PhoneNumberChangeTitle));
-                    builder.setMessage(LocaleController.getString("PhoneNumberAlert", R.string.PhoneNumberAlert));
+                    builder.setMessage(LocaleController.getString("PhoneNumberAlertX", R.string.PhoneNumberAlertX));
                     builder.setPositiveButton(LocaleController.getString("Change", R.string.Change), (dialogInterface, i) -> presentFragment(new ChangePhoneActivity(), true));
                     builder.setNegativeButton(LocaleController.getString("Cancel", R.string.Cancel), null);
                     showDialog(builder.create());
@@ -467,7 +467,7 @@ public class ActionIntroActivity extends BaseFragment implements LocationControl
                 imageView.setScaleType(ImageView.ScaleType.CENTER);
                 subtitleTextView.setText(PhoneFormat.getInstance().format("+" + getUserConfig().getCurrentUser().phone));
                 titleTextView.setText(LocaleController.getString("PhoneNumberChange2", R.string.PhoneNumberChange2));
-                descriptionText.setText(AndroidUtilities.replaceTags(LocaleController.getString("PhoneNumberHelp", R.string.PhoneNumberHelp)));
+                descriptionText.setText(AndroidUtilities.replaceTags(LocaleController.getString("PhoneNumberHelpX", R.string.PhoneNumberHelpX)));
                 buttonTextView.setText(LocaleController.getString("PhoneNumberChange2", R.string.PhoneNumberChange2));
                 break;
             }
@@ -514,8 +514,8 @@ public class ActionIntroActivity extends BaseFragment implements LocationControl
             return;
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
-        builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
-        builder.setMessage(LocaleController.getString("PermissionNoLocationPosition", R.string.PermissionNoLocationPosition));
+        builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
+        builder.setMessage(LocaleController.getString("PermissionNoLocationPositionX", R.string.PermissionNoLocationPositionX));
         builder.setNegativeButton(LocaleController.getString("PermissionOpenSettings", R.string.PermissionOpenSettings), (dialog, which) -> {
             if (getParentActivity() == null) {
                 return;
@@ -550,8 +550,8 @@ public class ActionIntroActivity extends BaseFragment implements LocationControl
                         return;
                     }
                     AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
-                    builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
-                    builder.setMessage(LocaleController.getString("PermissionNoLocationPosition", R.string.PermissionNoLocationPosition));
+                    builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
+                    builder.setMessage(LocaleController.getString("PermissionNoLocationPositionX", R.string.PermissionNoLocationPositionX));
                     builder.setNegativeButton(LocaleController.getString("PermissionOpenSettings", R.string.PermissionOpenSettings), (dialog, which) -> {
                         if (getParentActivity() == null) {
                             return;

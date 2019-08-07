@@ -360,7 +360,7 @@ public class DialogsAdapter extends RecyclerListView.SelectionAdapter {
                 break;
             case 7:
                 HeaderCell headerCell = new HeaderCell(mContext);
-                headerCell.setText(LocaleController.getString("YourContacts", R.string.YourContacts));
+                headerCell.setText(LocaleController.getString("YourContactsX", R.string.YourContactsX));
                 view = headerCell;
                 break;
             case 8:

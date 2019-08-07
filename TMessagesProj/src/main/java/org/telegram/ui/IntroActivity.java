@@ -94,20 +94,20 @@ public class IntroActivity extends Activity implements NotificationCenter.Notifi
         preferences.edit().putLong("intro_crashed_time", System.currentTimeMillis()).commit();
 
         titles = new String[]{
-                LocaleController.getString("Page1Title", R.string.Page1Title),
-                LocaleController.getString("Page2Title", R.string.Page2Title),
-                LocaleController.getString("Page3Title", R.string.Page3Title),
-                LocaleController.getString("Page5Title", R.string.Page5Title),
-                LocaleController.getString("Page4Title", R.string.Page4Title),
-                LocaleController.getString("Page6Title", R.string.Page6Title)
+                LocaleController.getString("Page1xTitle", R.string.Page1xTitle),
+                LocaleController.getString("Page2xTitle", R.string.Page2xTitle),
+                LocaleController.getString("Page3xTitle", R.string.Page3xTitle),
+                LocaleController.getString("Page5xTitle", R.string.Page5xTitle),
+                LocaleController.getString("Page4xTitle", R.string.Page4xTitle),
+                LocaleController.getString("Page6xTitle", R.string.Page6xTitle)
         };
         messages = new String[]{
-                LocaleController.getString("Page1Message", R.string.Page1Message),
-                LocaleController.getString("Page2Message", R.string.Page2Message),
-                LocaleController.getString("Page3Message", R.string.Page3Message),
-                LocaleController.getString("Page5Message", R.string.Page5Message),
-                LocaleController.getString("Page4Message", R.string.Page4Message),
-                LocaleController.getString("Page6Message", R.string.Page6Message)
+                LocaleController.getString("Page1xMessage", R.string.Page1xMessage),
+                LocaleController.getString("Page2xMessage", R.string.Page2xMessage),
+                LocaleController.getString("Page3xMessage", R.string.Page3xMessage),
+                LocaleController.getString("Page5xMessage", R.string.Page5xMessage),
+                LocaleController.getString("Page4xMessage", R.string.Page4xMessage),
+                LocaleController.getString("Page6xMessage", R.string.Page6xMessage)
         };
 
         ScrollView scrollView = new ScrollView(this);

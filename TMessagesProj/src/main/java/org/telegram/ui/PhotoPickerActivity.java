@@ -564,7 +564,7 @@ public class PhotoPickerActivity extends BaseFragment implements NotificationCen
             listView.setOnItemLongClickListener((view, position) -> {
                 if (searchResult.isEmpty() && lastSearchString == null) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
-                    builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                    builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                     builder.setMessage(LocaleController.getString("ClearSearch", R.string.ClearSearch));
                     builder.setPositiveButton(LocaleController.getString("ClearButton", R.string.ClearButton).toUpperCase(), (dialogInterface, i) -> {
                         recentImages.clear();

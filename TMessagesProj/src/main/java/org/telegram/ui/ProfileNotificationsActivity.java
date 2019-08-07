@@ -800,7 +800,7 @@ public class ProfileNotificationsActivity extends BaseFragment implements Notifi
                 case 2: {
                     TextInfoPrivacyCell textCell = (TextInfoPrivacyCell) holder.itemView;
                     if (position == popupInfoRow) {
-                        textCell.setText(LocaleController.getString("ProfilePopupNotificationInfo", R.string.ProfilePopupNotificationInfo));
+                        textCell.setText(LocaleController.getString("ProfilePopupNotificationInfoX", R.string.ProfilePopupNotificationInfoX));
                         textCell.setBackgroundDrawable(Theme.getThemedDrawable(context, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
                     } else if (position == ledInfoRow) {
                         textCell.setText(LocaleController.getString("NotificationsLedInfo", R.string.NotificationsLedInfo));
@@ -816,7 +816,7 @@ public class ProfileNotificationsActivity extends BaseFragment implements Notifi
                         textCell.setText(null);
                         textCell.setBackgroundDrawable(Theme.getThemedDrawable(context, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
                     } else if (position == ringtoneInfoRow) {
-                        textCell.setText(LocaleController.getString("VoipRingtoneInfo", R.string.VoipRingtoneInfo));
+                        textCell.setText(LocaleController.getString("VoipRingtoneInfoX", R.string.VoipRingtoneInfoX));
                         textCell.setBackgroundDrawable(Theme.getThemedDrawable(context, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
                     }
                     break;

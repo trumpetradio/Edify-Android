@@ -3612,7 +3612,7 @@ public class ArticleViewer implements NotificationCenter.NotificationCenterDeleg
                         MediaController.saveFile(f.toString(), parentActivity, isMediaVideo(currentIndex) ? 1 : 0, null, null);
                     } else {
                         AlertDialog.Builder builder = new AlertDialog.Builder(parentActivity);
-                        builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                        builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                         builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), null);
                         builder.setMessage(LocaleController.getString("PleaseDownload", R.string.PleaseDownload));
                         showDialog(builder.create());
@@ -10728,7 +10728,7 @@ public class ArticleViewer implements NotificationCenter.NotificationCenterDeleg
                 parentActivity.startActivityForResult(Intent.createChooser(intent, LocaleController.getString("ShareFile", R.string.ShareFile)), 500);
             } else {
                 AlertDialog.Builder builder = new AlertDialog.Builder(parentActivity);
-                builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                 builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), null);
                 builder.setMessage(LocaleController.getString("PleaseDownload", R.string.PleaseDownload));
                 showDialog(builder.create());

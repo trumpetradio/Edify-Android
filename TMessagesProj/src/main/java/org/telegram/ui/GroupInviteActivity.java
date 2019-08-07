@@ -275,7 +275,7 @@ public class GroupInviteActivity extends BaseFragment implements NotificationCen
                         if (ChatObject.isChannel(chat) && !chat.megagroup) {
                             privacyCell.setText(LocaleController.getString("ChannelLinkInfo", R.string.ChannelLinkInfo));
                         } else {
-                            privacyCell.setText(LocaleController.getString("LinkInfo", R.string.LinkInfo));
+                            privacyCell.setText(LocaleController.getString("LinkInfoX", R.string.LinkInfoX));
                         }
                         privacyCell.setBackgroundDrawable(Theme.getThemedDrawable(mContext, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
                     }

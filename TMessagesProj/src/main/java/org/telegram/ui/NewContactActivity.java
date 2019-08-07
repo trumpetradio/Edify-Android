@@ -156,8 +156,8 @@ public class NewContactActivity extends BaseFragment implements AdapterView.OnIt
                                     }
                                     showEditDoneProgress(false, true);
                                     AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
-                                    builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
-                                    builder.setMessage(LocaleController.formatString("ContactNotRegistered", R.string.ContactNotRegistered, ContactsController.formatName(inputPhoneContact.first_name, inputPhoneContact.last_name)));
+                                    builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
+                                    builder.setMessage(LocaleController.formatString("ContactNotRegisteredX", R.string.ContactNotRegisteredX, ContactsController.formatName(inputPhoneContact.first_name, inputPhoneContact.last_name)));
                                     builder.setNegativeButton(LocaleController.getString("Cancel", R.string.Cancel), null);
                                     builder.setPositiveButton(LocaleController.getString("Invite", R.string.Invite), (dialog, which) -> {
                                         try {

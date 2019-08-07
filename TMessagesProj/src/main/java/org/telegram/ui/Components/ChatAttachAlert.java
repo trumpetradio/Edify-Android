@@ -561,7 +561,7 @@ public class ChatAttachAlert extends BottomSheet implements NotificationCenter.N
                 return;
             }
             AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-            builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+            builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
             builder.setMessage(LocaleController.formatString("ChatHintsDelete", R.string.ChatHintsDelete, ContactsController.formatName(currentUser.first_name, currentUser.last_name)));
             builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), (dialogInterface, i) -> MediaDataController.getInstance(currentAccount).removeInline(currentUser.id));
             builder.setNegativeButton(LocaleController.getString("Cancel", R.string.Cancel), null);
@@ -922,7 +922,7 @@ public class ChatAttachAlert extends BottomSheet implements NotificationCenter.N
 
         views[9] = progressView = new EmptyTextProgressView(context);
         if (Build.VERSION.SDK_INT >= 23 && getContext().checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            progressView.setText(LocaleController.getString("PermissionStorage", R.string.PermissionStorage));
+            progressView.setText(LocaleController.getString("PermissionStorageX", R.string.PermissionStorageX));
             progressView.setTextSize(16);
         } else {
             progressView.setText(LocaleController.getString("NoPhotos", R.string.NoPhotos));
@@ -2395,7 +2395,7 @@ public class ChatAttachAlert extends BottomSheet implements NotificationCenter.N
         }
 
         if (Build.VERSION.SDK_INT >= 23 && getContext().checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            progressView.setText(LocaleController.getString("PermissionStorage", R.string.PermissionStorage));
+            progressView.setText(LocaleController.getString("PermissionStorageX", R.string.PermissionStorageX));
             progressView.setTextSize(16);
         } else {
             progressView.setText(LocaleController.getString("NoPhotos", R.string.NoPhotos));
@@ -2991,7 +2991,7 @@ public class ChatAttachAlert extends BottomSheet implements NotificationCenter.N
                 views[a].setPivotY(views[a].getMeasuredHeight() / 2 + vecY * AndroidUtilities.dp(20));
                 innerAnimator.startRadius = dist - AndroidUtilities.dp(27 * 3);
 
-                views[a].setTag(R.string.AppName, 1);
+                views[a].setTag(R.string.EdifyAppName, 1);
                 animators = new ArrayList<>();
                 final AnimatorSet animatorSetInner;
                 if (a < 8) {

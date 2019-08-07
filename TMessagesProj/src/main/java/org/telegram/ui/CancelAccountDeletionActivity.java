@@ -144,7 +144,7 @@ public class CancelAccountDeletionActivity extends BaseFragment {
 
     @Override
     public View createView(Context context) {
-        actionBar.setTitle(LocaleController.getString("AppName", R.string.AppName));
+        actionBar.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
         actionBar.setBackButtonImage(R.drawable.ic_ab_back);
         actionBar.setActionBarMenuOnItemClick(new ActionBar.ActionBarMenuOnItemClick() {
             @Override
@@ -372,9 +372,9 @@ public class CancelAccountDeletionActivity extends BaseFragment {
                         if (preferences.getBoolean("firstlogin", true) || getParentActivity().shouldShowRequestPermissionRationale(Manifest.permission.READ_PHONE_STATE)) {
                             preferences.edit().putBoolean("firstlogin", false).commit();
                             AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
-                            builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
+                            builder.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                             builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), null);
-                            builder.setMessage(LocaleController.getString("AllowReadCall", R.string.AllowReadCall));
+                            builder.setMessage(LocaleController.getString("AllowReadCallX", R.string.AllowReadCallX));
                             permissionsDialog = showDialog(builder.create());
                         } else {
                             getParentActivity().requestPermissions(permissionsItems.toArray(new String[permissionsItems.size()]), 6);
@@ -531,7 +531,7 @@ public class CancelAccountDeletionActivity extends BaseFragment {
                     blueImageView.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_chats_actionBackground), PorterDuff.Mode.MULTIPLY));
                     frameLayout.addView(blueImageView, LayoutHelper.createFrame(LayoutHelper.WRAP_CONTENT, LayoutHelper.WRAP_CONTENT, Gravity.LEFT | Gravity.TOP, 0, 0, 0, 0));
 
-                    titleTextView.setText(LocaleController.getString("SentAppCodeTitle", R.string.SentAppCodeTitle));
+                    titleTextView.setText(LocaleController.getString("SentAppCodeTitleX", R.string.SentAppCodeTitleX));
                 } else {
                     blueImageView = new ImageView(context);
                     blueImageView.setImageResource(R.drawable.sms_code);
@@ -830,7 +830,7 @@ public class CancelAccountDeletionActivity extends BaseFragment {
             }
 
             String number = PhoneFormat.getInstance().format(phone);
-            CharSequence str = AndroidUtilities.replaceTags(LocaleController.formatString("CancelAccountResetInfo", R.string.CancelAccountResetInfo, PhoneFormat.getInstance().format("+" + number)));
+            CharSequence str = AndroidUtilities.replaceTags(LocaleController.formatString("CancelAccountResetInfoX", R.string.CancelAccountResetInfoX, PhoneFormat.getInstance().format("+" + number)));
             confirmTextView.setText(str);
 
             if (currentType != 3) {
@@ -851,13 +851,13 @@ public class CancelAccountDeletionActivity extends BaseFragment {
                 problemText.setVisibility(GONE);
                 timeText.setVisibility(VISIBLE);
                 if (nextType == 4) {
-                    timeText.setText(LocaleController.formatString("CallText", R.string.CallText, 1, 0));
+                    timeText.setText(LocaleController.formatString("CallTextX", R.string.CallTextX, 1, 0));
                 } else if (nextType == 2) {
                     timeText.setText(LocaleController.formatString("SmsText", R.string.SmsText, 1, 0));
                 }
                 createTimer();
             } else if (currentType == 2 && (nextType == 4 || nextType == 3)) {
-                timeText.setText(LocaleController.formatString("CallText", R.string.CallText, 2, 0));
+                timeText.setText(LocaleController.formatString("CallTextX", R.string.CallTextX, 2, 0));
                 problemText.setVisibility(time < 1000 ? VISIBLE : GONE);
                 timeText.setVisibility(time < 1000 ? GONE : VISIBLE);
                 createTimer();
@@ -933,7 +933,7 @@ public class CancelAccountDeletionActivity extends BaseFragment {
                                 int minutes = time / 1000 / 60;
                                 int seconds = time / 1000 - minutes * 60;
                                 if (nextType == 4 || nextType == 3) {
-                                    timeText.setText(LocaleController.formatString("CallText", R.string.CallText, minutes, seconds));
+                                    timeText.setText(LocaleController.formatString("CallTextX", R.string.CallTextX, minutes, seconds));
                                 } else if (nextType == 2) {
                                     timeText.setText(LocaleController.formatString("SmsText", R.string.SmsText, minutes, seconds));
                                 }

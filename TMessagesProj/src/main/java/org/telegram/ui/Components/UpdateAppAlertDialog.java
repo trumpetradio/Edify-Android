@@ -46,7 +46,7 @@ public class UpdateAppAlertDialog extends AlertDialog implements NotificationCen
             setSecondTitle(AndroidUtilities.formatFileSize(appUpdate.document.size));
         }
         setDismissDialogByButtons(false);
-        setTitle(LocaleController.getString("UpdateTelegram", R.string.UpdateTelegram));
+        setTitle(LocaleController.getString("UpdateTelegramX", R.string.UpdateTelegramX));
         setPositiveButton(LocaleController.getString("UpdateNow", R.string.UpdateNow), (dialog, which) -> {
             if (!BlockingUpdateView.checkApkInstallPermissions(getContext())) {
                 return;
