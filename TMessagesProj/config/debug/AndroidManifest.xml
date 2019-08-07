@@ -16,7 +16,7 @@
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:label="@string/EdifyAppNameBeta"
+        android:label="@string/EdifyAppName"
         android:theme="@style/Theme.TMessages.Start"
         android:hardwareAccelerated="@bool/useHardwareAcceleration"
         android:largeHeap="true"

@@ -74,6 +74,7 @@ public class IntroActivity extends Activity implements NotificationCenter.Notifi
     private boolean startPressed = false;
     private String[] titles;
     private String[] messages;
+    private int[] introImages;
     private int currentViewPagerPage;
     private EGLThread eglThread;
     private long currentDate;
@@ -92,6 +93,15 @@ public class IntroActivity extends Activity implements NotificationCenter.Notifi
 
         SharedPreferences preferences = MessagesController.getGlobalMainSettings();
         preferences.edit().putLong("intro_crashed_time", System.currentTimeMillis()).commit();
+
+        introImages = new int[]{
+                R.drawable.intro1,
+                R.drawable.intro2,
+                R.drawable.intro3,
+                R.drawable.intro4,
+                R.drawable.intro5,
+                R.drawable.intro6
+        };
 
         titles = new String[]{
                 LocaleController.getString("Page1xTitle", R.string.Page1xTitle),
@@ -117,42 +127,42 @@ public class IntroActivity extends Activity implements NotificationCenter.Notifi
         frameLayout.setBackgroundColor(0xffffffff);
         scrollView.addView(frameLayout, LayoutHelper.createScroll(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT, Gravity.LEFT | Gravity.TOP));
 
-        FrameLayout frameLayout2 = new FrameLayout(this);
-        frameLayout.addView(frameLayout2, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT, Gravity.LEFT | Gravity.TOP, 0, 78, 0, 0));
-
-        TextureView textureView = new TextureView(this);
-        frameLayout2.addView(textureView, LayoutHelper.createFrame(200, 150, Gravity.CENTER));
-        textureView.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() {
-            @Override
-            public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
-                if (eglThread == null && surface != null) {
-                    eglThread = new EGLThread(surface);
-                    eglThread.setSurfaceTextureSize(width, height);
-                    eglThread.postRunnable(() -> eglThread.drawRunnable.run());
-                }
-            }
-
-            @Override
-            public void onSurfaceTextureSizeChanged(SurfaceTexture surface, final int width, final int height) {
-                if (eglThread != null) {
-                    eglThread.setSurfaceTextureSize(width, height);
-                }
-            }
-
-            @Override
-            public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
-                if (eglThread != null) {
-                    eglThread.shutdown();
-                    eglThread = null;
-                }
-                return true;
-            }
-
-            @Override
-            public void onSurfaceTextureUpdated(SurfaceTexture surface) {
-
-            }
-        });
+//        FrameLayout frameLayout2 = new FrameLayout(this);
+//        frameLayout.addView(frameLayout2, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT, Gravity.LEFT | Gravity.TOP, 0, 78, 0, 0));
+//
+//        TextureView textureView = new TextureView(this);
+//        frameLayout2.addView(textureView, LayoutHelper.createFrame(200, 150, Gravity.CENTER));
+//        textureView.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() {
+//            @Override
+//            public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
+//                if (eglThread == null && surface != null) {
+//                    eglThread = new EGLThread(surface);
+//                    eglThread.setSurfaceTextureSize(width, height);
+//                    eglThread.postRunnable(() -> eglThread.drawRunnable.run());
+//                }
+//            }
+//
+//            @Override
+//            public void onSurfaceTextureSizeChanged(SurfaceTexture surface, final int width, final int height) {
+//                if (eglThread != null) {
+//                    eglThread.setSurfaceTextureSize(width, height);
+//                }
+//            }
+//
+//            @Override
+//            public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
+//                if (eglThread != null) {
+//                    eglThread.shutdown();
+//                    eglThread = null;
+//                }
+//                return true;
+//            }
+//
+//            @Override
+//            public void onSurfaceTextureUpdated(SurfaceTexture surface) {
+//
+//            }
+//        });
 
         viewPager = new ViewPager(this);
         viewPager.setAdapter(new IntroAdapter());
@@ -376,6 +386,9 @@ public class IntroActivity extends Activity implements NotificationCenter.Notifi
         public Object instantiateItem(ViewGroup container, int position) {
             FrameLayout frameLayout = new FrameLayout(container.getContext());
 
+            ImageView introImageView = new ImageView(container.getContext());
+            frameLayout.addView(introImageView, LayoutHelper.createFrame(200,150, Gravity.TOP | Gravity.CENTER, 0, 78, 0, 0));
+
             TextView headerTextView = new TextView(container.getContext());
             headerTextView.setTextColor(0xff212121);
             headerTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 26);
@@ -390,6 +403,7 @@ public class IntroActivity extends Activity implements NotificationCenter.Notifi
 
             container.addView(frameLayout, 0);
 
+            introImageView.setImageResource(introImages[position]);
             headerTextView.setText(titles[position]);
             messageTextView.setText(AndroidUtilities.replaceTags(messages[position]));
 
@@ -618,15 +632,15 @@ public class IntroActivity extends Activity implements NotificationCenter.Notifi
 
         private void loadTexture(int resId, int index) {
             Drawable drawable = getResources().getDrawable(resId);
-            if (drawable instanceof BitmapDrawable) {
-                Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-                GLES20.glBindTexture(GL10.GL_TEXTURE_2D, textures[index]);
-                GLES20.glTexParameteri(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER, GL10.GL_LINEAR);
-                GLES20.glTexParameteri(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MAG_FILTER, GL10.GL_LINEAR);
-                GLES20.glTexParameteri(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_S, GL10.GL_CLAMP_TO_EDGE);
-                GLES20.glTexParameteri(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_T, GL10.GL_CLAMP_TO_EDGE);
-                GLUtils.texImage2D(GL10.GL_TEXTURE_2D, 0, bitmap, 0);
-            }
+//            if (drawable instanceof BitmapDrawable) {
+//                Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
+//                GLES20.glBindTexture(GL10.GL_TEXTURE_2D, textures[index]);
+//                GLES20.glTexParameteri(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER, GL10.GL_LINEAR);
+//                GLES20.glTexParameteri(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MAG_FILTER, GL10.GL_LINEAR);
+//                GLES20.glTexParameteri(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_S, GL10.GL_CLAMP_TO_EDGE);
+//                GLES20.glTexParameteri(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_T, GL10.GL_CLAMP_TO_EDGE);
+//                GLUtils.texImage2D(GL10.GL_TEXTURE_2D, 0, bitmap, 0);
+//            }
         }
 
         public void shutdown() {

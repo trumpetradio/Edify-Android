@@ -89,7 +89,7 @@
     <style name="ActionBar.Transparent.TMessages.Start" parent="android:style/Widget.Holo.Light.ActionBar">
         <item name="android:background">#ff527da3</item>
         <item name="android:logo">@drawable/transparent</item>
-        <item name="android:title">""</item>
+        <item name="android:title">"Edify"</item>
     </style>
 
     <!--ACTION BAR ITEMS-->

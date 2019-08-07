@@ -855,7 +855,7 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
                 actionBar.setTitle(LocaleController.getString("ArchivedChats", R.string.ArchivedChats));
             } else {
                 if (BuildVars.DEBUG_VERSION) {
-                    actionBar.setTitle("Telegram Beta"/*LocaleController.getString("EdifyAppNameBeta", R.string.EdifyAppNameBeta)*/);
+                    actionBar.setTitle("Edify"/*LocaleController.getString("EdifyAppNameBeta", R.string.EdifyAppNameBeta)*/);
                 } else {
                     actionBar.setTitle(LocaleController.getString("EdifyAppName", R.string.EdifyAppName));
                 }
