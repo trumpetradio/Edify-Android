@@ -822,7 +822,7 @@
     <string name="DeleteForUser">Verwijder voor %1$s</string>
     <string name="DeleteForAll">Verwijder voor iedereen</string>
     <string name="TextCopied">Tekst gekopieerd naar klembord.</string>
-    <string name="HoldToAudio">Hou vast voor audio-opname. Tik voor video</string>
+    <string name="HoldToAudioX">Hou vast voor audio-opname. Tik voor video</string>
     <string name="HoldToVideo">Hou vast voor video-opname. Tik voor audio</string>
     <string name="DiscardVoiceMessageTitle">Spraakbericht weggooien</string>
     <string name="DiscardVoiceMessageDescription">Wil je stoppen met opnemen en je spraakbericht weggooien?</string>
@@ -1335,7 +1335,7 @@
     <string name="TelegramFAQX">Veelgestelde vragen</string>
     <string name="AddAccount">Account toevoegen</string>
     <string name="SelectAccount">Account kiezen</string>
-    <string name="TelegramFaqUrl">https://telegram.org/faq</string>
+    <string name="TelegramFaqUrlX">https://telegram.me/edifysupport</string>
     <string name="PrivacyPolicy">Privacybeleid</string>
     <string name="TermsOfService">Gebruiksvoorwaarden</string>
     <string name="TermsOfServiceLogin">Door aan te melden ga je akkoord \nmet onze *Gebruiksvoorwaarden*.</string>
@@ -1571,7 +1571,7 @@
     <string name="CalculatingSize">Berekenen...</string>
     <string name="LocalDocumentCache">Bestanden</string>
     <string name="LocalPhotoCache">Foto\'s</string>
-    <string name="LocalAudioCache">Spraak/Video-berichten</string>
+    <string name="LocalAudioCacheX">Spraak/Video-berichten</string>
     <string name="LocalVideoCache">Video\'s</string>
     <string name="LocalMusicCache">Muziek</string>
     <string name="LocalGifCache">GIFs</string>

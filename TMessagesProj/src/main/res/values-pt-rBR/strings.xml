@@ -822,7 +822,7 @@
     <string name="DeleteForUser">Apagar para %1$s</string>
     <string name="DeleteForAll">Apagar para todos os membros</string>
     <string name="TextCopied">Texto copiado para área de transferência</string>
-    <string name="HoldToAudio">Segure para gravar áudio. Toque para vídeo.</string>
+    <string name="HoldToAudioX">Segure para gravar áudio. Toque para vídeo.</string>
     <string name="HoldToVideo">Segure para gravar vídeo. Toque para áudio.</string>
     <string name="DiscardVoiceMessageTitle">Descartar Mensagem de Voz</string>
     <string name="DiscardVoiceMessageDescription">Tem certeza de que deseja parar de gravar e descartar sua mensagem de voz?</string>
@@ -1335,7 +1335,7 @@
     <string name="TelegramFAQX">Perguntas Frequentes</string>
     <string name="AddAccount">Adicionar&#160;Conta</string>
     <string name="SelectAccount">Selecionar Conta</string>
-    <string name="TelegramFaqUrl">https://telegram.org/faq/br</string>
+    <string name="TelegramFaqUrlX">https://telegram.me/edifysupport</string>
     <string name="PrivacyPolicy">Política de Privacidade</string>
     <string name="TermsOfService">Termos de Serviço</string>
     <string name="TermsOfServiceLogin">Ao se cadastrar,\nvocê concorda com os *Termos de Serviço*.</string>
@@ -1571,7 +1571,7 @@
     <string name="CalculatingSize">Calculando...</string>
     <string name="LocalDocumentCache">Documentos</string>
     <string name="LocalPhotoCache">Fotos</string>
-    <string name="LocalAudioCache">Mensagens de vídeo/voz</string>
+    <string name="LocalAudioCacheX">Mensagens de vídeo/voz</string>
     <string name="LocalVideoCache">Vídeos</string>
     <string name="LocalMusicCache">Música</string>
     <string name="LocalGifCache">GIFs</string>

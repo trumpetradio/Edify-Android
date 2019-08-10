@@ -403,7 +403,7 @@ public class CacheControlActivity extends BaseFragment {
                         name = LocaleController.getString("LocalMusicCache", R.string.LocalMusicCache);
                     } else if (a == 4) {
                         size = audioSize;
-                        name = LocaleController.getString("LocalAudioCache", R.string.LocalAudioCache);
+                        name = LocaleController.getString("LocalAudioCacheX", R.string.LocalAudioCacheX);
                     } else if (a == 5) {
                         size = cacheSize;
                         name = LocaleController.getString("LocalCache", R.string.LocalCache);

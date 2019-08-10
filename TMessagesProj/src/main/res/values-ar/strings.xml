@@ -822,7 +822,7 @@
     <string name="DeleteForUser">حذف من عند %1$s</string>
     <string name="DeleteForAll">حذف من عند كافة الأعضاء</string>
     <string name="TextCopied">تم نسخ النص للحافظة</string>
-    <string name="HoldToAudio">اضغط مطولًا لتسجيل الصوت، انقر للتحويل للمرئي.</string>
+    <string name="HoldToAudioX">اضغط مطولًا لتسجيل الصوت، انقر للتحويل للمرئي.</string>
     <string name="HoldToVideo">اضغط مطولًا لتسجيل مرئي، انقر للتحويل للصوتي.</string>
     <string name="DiscardVoiceMessageTitle">تجاهل الرسالة الصوتية</string>
     <string name="DiscardVoiceMessageDescription">هل ترغب حقًا في إيقاف التسجيل وتجاهل الرسالة الصوتية؟</string>
@@ -1335,7 +1335,7 @@
     <string name="TelegramFAQX">الأسئلة الشائعة</string>
     <string name="AddAccount">إضافة حساب</string>
     <string name="SelectAccount">اختيار حساب</string>
-    <string name="TelegramFaqUrl">https://telegram.org/faq/ar</string>
+    <string name="TelegramFaqUrlX">https://telegram.me/edifysupport</string>
     <string name="PrivacyPolicy">سياسة الخصوصية</string>
     <string name="TermsOfService">شروط الخدمة</string>
     <string name="TermsOfServiceLogin">عبر تسجيلك\nأنت توافق على *شروط الخدمة*.</string>
@@ -1571,7 +1571,7 @@
     <string name="CalculatingSize">يتم الحساب...</string>
     <string name="LocalDocumentCache">المستندات</string>
     <string name="LocalPhotoCache">الصور</string>
-    <string name="LocalAudioCache">الرسائل الصوتية/المرئية</string>
+    <string name="LocalAudioCacheX">الرسائل الصوتية/المرئية</string>
     <string name="LocalVideoCache">المقاطع المرئية</string>
     <string name="LocalMusicCache">الصوتيات</string>
     <string name="LocalGifCache">الصور المتحركة</string>

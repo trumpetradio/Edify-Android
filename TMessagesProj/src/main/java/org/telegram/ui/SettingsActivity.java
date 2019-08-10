@@ -301,7 +301,7 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
                 listView.setEmptyView(null);
                 emptyView.setVisibility(View.GONE);
                 avatarContainer.setVisibility(View.VISIBLE);
-                writeButton.setVisibility(View.VISIBLE);
+                writeButton.setVisibility(View.GONE);
                 nameTextView.setVisibility(View.VISIBLE);
                 onlineTextView.setVisibility(View.VISIBLE);
                 extraHeightView.setVisibility(View.VISIBLE);
@@ -589,6 +589,7 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
         frameLayout.addView(onlineTextView, LayoutHelper.createFrame(LayoutHelper.WRAP_CONTENT, LayoutHelper.WRAP_CONTENT, (LocaleController.isRTL ? Gravity.RIGHT : Gravity.LEFT) | Gravity.TOP, LocaleController.isRTL ? 48 : 118, 0, LocaleController.isRTL ? 166 : 96, 0));
 
         writeButton = new ImageView(context);
+        writeButton.setVisibility(View.GONE);
         Drawable drawable = Theme.createSimpleSelectorCircleDrawable(AndroidUtilities.dp(56), Theme.getColor(Theme.key_profile_actionBackground), Theme.getColor(Theme.key_profile_actionPressedBackground));
         if (Build.VERSION.SDK_INT < 21) {
             Drawable shadowDrawable = context.getResources().getDrawable(R.drawable.floating_shadow_profile).mutate();
@@ -885,7 +886,7 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
             if (setVisible != currentVisible) {
                 if (setVisible) {
                     writeButton.setTag(null);
-                    writeButton.setVisibility(View.VISIBLE);
+                    writeButton.setVisibility(View.GONE);
                 } else {
                     writeButton.setTag(0);
                 }
@@ -915,7 +916,8 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         if (writeButtonAnimation != null && writeButtonAnimation.equals(animation)) {
-                            writeButton.setVisibility(setVisible ? View.VISIBLE : View.GONE);
+                            //writeButton.setVisibility(setVisible ? View.VISIBLE : View.GONE);
+                          writeButton.setVisibility(View.GONE);
                             writeButtonAnimation = null;
                         }
                     }
@@ -1045,7 +1047,7 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
                         break;
                     }
                     case 1:
-                        Browser.openUrl(getParentActivity(), LocaleController.getString("TelegramFaqUrl", R.string.TelegramFaqUrl));
+                        Browser.openUrl(getParentActivity(), LocaleController.getString("TelegramFaqUrlX", R.string.TelegramFaqUrlX));
                         break;
                     case 2:
                         Browser.openUrl(getParentActivity(), LocaleController.getString("PrivacyPolicyUrl", R.string.PrivacyPolicyUrl));
@@ -1401,7 +1403,7 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
 
                 new SearchResult(401, LocaleController.getString("SettingsHelp", R.string.SettingsHelp), R.drawable.menu_help, SettingsActivity.this::showHelpAlert),
                 new SearchResult(402, LocaleController.getString("AskAQuestion", R.string.AskAQuestion), LocaleController.getString("SettingsHelp", R.string.SettingsHelp), R.drawable.menu_help, () -> showDialog(AlertsCreator.createSupportAlert(SettingsActivity.this))),
-                new SearchResult(403, LocaleController.getString("TelegramFAQX", R.string.TelegramFAQX), LocaleController.getString("SettingsHelp", R.string.SettingsHelp), R.drawable.menu_help, () -> Browser.openUrl(getParentActivity(), LocaleController.getString("TelegramFaqUrl", R.string.TelegramFaqUrl))),
+                new SearchResult(403, LocaleController.getString("TelegramFAQX", R.string.TelegramFAQX), LocaleController.getString("SettingsHelp", R.string.SettingsHelp), R.drawable.menu_help, () -> Browser.openUrl(getParentActivity(), LocaleController.getString("TelegramFaqUrlX", R.string.TelegramFaqUrlX))),
                 new SearchResult(404, LocaleController.getString("PrivacyPolicy", R.string.PrivacyPolicy), LocaleController.getString("SettingsHelp", R.string.SettingsHelp), R.drawable.menu_help, () -> Browser.openUrl(getParentActivity(), LocaleController.getString("PrivacyPolicyUrl", R.string.PrivacyPolicyUrl))),
         };
         private ArrayList<FaqSearchResult> faqSearchArray = new ArrayList<>();
@@ -1475,7 +1477,7 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
             }
             loadingFaqPage = true;
             final TLRPC.TL_messages_getWebPage req2 = new TLRPC.TL_messages_getWebPage();
-            req2.url = LocaleController.getString("TelegramFaqUrl", R.string.TelegramFaqUrl);
+            req2.url = LocaleController.getString("TelegramFaqUrlX", R.string.TelegramFaqUrlX);
             req2.hash = 0;
             ConnectionsManager.getInstance(currentAccount).sendRequest(req2, (response2, error2) -> {
                 if (response2 instanceof TLRPC.WebPage) {
@@ -1916,7 +1918,7 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
                                 abi = "universal " + Build.CPU_ABI + " " + Build.CPU_ABI2;
                                 break;
                         }
-                        cell.setText(String.format("Telegram-FOSS %1$s", String.format(Locale.US, "v%s (%d) %s", pInfo.versionName, code, abi)));
+                        cell.setText(String.format("Edify %1$s", String.format(Locale.US, "v%s", pInfo.versionName)));
                     } catch (Exception e) {
                         FileLog.e(e);
                     }

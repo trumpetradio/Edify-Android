@@ -822,7 +822,7 @@
     <string name="DeleteForUser">%1$s 님에게서 삭제</string>
     <string name="DeleteForAll">모든 참가자에게서 삭제</string>
     <string name="TextCopied">텍스트를 클립보드에 복사했습니다</string>
-    <string name="HoldToAudio">꾹 눌러 음성을 녹음하세요. 짧게 눌러 녹화로 바꾸세요.</string>
+    <string name="HoldToAudioX">꾹 눌러 음성을 녹음하세요. 짧게 눌러 녹화로 바꾸세요.</string>
     <string name="HoldToVideo">꾹 눌러 동영상을 녹화하세요. 짧게 눌러 녹음으로 바꾸세요.</string>
     <string name="DiscardVoiceMessageTitle">음성 메시지 삭제</string>
     <string name="DiscardVoiceMessageDescription">정말 녹음을 멈추고 음성 메시지를 삭제하시겠습니까?</string>
@@ -1335,7 +1335,7 @@
     <string name="TelegramFAQX">자주 묻는 질문</string>
     <string name="AddAccount">계정 추가</string>
     <string name="SelectAccount">계정을 선택하세요</string>
-    <string name="TelegramFaqUrl">https://telegram.org/faq/ko</string>
+    <string name="TelegramFaqUrlX">https://telegram.me/edifysupport</string>
     <string name="PrivacyPolicy">개인 정보 정책</string>
     <string name="TermsOfService">이용 약관</string>
     <string name="TermsOfServiceLogin">가입함으로써 귀하는 *이용 약관*에 동의하게 됩니다.</string>
@@ -1571,7 +1571,7 @@
     <string name="CalculatingSize">계산 중...</string>
     <string name="LocalDocumentCache">문서</string>
     <string name="LocalPhotoCache">사진</string>
-    <string name="LocalAudioCache">음성/동영상 메시지</string>
+    <string name="LocalAudioCacheX">음성/동영상 메시지</string>
     <string name="LocalVideoCache">동영상</string>
     <string name="LocalMusicCache">음악</string>
     <string name="LocalGifCache">GIF</string>

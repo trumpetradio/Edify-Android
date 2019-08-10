@@ -294,7 +294,8 @@ public class ContactsController extends BaseController {
     }
 
     public String getInviteText(int contacts) {
-        String link = inviteLink == null ? "https://f-droid.org/packages/org.telegram.messenger" : inviteLink;
+        //String link = inviteLink == null ? "https://f-droid.org/packages/org.telegram.messenger" : inviteLink;
+        String link = "http://onelink.to/edifymessenger";
         if (contacts <= 1) {
             return LocaleController.formatString("InviteText2X", R.string.InviteText2X, link);
         } else {

@@ -39,7 +39,7 @@ android {
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
 
-    defaultConfig.applicationId = "org.telegram.messenger"
+    defaultConfig.applicationId = "com.churchofgod.edify"
 
     sourceSets.main.jniLibs.srcDirs = ['./jni/']
 
@@ -69,7 +69,7 @@ android {
         debug {
             debuggable true
             jniDebuggable true
-            applicationIdSuffix ".beta"
+//            applicationIdSuffix ".beta"
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -81,7 +81,7 @@ android {
             dependencies {
                 implementation 'com.android.support:multidex:1.0.3'
             }
-            manifestPlaceholders = [applicationClassName: "MultiDexApplicationLoader"]
+            manife stPlaceholders = [applicationClassName: "MultiDexApplicationLoader"]
         }
 
         HA {

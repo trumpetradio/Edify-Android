@@ -34,7 +34,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class DrawerLayoutAdapter extends RecyclerListView.SelectionAdapter {
 
     private Context mContext;
-    private ArrayList<Item> items = new ArrayList<>(11);
+    private ArrayList<Item> items = new ArrayList<>(10);
     private ArrayList<Integer> accountNumbers = new ArrayList<>();
     private boolean accountsShowed;
     private DrawerProfileCell profileCell;
@@ -184,7 +184,7 @@ public class DrawerLayoutAdapter extends RecyclerListView.SelectionAdapter {
             }
             i -= getAccountRowsCount();
         }
-        if (i == 3) {
+        if (i == 2) {
             return 2;
         }
         return 3;
@@ -215,7 +215,7 @@ public class DrawerLayoutAdapter extends RecyclerListView.SelectionAdapter {
         int eventType = Theme.getEventType();
         if (eventType == 0) {
             items.add(new Item(2, LocaleController.getString("NewGroup", R.string.NewGroup), R.drawable.menu_groups_ny));
-            items.add(new Item(3, LocaleController.getString("NewSecretChat", R.string.NewSecretChat), R.drawable.menu_secret_ny));
+//            items.add(new Item(3, LocaleController.getString("NewSecretChat", R.string.NewSecretChat), R.drawable.menu_secret_ny));
             items.add(new Item(4, LocaleController.getString("NewChannel", R.string.NewChannel), R.drawable.menu_channel_ny));
             items.add(null); // divider
             items.add(new Item(6, LocaleController.getString("Contacts", R.string.Contacts), R.drawable.menu_contacts_ny));
@@ -226,7 +226,7 @@ public class DrawerLayoutAdapter extends RecyclerListView.SelectionAdapter {
             items.add(new Item(9, LocaleController.getString("TelegramFAQX", R.string.TelegramFAQX), R.drawable.menu_help_ny));
         } else {
             items.add(new Item(2, LocaleController.getString("NewGroup", R.string.NewGroup), R.drawable.menu_groups));
-            items.add(new Item(3, LocaleController.getString("NewSecretChat", R.string.NewSecretChat), R.drawable.menu_secret));
+//            items.add(new Item(3, LocaleController.getString("NewSecretChat", R.string.NewSecretChat), R.drawable.menu_secret));
             items.add(new Item(4, LocaleController.getString("NewChannel", R.string.NewChannel), R.drawable.menu_broadcast));
             items.add(null); // divider
             items.add(new Item(6, LocaleController.getString("Contacts", R.string.Contacts), R.drawable.menu_contacts));

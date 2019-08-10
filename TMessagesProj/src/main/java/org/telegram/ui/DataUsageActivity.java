@@ -796,7 +796,7 @@ public class DataUsageActivity extends BaseFragment {
                     } else if (position == filesSectionRow) {
                         headerCell.setText(LocaleController.getString("FilesDataUsage", R.string.FilesDataUsage));
                     } else if (position == audiosSectionRow) {
-                        headerCell.setText(LocaleController.getString("LocalAudioCache", R.string.LocalAudioCache));
+                        headerCell.setText(LocaleController.getString("LocalAudioCacheX", R.string.LocalAudioCacheX));
                     } else if (position == videosSectionRow) {
                         headerCell.setText(LocaleController.getString("LocalVideoCache", R.string.LocalVideoCache));
                     } else if (position == photosSectionRow) {

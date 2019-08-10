@@ -317,7 +317,7 @@ public class ContactsActivity extends BaseFragment implements NotificationCenter
                 if (listView != null && listView.getAdapter() == this) {
                     int count = super.getItemCount();
                     if (needPhonebook) {
-                        emptyView.setVisibility(count == 2 ? View.VISIBLE : View.GONE);
+                        emptyView.setVisibility(count == 1 ? View.VISIBLE : View.GONE);
                         listView.setFastScrollVisible(count != 2);
                     } else {
                         emptyView.setVisibility(count == 0 ? View.VISIBLE : View.GONE);
@@ -418,33 +418,33 @@ public class ContactsActivity extends BaseFragment implements NotificationCenter
                     if (needPhonebook) {
                         if (row == 0) {
                             presentFragment(new InviteContactsActivity());
-                        } else if (row == 1 && hasGps) {
-                            if (Build.VERSION.SDK_INT >= 23) {
-                                Activity activity = getParentActivity();
-                                if (activity != null) {
-                                    if (activity.checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                                        presentFragment(new ActionIntroActivity(ActionIntroActivity.ACTION_TYPE_NEARBY_LOCATION_ACCESS));
-                                        return;
-                                    }
-                                }
-                            }
-                            boolean enabled = true;
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                                LocationManager lm = (LocationManager) ApplicationLoader.applicationContext.getSystemService(Context.LOCATION_SERVICE);
-                                enabled = lm.isLocationEnabled();
-                            } else if (Build.VERSION.SDK_INT >= 19) {
-                                try {
-                                    int mode = Settings.Secure.getInt(ApplicationLoader.applicationContext.getContentResolver(), Settings.Secure.LOCATION_MODE, Settings.Secure.LOCATION_MODE_OFF);
-                                    enabled = (mode != Settings.Secure.LOCATION_MODE_OFF);
-                                } catch (Throwable e) {
-                                    FileLog.e(e);
-                                }
-                            }
-                            if (!enabled) {
-                                presentFragment(new ActionIntroActivity(ActionIntroActivity.ACTION_TYPE_NEARBY_LOCATION_ENABLED));
-                                return;
-                            }
-                            presentFragment(new PeopleNearbyActivity());
+//                        } else if (row == 1 && hasGps) {
+//                            if (Build.VERSION.SDK_INT >= 23) {
+//                                Activity activity = getParentActivity();
+//                                if (activity != null) {
+//                                    if (activity.checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//                                        presentFragment(new ActionIntroActivity(ActionIntroActivity.ACTION_TYPE_NEARBY_LOCATION_ACCESS));
+//                                        return;
+//                                    }
+//                                }
+//                            }
+//                            boolean enabled = true;
+//                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+//                                LocationManager lm = (LocationManager) ApplicationLoader.applicationContext.getSystemService(Context.LOCATION_SERVICE);
+//                                enabled = lm.isLocationEnabled();
+//                            } else if (Build.VERSION.SDK_INT >= 19) {
+//                                try {
+//                                    int mode = Settings.Secure.getInt(ApplicationLoader.applicationContext.getContentResolver(), Settings.Secure.LOCATION_MODE, Settings.Secure.LOCATION_MODE_OFF);
+//                                    enabled = (mode != Settings.Secure.LOCATION_MODE_OFF);
+//                                } catch (Throwable e) {
+//                                    FileLog.e(e);
+//                                }
+//                            }
+//                            if (!enabled) {
+//                                presentFragment(new ActionIntroActivity(ActionIntroActivity.ACTION_TYPE_NEARBY_LOCATION_ENABLED));
+//                                return;
+//                            }
+//                            presentFragment(new PeopleNearbyActivity());
                         }
                     } else if (inviteViaLink != 0) {
                         if (row == 0) {
@@ -454,14 +454,14 @@ public class ContactsActivity extends BaseFragment implements NotificationCenter
                         if (row == 0) {
                             Bundle args = new Bundle();
                             presentFragment(new GroupCreateActivity(args), false);
+//                        } else if (row == 2) {
+//                            Bundle args = new Bundle();
+//                            args.putBoolean("onlyUsers", true);
+//                            args.putBoolean("destroyAfterSelect", true);
+//                            args.putBoolean("createSecretChat", true);
+//                            args.putBoolean("allowBots", false);
+//                            presentFragment(new ContactsActivity(args), false);
                         } else if (row == 1) {
-                            Bundle args = new Bundle();
-                            args.putBoolean("onlyUsers", true);
-                            args.putBoolean("destroyAfterSelect", true);
-                            args.putBoolean("createSecretChat", true);
-                            args.putBoolean("allowBots", false);
-                            presentFragment(new ContactsActivity(args), false);
-                        } else if (row == 2) {
                             SharedPreferences preferences = MessagesController.getGlobalMainSettings();
                             if (!BuildVars.DEBUG_VERSION && preferences.getBoolean("channel_intro", false)) {
                                 Bundle args = new Bundle();

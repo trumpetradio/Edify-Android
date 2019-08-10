@@ -677,11 +677,11 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
 
     private final static int attach_photo = 0;
     private final static int attach_gallery = 1;
-    private final static int attach_video = 2;
+//    private final static int attach_video = 6;
     private final static int attach_audio = 3;
     private final static int attach_document = 4;
     private final static int attach_contact = 5;
-    private final static int attach_location = 6;
+    private final static int attach_location = 2;
     private final static int attach_poll = 9;
 
     private final static int text_bold = 50;
@@ -5263,7 +5263,7 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
             return;
         }
 
-        voiceHintTextView.setText(video ? LocaleController.getString("HoldToVideo", R.string.HoldToVideo) : LocaleController.getString("HoldToAudio", R.string.HoldToAudio));
+        voiceHintTextView.setText(video ? LocaleController.getString("HoldToVideo", R.string.HoldToVideo) : LocaleController.getString("HoldToAudioX", R.string.HoldToAudioX));
 
         if (voiceHintHideRunnable != null) {
             if (voiceHintAnimation != null) {
@@ -5861,33 +5861,33 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                 }
             });
             presentFragment(fragment);
-        } else if (which == attach_video) {
-            if (Build.VERSION.SDK_INT >= 23 && getParentActivity().checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                try {
-                    getParentActivity().requestPermissions(new String[]{Manifest.permission.CAMERA}, 20);
-                } catch (Throwable ignore) {
-
-                }
-                return;
-            }
-            try {
-                Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-                File video = AndroidUtilities.generateVideoPath();
-                if (video != null) {
-                    if (Build.VERSION.SDK_INT >= 24) {
-                        takeVideoIntent.putExtra(MediaStore.EXTRA_OUTPUT, FileProvider.getUriForFile(getParentActivity(), BuildConfig.APPLICATION_ID + ".provider", video));
-                        takeVideoIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-                        takeVideoIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                    } else if (Build.VERSION.SDK_INT >= 18) {
-                        takeVideoIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(video));
-                    }
-                    takeVideoIntent.putExtra(MediaStore.EXTRA_SIZE_LIMIT, (long) (1024 * 1024 * 1536));
-                    currentPicturePath = video.getAbsolutePath();
-                }
-                startActivityForResult(takeVideoIntent, 2);
-            } catch (Exception e) {
-                FileLog.e(e);
-            }
+//        } else if (which == attach_video) {
+//            if (Build.VERSION.SDK_INT >= 23 && getParentActivity().checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+//                try {
+//                    getParentActivity().requestPermissions(new String[]{Manifest.permission.CAMERA}, 20);
+//                } catch (Throwable ignore) {
+//
+//                }
+//                return;
+//            }
+//            try {
+//                Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+//                File video = AndroidUtilities.generateVideoPath();
+//                if (video != null) {
+//                    if (Build.VERSION.SDK_INT >= 24) {
+//                        takeVideoIntent.putExtra(MediaStore.EXTRA_OUTPUT, FileProvider.getUriForFile(getParentActivity(), BuildConfig.APPLICATION_ID + ".provider", video));
+//                        takeVideoIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+//                        takeVideoIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+//                    } else if (Build.VERSION.SDK_INT >= 18) {
+//                        takeVideoIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(video));
+//                    }
+//                    takeVideoIntent.putExtra(MediaStore.EXTRA_SIZE_LIMIT, (long) (1024 * 1024 * 1536));
+//                    currentPicturePath = video.getAbsolutePath();
+//                }
+//                startActivityForResult(takeVideoIntent, 2);
+//            } catch (Exception e) {
+//                FileLog.e(e);
+//            }
         } else if (which == attach_location) {
             if (!AndroidUtilities.isGoogleMapsInstalled(ChatActivity.this)) {
                 return;
@@ -7328,8 +7328,8 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
             }
         } else if (requestCode == 19 && grantResults != null && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             processSelectedAttach(attach_photo);
-        } else if (requestCode == 20 && grantResults != null && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            processSelectedAttach(attach_video);
+//        } else if (requestCode == 20 && grantResults != null && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//            processSelectedAttach(attach_video);
         } else if (requestCode == 101 && currentUser != null) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 VoIPHelper.startCall(currentUser, getParentActivity(), getMessagesController().getUserFull(currentUser.id));
@@ -15170,9 +15170,9 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                 new ThemeDescription(null, ThemeDescription.FLAG_BACKGROUNDFILTER, null, null, new Drawable[]{Theme.chat_attachButtonDrawables[1]}, null, Theme.key_chat_attachGalleryBackground),
                 //new ThemeDescription(null, 0, null, null, new Drawable[]{Theme.chat_attachButtonDrawables[1]}, null, Theme.key_chat_attachGalleryBackgroundPressed),
                 new ThemeDescription(null, 0, null, null, new Drawable[]{Theme.chat_attachButtonDrawables[1]}, null, Theme.key_chat_attachGalleryIcon),
-                new ThemeDescription(null, ThemeDescription.FLAG_BACKGROUNDFILTER, null, null, new Drawable[]{Theme.chat_attachButtonDrawables[2]}, null, Theme.key_chat_attachVideoBackground),
+                //new ThemeDescription(null, ThemeDescription.FLAG_BACKGROUNDFILTER, null, null, new Drawable[]{Theme.chat_attachButtonDrawables[2]}, null, Theme.key_chat_attachVideoBackground),
                 //new ThemeDescription(null, 0, null, null, new Drawable[]{Theme.chat_attachButtonDrawables[2]}, null, Theme.key_chat_attachVideoBackgroundPressed),
-                new ThemeDescription(null, 0, null, null, new Drawable[]{Theme.chat_attachButtonDrawables[2]}, null, Theme.key_chat_attachVideoIcon),
+                //new ThemeDescription(null, 0, null, null, new Drawable[]{Theme.chat_attachButtonDrawables[2]}, null, Theme.key_chat_attachVideoIcon),
                 new ThemeDescription(null, ThemeDescription.FLAG_BACKGROUNDFILTER, null, null, new Drawable[]{Theme.chat_attachButtonDrawables[3]}, null, Theme.key_chat_attachAudioBackground),
                 //new ThemeDescription(null, 0, null, null, new Drawable[]{Theme.chat_attachButtonDrawables[3]}, null, Theme.key_chat_attachAudioBackgroundPressed),
                 new ThemeDescription(null, 0, null, null, new Drawable[]{Theme.chat_attachButtonDrawables[3]}, null, Theme.key_chat_attachAudioIcon),
@@ -15182,9 +15182,9 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                 new ThemeDescription(null, ThemeDescription.FLAG_BACKGROUNDFILTER, null, null, new Drawable[]{Theme.chat_attachButtonDrawables[5]}, null, Theme.key_chat_attachContactBackground),
                 //new ThemeDescription(null, 0, null, null, new Drawable[]{Theme.chat_attachButtonDrawables[5]}, null, Theme.key_chat_attachContactBackgroundPressed),
                 new ThemeDescription(null, 0, null, null, new Drawable[]{Theme.chat_attachButtonDrawables[5]}, null, Theme.key_chat_attachContactIcon),
-                new ThemeDescription(null, ThemeDescription.FLAG_BACKGROUNDFILTER, null, null, new Drawable[]{Theme.chat_attachButtonDrawables[6]}, null, Theme.key_chat_attachLocationBackground),
+                new ThemeDescription(null, ThemeDescription.FLAG_BACKGROUNDFILTER, null, null, new Drawable[]{Theme.chat_attachButtonDrawables[2]}, null, Theme.key_chat_attachLocationBackground),
                 //new ThemeDescription(null, 0, null, null, new Drawable[]{Theme.chat_attachButtonDrawables[6]}, null, Theme.key_chat_attachLocationBackgroundPressed),
-                new ThemeDescription(null, 0, null, null, new Drawable[]{Theme.chat_attachButtonDrawables[6]}, null, Theme.key_chat_attachLocationIcon),
+                new ThemeDescription(null, 0, null, null, new Drawable[]{Theme.chat_attachButtonDrawables[2]}, null, Theme.key_chat_attachLocationIcon),
                 new ThemeDescription(null, ThemeDescription.FLAG_BACKGROUNDFILTER, null, null, new Drawable[]{Theme.chat_attachButtonDrawables[7]}, null, Theme.key_chat_attachHideBackground),
                 //new ThemeDescription(null, 0, null, null, new Drawable[]{Theme.chat_attachButtonDrawables[6]}, null, Theme.key_chat_attachHideBackgroundPressed),
                 new ThemeDescription(null, 0, null, null, new Drawable[]{Theme.chat_attachButtonDrawables[7]}, null, Theme.key_chat_attachHideIcon),

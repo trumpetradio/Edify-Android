@@ -822,7 +822,7 @@
     <string name="DeleteForUser">Delete for %1$s</string>
     <string name="DeleteForAll">Delete for all members</string>
     <string name="TextCopied">Text copied to clipboard</string>
-    <string name="HoldToAudio">Hold to record audio. Tap to switch to video.</string>
+    <string name="HoldToAudioX">Hold to record, release to send.</string>
     <string name="HoldToVideo">Hold to record video. Tap to switch to audio.</string>
     <string name="DiscardVoiceMessageTitle">Discard Voice Message</string>
     <string name="DiscardVoiceMessageDescription">Are you sure you want to stop recording and discard your voice message?</string>
@@ -970,7 +970,7 @@
     <string name="SelectContacts">Select Contacts</string>
     <string name="ContactShare">SHARE CONTACT</string>
     <string name="NoContacts">No contacts yet</string>
-    <string name="InviteText2X">Hey, I\'m using Edify to chat. Join me! Download it here: %1$s</string>
+    <string name="InviteText2X">Hi, I\'m using Edify to chat. Join me! Download it here: %1$s</string>
     <string name="TodayAt">at</string>
     <string name="YesterdayAt">yesterday at</string>
     <string name="TodayAtFormatted">at %1$s</string>
@@ -1332,10 +1332,10 @@
     <string name="LanguageUnknownCustomAlertX">Unfortunately, this custom language pack (**%1$s**) doesn\'t contain data for Edify Android.</string>
     <string name="AskAQuestionInfoX">Please note that Edify Support is done by volunteers. We try to respond as quickly as possible, but it may take a while.\n\nPlease take a look at the <![CDATA[<a href=\"https://telegram.org/faq#general-questions\">Telegram FAQ</a>]]>: it has answers to most questions and important tips for <![CDATA[<a href=\"https://telegram.org/faq#troubleshooting\">troubleshooting</a>]]>.</string>
     <string name="AskButton">Ask a volunteer</string>
-    <string name="TelegramFAQX">Edify FAQ</string>
+    <string name="TelegramFAQX">Edify Support</string>
     <string name="AddAccount">Add Account</string>
     <string name="SelectAccount">Select Account</string>
-    <string name="TelegramFaqUrl">https://telegram.org/faq</string>
+    <string name="TelegramFaqUrlX">https://telegram.me/edifysupport</string>
     <string name="PrivacyPolicy">Privacy Policy</string>
     <string name="TermsOfService">Terms of Service</string>
     <string name="TermsOfServiceLogin">By signing up,\nyou agree to the *Terms of Service*.</string>
@@ -1571,7 +1571,7 @@
     <string name="CalculatingSize">Calculating...</string>
     <string name="LocalDocumentCache">Documents</string>
     <string name="LocalPhotoCache">Photos</string>
-    <string name="LocalAudioCache">Voice/Video messages</string>
+    <string name="LocalAudioCacheX">Voice messages</string>
     <string name="LocalVideoCache">Videos</string>
     <string name="LocalMusicCache">Music</string>
     <string name="LocalGifCache">GIFs</string>
@@ -2496,12 +2496,12 @@
     <string name="TelegramContactsX_few">%1$d contacts on Edify</string>
     <string name="TelegramContactsX_many">%1$d contacts on Edify</string>
     <string name="TelegramContactsX_other">%1$d contacts on Edify</string>
-    <string name="InviteTextNums_zero">Hey, I\'m using Edify to chat – and so are %1$d of our other contacts. Join us! Download it here: %2$s</string>
-    <string name="InviteTextNums_one">Hey, I\'m using Edify to chat – and so are %1$d of our other contact. Join us! Download it here: %2$s</string>
-    <string name="InviteTextNums_two">Hey, I\'m using Edify to chat – and so are %1$d of our other contacts. Join us! Download it here: %2$s</string>
-    <string name="InviteTextNums_few">Hey, I\'m using Edify to chat – and so are %1$d of our other contacts. Join us! Download it here: %2$s</string>
-    <string name="InviteTextNums_many">Hey, I\'m using Edify to chat – and so are %1$d of our other contacts. Join us! Download it here: %2$s</string>
-    <string name="InviteTextNums_other">Hey, I\'m using Edify to chat – and so are %1$d of our other contacts. Join us! Download it here: %2$s</string>
+    <string name="InviteTextNums_zero">Hi, I\'m using Edify to chat – and so are %1$d of our other contacts. Join us! Download it here: %2$s</string>
+    <string name="InviteTextNums_one">Hi, I\'m using Edify to chat – and so are %1$d of our other contact. Join us! Download it here: %2$s</string>
+    <string name="InviteTextNums_two">Hi, I\'m using Edify to chat – and so are %1$d of our other contacts. Join us! Download it here: %2$s</string>
+    <string name="InviteTextNums_few">Hi, I\'m using Edify to chat – and so are %1$d of our other contacts. Join us! Download it here: %2$s</string>
+    <string name="InviteTextNums_many">Hi, I\'m using Edify to chat – and so are %1$d of our other contacts. Join us! Download it here: %2$s</string>
+    <string name="InviteTextNums_other">Hi, I\'m using Edify to chat – and so are %1$d of our other contacts. Join us! Download it here: %2$s</string>
     <string name="Chats_zero">%1$d chats</string>
     <string name="Chats_one">%1$d chat</string>
     <string name="Chats_two">%1$d chats</string>

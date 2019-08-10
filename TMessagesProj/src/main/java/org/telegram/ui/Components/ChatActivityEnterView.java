@@ -872,8 +872,9 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
                 }
             });
             emojiButton[a].setContentDescription(LocaleController.getString("AccDescrEmojiButton", R.string.AccDescrEmojiButton));
+            emojiButton[a].setVisibility(GONE);
             if (a == 1) {
-                emojiButton[a].setVisibility(INVISIBLE);
+                emojiButton[a].setVisibility(GONE);
                 emojiButton[a].setAlpha(0.0f);
                 emojiButton[a].setScaleX(0.1f);
                 emojiButton[a].setScaleY(0.1f);
@@ -963,7 +964,7 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
         messageEditText.setTextColor(Theme.getColor(Theme.key_chat_messagePanelText));
         messageEditText.setHintColor(Theme.getColor(Theme.key_chat_messagePanelHint));
         messageEditText.setHintTextColor(Theme.getColor(Theme.key_chat_messagePanelHint));
-        frameLayout.addView(messageEditText, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT, Gravity.BOTTOM, 52, 0, isChat ? 50 : 2, 0));
+        frameLayout.addView(messageEditText, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT, Gravity.BOTTOM, 15, 0, isChat ? 50 : 2, 0));
         messageEditText.setOnKeyListener(new OnKeyListener() {
 
             boolean ctrlPressed = false;
@@ -3670,7 +3671,7 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
         emojiButton[animated ? 1 : 0].setTag(nextIcon == 2 ? 1 : null);
         currentEmojiIcon = nextIcon;
         if (animated) {
-            emojiButton[1].setVisibility(VISIBLE);
+            emojiButton[1].setVisibility(GONE);
             emojiButtonAnimation = new AnimatorSet();
             emojiButtonAnimation.playTogether(
                     ObjectAnimator.ofFloat(emojiButton[0], View.SCALE_X, 0.1f),
@@ -3687,7 +3688,7 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
                         ImageView temp = emojiButton[1];
                         emojiButton[1] = emojiButton[0];
                         emojiButton[0] = temp;
-                        emojiButton[1].setVisibility(INVISIBLE);
+                        emojiButton[1].setVisibility(GONE);
                         emojiButton[1].setAlpha(0.0f);
                         emojiButton[1].setScaleX(0.1f);
                         emojiButton[1].setScaleY(0.1f);

@@ -3354,11 +3354,11 @@ public class Theme {
 
             chat_attachButtonDrawables[0] = new AttachCameraDrawable();
             chat_attachButtonDrawables[1] = createCircleDrawableWithIcon(AndroidUtilities.dp(54), R.drawable.attach_gallery);
-            chat_attachButtonDrawables[2] = createCircleDrawableWithIcon(AndroidUtilities.dp(54), R.drawable.attach_video);
+            //chat_attachButtonDrawables[2] = createCircleDrawableWithIcon(AndroidUtilities.dp(54), R.drawable.attach_video);
             chat_attachButtonDrawables[3] = createCircleDrawableWithIcon(AndroidUtilities.dp(54), R.drawable.attach_audio);
             chat_attachButtonDrawables[4] = createCircleDrawableWithIcon(AndroidUtilities.dp(54), R.drawable.attach_file);
             chat_attachButtonDrawables[5] = createCircleDrawableWithIcon(AndroidUtilities.dp(54), R.drawable.attach_contact);
-            chat_attachButtonDrawables[6] = createCircleDrawableWithIcon(AndroidUtilities.dp(54), R.drawable.attach_location);
+            chat_attachButtonDrawables[2] = createCircleDrawableWithIcon(AndroidUtilities.dp(54), R.drawable.attach_location);
             chat_attachButtonDrawables[7] = createCircleDrawableWithIcon(AndroidUtilities.dp(54), R.drawable.attach_close);
             chat_attachButtonDrawables[8] = createCircleDrawableWithIcon(AndroidUtilities.dp(54), R.drawable.attach_send);
             chat_attachButtonDrawables[9] = createCircleDrawableWithIcon(AndroidUtilities.dp(54), R.drawable.attach_polls);
@@ -3688,16 +3688,16 @@ public class Theme {
 
             setCombinedDrawableColor(chat_attachButtonDrawables[1], getColor(key_chat_attachGalleryBackground), false);
             setCombinedDrawableColor(chat_attachButtonDrawables[1], getColor(key_chat_attachGalleryIcon), true);
-            setCombinedDrawableColor(chat_attachButtonDrawables[2], getColor(key_chat_attachVideoBackground), false);
-            setCombinedDrawableColor(chat_attachButtonDrawables[2], getColor(key_chat_attachVideoIcon), true);
+            //setCombinedDrawableColor(chat_attachButtonDrawables[2], getColor(key_chat_attachVideoBackground), false);
+            //setCombinedDrawableColor(chat_attachButtonDrawables[2], getColor(key_chat_attachVideoIcon), true);
             setCombinedDrawableColor(chat_attachButtonDrawables[3], getColor(key_chat_attachAudioBackground), false);
             setCombinedDrawableColor(chat_attachButtonDrawables[3], getColor(key_chat_attachAudioIcon), true);
             setCombinedDrawableColor(chat_attachButtonDrawables[4], getColor(key_chat_attachFileBackground), false);
             setCombinedDrawableColor(chat_attachButtonDrawables[4], getColor(key_chat_attachFileIcon), true);
             setCombinedDrawableColor(chat_attachButtonDrawables[5], getColor(key_chat_attachContactBackground), false);
             setCombinedDrawableColor(chat_attachButtonDrawables[5], getColor(key_chat_attachContactIcon), true);
-            setCombinedDrawableColor(chat_attachButtonDrawables[6], getColor(key_chat_attachLocationBackground), false);
-            setCombinedDrawableColor(chat_attachButtonDrawables[6], getColor(key_chat_attachLocationIcon), true);
+            setCombinedDrawableColor(chat_attachButtonDrawables[2], getColor(key_chat_attachLocationBackground), false);
+            setCombinedDrawableColor(chat_attachButtonDrawables[2], getColor(key_chat_attachLocationIcon), true);
             setCombinedDrawableColor(chat_attachButtonDrawables[7], getColor(key_chat_attachHideBackground), false);
             setCombinedDrawableColor(chat_attachButtonDrawables[7], getColor(key_chat_attachHideIcon), true);
             setCombinedDrawableColor(chat_attachButtonDrawables[8], getColor(key_chat_attachSendBackground), false);

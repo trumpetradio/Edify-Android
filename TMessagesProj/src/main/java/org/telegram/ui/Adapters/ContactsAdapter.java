@@ -198,7 +198,8 @@ public class ContactsAdapter extends RecyclerListView.SectionsAdapter {
                 if (isAdmin) {
                     return row != 1;
                 } else if (needPhonebook) {
-                    return hasGps && row != 2 || !hasGps && row != 1;
+                    //return hasGps && row != 1 || !hasGps && row != 1;
+                    return row != 1;
                 } else {
                     return row != 3;
                 }
@@ -258,9 +259,9 @@ public class ContactsAdapter extends RecyclerListView.SectionsAdapter {
                 if (isAdmin) {
                     return 2;
                 } else if (needPhonebook) {
-                    return hasGps ? 3 : 2;
+                    return 2;//hasGps ? 3 : 2;
                 } else {
-                    return 4;
+                    return 3;
                 }
             } else {
                 if (sortType == 2) {
@@ -371,8 +372,8 @@ public class ContactsAdapter extends RecyclerListView.SectionsAdapter {
                     if (needPhonebook) {
                         if (position == 0) {
                             textCell.setTextAndIcon(LocaleController.getString("InviteFriends", R.string.InviteFriends), R.drawable.menu_invite, false);
-                        } else if (position == 1) {
-                            textCell.setTextAndIcon(LocaleController.getString("AddPeopleNearby", R.string.AddPeopleNearby), R.drawable.menu_location, false);
+//                        } else if (position == 1) {
+//                            textCell.setTextAndIcon(LocaleController.getString("AddPeopleNearby", R.string.AddPeopleNearby), R.drawable.menu_location, false);
                         }
                     } else if (isAdmin) {
                         if (isChannel) {
@@ -383,9 +384,9 @@ public class ContactsAdapter extends RecyclerListView.SectionsAdapter {
                     } else {
                         if (position == 0) {
                             textCell.setTextAndIcon(LocaleController.getString("NewGroup", R.string.NewGroup), R.drawable.menu_groups, false);
+//                        } else if (position == 1) {
+//                            textCell.setTextAndIcon(LocaleController.getString("NewSecretChat", R.string.NewSecretChat), R.drawable.menu_secret, false);
                         } else if (position == 1) {
-                            textCell.setTextAndIcon(LocaleController.getString("NewSecretChat", R.string.NewSecretChat), R.drawable.menu_secret, false);
-                        } else if (position == 2) {
                             textCell.setTextAndIcon(LocaleController.getString("NewChannel", R.string.NewChannel), R.drawable.menu_broadcast, false);
                         }
                     }
@@ -427,10 +428,10 @@ public class ContactsAdapter extends RecyclerListView.SectionsAdapter {
                         return 2;
                     }
                 } else if (needPhonebook) {
-                    if (hasGps && position == 2 || !hasGps && position == 1) {
+                    if (hasGps && position == 1 || !hasGps && position == 1) {
                         return 2;
                     }
-                } else if (position == 3) {
+                } else if (position == 2) {
                     return 2;
                 }
             } else {

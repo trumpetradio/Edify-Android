@@ -943,16 +943,17 @@ public class ChatAttachAlert extends BottomSheet implements NotificationCenter.N
         CharSequence[] items = new CharSequence[]{
                 LocaleController.getString("ChatCamera", R.string.ChatCamera),
                 LocaleController.getString("ChatGallery", R.string.ChatGallery),
-                LocaleController.getString("ChatVideo", R.string.ChatVideo),
+                LocaleController.getString("ChatLocation", R.string.ChatLocation),
+                //LocaleController.getString("ChatVideo", R.string.ChatVideo),
                 LocaleController.getString("AttachMusic", R.string.AttachMusic),
                 LocaleController.getString("ChatDocument", R.string.ChatDocument),
                 LocaleController.getString("AttachContact", R.string.AttachContact),
-                LocaleController.getString("ChatLocation", R.string.ChatLocation),
+                "",
                 ""
         };
         for (int a = 0; a < 8; a++) {
             if (!(baseFragment instanceof ChatActivity)) {
-                if (a == 2 || a == 3 || a == 5 || a == 6) {
+                if (a == 2 || a == 3 || a == 5 ) {
                     continue;
                 }
             }
@@ -1301,16 +1302,20 @@ public class ChatAttachAlert extends BottomSheet implements NotificationCenter.N
                 return;
             }
             boolean allowPoll;
+
             if (editingMessageObject != null) {
                 allowPoll = false;
             } else {
                 TLRPC.Chat currentChat = ((ChatActivity) baseFragment).getCurrentChat();
                 allowPoll = currentChat != null && ChatObject.canSendPolls(currentChat);
             }
-            String text = allowPoll ? LocaleController.getString("Poll", R.string.Poll) : LocaleController.getString("AttachMusic", R.string.AttachMusic);
-            AttachButton attachButton = attachButtons.get(3);
-            attachButton.setTag(allowPoll ? 9 : 3);
-            attachButton.setTextAndIcon(text, Theme.chat_attachButtonDrawables[allowPoll ? 9 : 3]);
+
+            if (allowPoll) {
+                String text = LocaleController.getString("Poll", R.string.Poll); //: LocaleController.getString("AttachMusic", R.string.AttachMusic);
+                AttachButton attachButton = attachButtons.get(6);
+                attachButton.setTag(allowPoll ? 9 : 6);
+                attachButton.setTextAndIcon(text, Theme.chat_attachButtonDrawables[allowPoll ? 9 : 6]);
+            }
         }
     }
 

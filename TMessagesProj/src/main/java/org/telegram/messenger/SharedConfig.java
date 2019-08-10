@@ -65,16 +65,16 @@ public class SharedConfig {
 
     public static boolean saveToGallery;
     public static int mapPreviewType = 2;
-    public static boolean autoplayGifs = true;
-    public static boolean autoplayVideo = true;
-    public static boolean raiseToSpeak = true;
-    public static boolean customTabs = true;
+    public static boolean autoplayGifs = false;
+    public static boolean autoplayVideo = false;
+    public static boolean raiseToSpeak = false;
+    public static boolean customTabs = false;
     public static boolean directShare = true;
-    public static boolean inappCamera = true;
+    public static boolean inappCamera = false;
     public static boolean roundCamera16to9 = true;
     public static boolean groupPhotosEnabled = true;
     public static boolean noSoundHintShowed = false;
-    public static boolean streamMedia = true;
+    public static boolean streamMedia = false;
     public static boolean streamAllVideo = false;
     public static boolean streamMkv = false;
     public static boolean saveStreamMedia = true;
@@ -220,15 +220,15 @@ public class SharedConfig {
 
             preferences = ApplicationLoader.applicationContext.getSharedPreferences("mainconfig", Activity.MODE_PRIVATE);
             saveToGallery = preferences.getBoolean("save_gallery", false);
-            autoplayGifs = preferences.getBoolean("autoplay_gif", true);
-            autoplayVideo = preferences.getBoolean("autoplay_video", true);
+            autoplayGifs = preferences.getBoolean("autoplay_gif", false);
+            autoplayVideo = preferences.getBoolean("autoplay_video", false);
             mapPreviewType = preferences.getInt("mapPreviewType", 2);
-            raiseToSpeak = preferences.getBoolean("raise_to_speak", true);
-            customTabs = preferences.getBoolean("custom_tabs", true);
+            raiseToSpeak = preferences.getBoolean("raise_to_speak", false);
+            customTabs = preferences.getBoolean("custom_tabs", false);
             directShare = preferences.getBoolean("direct_share", true);
             shuffleMusic = preferences.getBoolean("shuffleMusic", false);
             playOrderReversed = preferences.getBoolean("playOrderReversed", false);
-            inappCamera = preferences.getBoolean("inappCamera", true);
+            inappCamera = preferences.getBoolean("inappCamera", false);
             hasCameraCache = preferences.contains("cameraCache");
             roundCamera16to9 = true;//preferences.getBoolean("roundCamera16to9", false);
             groupPhotosEnabled = preferences.getBoolean("groupPhotosEnabled", true);
@@ -240,7 +240,7 @@ public class SharedConfig {
             saveStreamMedia = preferences.getBoolean("saveStreamMedia", true);
             streamAllVideo = preferences.getBoolean("streamAllVideo", BuildVars.DEBUG_VERSION);
             streamMkv = preferences.getBoolean("streamMkv", false);
-            suggestStickers = preferences.getInt("suggestStickers", 0);
+            suggestStickers = preferences.getInt("suggestStickers", 2);
             sortContactsByName = preferences.getBoolean("sortContactsByName", false);
             noSoundHintShowed = preferences.getBoolean("noSoundHintShowed", false);
             directShareHash = preferences.getLong("directShareHash", 0);
