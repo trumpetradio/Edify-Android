@@ -2079,7 +2079,8 @@ public class MediaActivity extends BaseFragment implements NotificationCenter.No
     }
 
     private void openWebView(TLRPC.WebPage webPage) {
-        EmbedBottomSheet.show(getParentActivity(), webPage.site_name, webPage.description, webPage.url, webPage.embed_url, webPage.embed_width, webPage.embed_height);
+//        EmbedBottomSheet.show(getParentActivity(), webPage.site_name, webPage.description, webPage.url, webPage.embed_url, webPage.embed_width, webPage.embed_height);
+        Browser.openUrl(getParentActivity(), webPage.url);
     }
 
     private void recycleAdapter(RecyclerView.Adapter adapter) {
@@ -2797,7 +2798,7 @@ public class MediaActivity extends BaseFragment implements NotificationCenter.No
         @Override
         public int getItemCount() {
             int count = searchResult.size();
-            int globalCount = globalSearch.size();
+            int globalCount = 0;//globalSearch.size();
             if (globalCount != 0) {
                 count += globalCount;
             }
@@ -2806,7 +2807,7 @@ public class MediaActivity extends BaseFragment implements NotificationCenter.No
 
         public boolean isGlobalSearch(int i) {
             int localCount = searchResult.size();
-            int globalCount = globalSearch.size();
+            int globalCount = 0;//globalSearch.size();
             if (i >= 0 && i < localCount) {
                 return false;
             } else if (i > localCount && i <= globalCount + localCount) {

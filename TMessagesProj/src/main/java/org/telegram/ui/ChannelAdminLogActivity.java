@@ -2067,7 +2067,8 @@ public class ChannelAdminLogActivity extends BaseFragment implements Notificatio
 
                     @Override
                     public void needOpenWebView(String url, String title, String description, String originalUrl, int w, int h) {
-                        EmbedBottomSheet.show(mContext, title, description, originalUrl, url, w, h);
+//                        EmbedBottomSheet.show(mContext, title, description, originalUrl, url, w, h);
+                        Browser.openUrl(getParentActivity(), url);
                     }
 
                     @Override

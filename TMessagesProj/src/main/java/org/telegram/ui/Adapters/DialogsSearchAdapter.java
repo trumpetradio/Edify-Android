@@ -921,7 +921,7 @@ public class DialogsSearchAdapter extends RecyclerListView.SelectionAdapter {
         }
         int count = searchResult.size();
         int localServerCount = searchAdapterHelper.getLocalServerSearch().size();
-        int globalCount = searchAdapterHelper.getGlobalSearch().size();
+        int globalCount = 0;//searchAdapterHelper.getGlobalSearch().size();
         int phoneCount = searchAdapterHelper.getPhoneSearch().size();
         int messagesCount = searchResultMessages.size();
         count += localServerCount;
@@ -971,7 +971,7 @@ public class DialogsSearchAdapter extends RecyclerListView.SelectionAdapter {
         int localCount = searchResult.size();
         int localServerCount = localServerSearch.size();
         int phoneCount = phoneSearch.size();
-        int globalCount = globalSearch.isEmpty() ? 0 : globalSearch.size() + 1;
+        int globalCount = 0;//globalSearch.isEmpty() ? 0 : globalSearch.size() + 1;
         int messagesCount = searchResultMessages.isEmpty() ? 0 : searchResultMessages.size() + 1;
         if (i >= 0 && i < localCount) {
             return searchResult.get(i);
@@ -1011,7 +1011,7 @@ public class DialogsSearchAdapter extends RecyclerListView.SelectionAdapter {
         int localCount = searchResult.size();
         int localServerCount = localServerSearch.size();
         int phoneCount = searchAdapterHelper.getPhoneSearch().size();
-        int globalCount = globalSearch.isEmpty() ? 0 : globalSearch.size() + 1;
+        int globalCount = 0;//globalSearch.isEmpty() ? 0 : globalSearch.size() + 1;
         int messagesCount = searchResultMessages.isEmpty() ? 0 : searchResultMessages.size() + 1;
 
         if (i >= 0 && i < localCount) {
@@ -1161,7 +1161,7 @@ public class DialogsSearchAdapter extends RecyclerListView.SelectionAdapter {
                     if (phoneCount > 0 && phoneSearch.get(phoneCount - 1) instanceof String) {
                         phoneCount2 -= 2;
                     }
-                    int globalCount = globalSearch.isEmpty() ? 0 : globalSearch.size() + 1;
+                    int globalCount = 0;//globalSearch.isEmpty() ? 0 : globalSearch.size() + 1;
                     cell.useSeparator = (position != getItemCount() - 1 && position != localCount + phoneCount2 + localServerCount - 1 && position != localCount + globalCount + phoneCount + localServerCount - 1);
 
                     if (position < searchResult.size()) {
@@ -1261,7 +1261,7 @@ public class DialogsSearchAdapter extends RecyclerListView.SelectionAdapter {
                     int localCount = searchResult.size();
                     int localServerCount = searchAdapterHelper.getLocalServerSearch().size();
                     int phoneCount = searchAdapterHelper.getPhoneSearch().size();
-                    int globalCount = globalSearch.isEmpty() ? 0 : globalSearch.size() + 1;
+                    int globalCount = 0;//globalSearch.isEmpty() ? 0 : globalSearch.size() + 1;
                     int messagesCount = searchResultMessages.isEmpty() ? 0 : searchResultMessages.size() + 1;
 
                     position -= localCount + localServerCount;
@@ -1326,7 +1326,7 @@ public class DialogsSearchAdapter extends RecyclerListView.SelectionAdapter {
         int localCount = searchResult.size();
         int localServerCount = searchAdapterHelper.getLocalServerSearch().size();
         int phoneCount = searchAdapterHelper.getPhoneSearch().size();
-        int globalCount = globalSearch.isEmpty() ? 0 : globalSearch.size() + 1;
+        int globalCount = 0;//globalSearch.isEmpty() ? 0 : globalSearch.size() + 1;
         int messagesCount = searchResultMessages.isEmpty() ? 0 : searchResultMessages.size() + 1;
 
         if (i >= 0 && i < localCount) {

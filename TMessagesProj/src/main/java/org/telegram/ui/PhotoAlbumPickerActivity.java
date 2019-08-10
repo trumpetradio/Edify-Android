@@ -70,7 +70,7 @@ public class PhotoAlbumPickerActivity extends BaseFragment implements Notificati
     private PickerBottomLayout pickerBottomLayout;
     private boolean sendPressed;
     private int selectPhotoType;
-    private boolean allowSearchImages = true;
+    private boolean allowSearchImages = false;
     private boolean allowGifs;
     private boolean allowCaption;
     private ChatActivity chatActivity;

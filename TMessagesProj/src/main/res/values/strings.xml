@@ -1578,7 +1578,7 @@
     <string name="LocalCache">Other files</string>
     <string name="CacheEmpty">Empty</string>
     <string name="KeepMedia">Keep Media</string>
-    <string name="KeepMediaInfoX">Photos, videos and other files from cloud chats that you have **not accessed** during this period will be removed from this device to save disk space.\n\nAll media will stay in the Edify cloud and can be re-downloaded if you need it again.</string>
+    <string name="KeepMediaInfoX">Photos and other files from cloud chats that you have **not accessed** during this period will be removed from this device to save disk space.\n\nAll media will stay in the Edify cloud and can be re-downloaded if you need it again.</string>
     <string name="KeepMediaForever">Forever</string>
     <string name="AudioAutodownload">Voice messages</string>
     <string name="VideoMessagesAutodownload">Video messages</string>
@@ -2369,7 +2369,7 @@
     <string name="TosDeclineDeleteAccountX">Warning, this will irreversibly delete your Edify account along with all the data you store in the Edify cloud.\n\nImportant: You can Cancel now and export your data before deleting your account instead of losing it all. (To do this, open the latest version of Edify Desktop and go to Settings &gt; Export Edify Data.)</string>
     <!--permissions-->
     <string name="PermissionContactsX">To let you connect with friends across all your devices, your contacts will be continuously synced with Edify\'s heavily encrypted cloud servers.</string>
-    <string name="PermissionStorageX">Edify needs access to your storage so that you can send and save photos, videos, music and other media.</string>
+    <string name="PermissionStorageX">Edify needs access to your storage so that you can send and save photos, music and other media.</string>
     <string name="PermissionNoAudioX">Edify needs access to your microphone so that you can send voice messages.</string>
     <string name="PermissionNoAudioVideoX">Edify needs access to your microphone so that you can record videos.</string>
     <string name="PermissionNoCameraX">Edify needs access to your camera so that you can capture photos and videos.</string>

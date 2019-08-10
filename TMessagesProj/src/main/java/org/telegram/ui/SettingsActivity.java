@@ -1007,7 +1007,7 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
         linearLayoutInviteContainer.setOrientation(LinearLayout.VERTICAL);
         linearLayout.addView(linearLayoutInviteContainer, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
 
-        int count = 6;
+        int count = 5;
         for (int a = 0; a < count; a++) {
             if (a >= 3 && a <= 4 && !BuildVars.LOGS_ENABLED || a == 5 && !BuildVars.DEBUG_VERSION) {
                 continue;
@@ -1015,22 +1015,22 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
             TextCell textCell = new TextCell(context);
             String text;
             switch (a) {
+//                case 0:
+//                    text = LocaleController.getString("AskAQuestion", R.string.AskAQuestion);
+//                    break;
                 case 0:
-                    text = LocaleController.getString("AskAQuestion", R.string.AskAQuestion);
-                    break;
-                case 1:
                     text = LocaleController.getString("TelegramFAQX", R.string.TelegramFAQX);
                     break;
-                case 2:
+                case 1:
                     text = LocaleController.getString("PrivacyPolicy", R.string.PrivacyPolicy);
                     break;
-                case 3:
+                case 2:
                     text = LocaleController.getString("DebugSendLogs", R.string.DebugSendLogs);
                     break;
-                case 4:
+                case 3:
                     text = LocaleController.getString("DebugClearLogs", R.string.DebugClearLogs);
                     break;
-                case 5:
+                case 4:
                 default:
                     text = "Switch Backend";
                     break;
@@ -1042,23 +1042,23 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
             textCell.setOnClickListener(v2 -> {
                 Integer tag = (Integer) v2.getTag();
                 switch (tag) {
-                    case 0: {
-                        showDialog(AlertsCreator.createSupportAlert(SettingsActivity.this));
-                        break;
-                    }
-                    case 1:
+//                    case 0: {
+//                        showDialog(AlertsCreator.createSupportAlert(SettingsActivity.this));
+//                        break;
+//                    }
+                    case 0:
                         Browser.openUrl(getParentActivity(), LocaleController.getString("TelegramFaqUrlX", R.string.TelegramFaqUrlX));
                         break;
-                    case 2:
+                    case 1:
                         Browser.openUrl(getParentActivity(), LocaleController.getString("PrivacyPolicyUrl", R.string.PrivacyPolicyUrl));
                         break;
-                    case 3:
+                    case 2:
                         sendLogs();
                         break;
-                    case 4:
+                    case 3:
                         FileLog.cleanupLogs();
                         break;
-                    case 5: {
+                    case 4: {
                         if (getParentActivity() == null) {
                             return;
                         }

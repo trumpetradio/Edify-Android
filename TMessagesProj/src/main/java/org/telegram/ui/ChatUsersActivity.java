@@ -1876,7 +1876,7 @@ public class ChatUsersActivity extends BaseFragment implements NotificationCente
         @Override
         public int getItemCount() {
             int contactsCount = searchResult.size();
-            int globalCount = searchAdapterHelper.getGlobalSearch().size();
+            int globalCount = 0;//searchAdapterHelper.getGlobalSearch().size();
             int groupsCount = searchAdapterHelper.getGroupSearch().size();
             int count = 0;
             if (contactsCount != 0) {

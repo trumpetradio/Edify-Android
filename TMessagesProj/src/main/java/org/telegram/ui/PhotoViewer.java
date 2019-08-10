@@ -2566,7 +2566,7 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat
 
         LinearLayout itemsLayout = new LinearLayout(parentActivity);
         itemsLayout.setOrientation(LinearLayout.HORIZONTAL);
-        pickerView.addView(itemsLayout, LayoutHelper.createFrame(LayoutHelper.WRAP_CONTENT, 48, Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM, 0, 0, 34, 0));
+        pickerView.addView(itemsLayout, LayoutHelper.createFrame(LayoutHelper.WRAP_CONTENT, 48, Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM, 0, 0, 0, 0));//34
 
         cropItem = new ImageView(parentActivity);
         cropItem.setScaleType(ImageView.ScaleType.CENTER);
@@ -2688,7 +2688,7 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat
         timeItem.setImageResource(R.drawable.photo_timer);
         timeItem.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.ACTION_BAR_WHITE_SELECTOR_COLOR));
         timeItem.setContentDescription(LocaleController.getString("SetTimer", R.string.SetTimer));
-        itemsLayout.addView(timeItem, LayoutHelper.createLinear(70, 48));
+//        itemsLayout.addView(timeItem, LayoutHelper.createLinear(70, 48));
         timeItem.setOnClickListener(v -> {
             if (parentActivity == null || captionEditText.getTag() != null) {
                 return;

@@ -3655,8 +3655,9 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                         return;
                     }
                     if (result.type.equals("video") || result.type.equals("web_player_video")) {
-                        int[] size = MessageObject.getInlineResultWidthAndHeight(result);
-                        EmbedBottomSheet.show(getParentActivity(), result.title != null ? result.title : "", result.description, result.content.url, result.content.url, size[0], size[1]);
+                        //int[] size = MessageObject.getInlineResultWidthAndHeight(result);
+                        //EmbedBottomSheet.show(getParentActivity(), result.title != null ? result.title : "", result.description, result.content.url, result.content.url, size[0], size[1]);
+                        Browser.openUrl(getParentActivity(), result.content.url);
                     } else {
                         Browser.openUrl(getParentActivity(), result.content.url);
                     }
@@ -14069,7 +14070,8 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                     @Override
                     public void needOpenWebView(String url, String title, String description, String originalUrl, int w, int h) {
                         try {
-                            EmbedBottomSheet.show(mContext, title, description, originalUrl, url, w, h);
+//                            EmbedBottomSheet.show(mContext, title, description, originalUrl, url, w, h);
+                            Browser.openUrl(getParentActivity(), url);
                         } catch (Throwable e) {
                             FileLog.e(e);
                         }

@@ -1140,7 +1140,7 @@ public class GroupCreateActivity extends BaseFragment implements NotificationCen
             if (searching) {
                 count = searchResult.size();
                 int localServerCount = searchAdapterHelper.getLocalServerSearch().size();
-                int globalCount = searchAdapterHelper.getGlobalSearch().size();
+                int globalCount = 0;//searchAdapterHelper.getGlobalSearch().size();
                 count += localServerCount;
                 if (globalCount != 0) {
                     count += globalCount + 1;
@@ -1202,7 +1202,7 @@ public class GroupCreateActivity extends BaseFragment implements NotificationCen
                     CharSequence name = null;
                     if (searching) {
                         int localCount = searchResult.size();
-                        int globalCount = searchAdapterHelper.getGlobalSearch().size();
+                        int globalCount = 0;//searchAdapterHelper.getGlobalSearch().size();
                         int localServerCount = searchAdapterHelper.getLocalServerSearch().size();
 
                         if (position >= 0 && position < localCount) {

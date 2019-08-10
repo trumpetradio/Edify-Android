@@ -668,10 +668,10 @@ public class DocumentSelectActivity extends BaseFragment {
         items.add(fs);
 
         try {
-            File telegramPath = new File(Environment.getExternalStorageDirectory(), "Telegram");
+            File telegramPath = new File(Environment.getExternalStorageDirectory(), "Edify");
             if (telegramPath.exists()) {
                 fs = new ListItem();
-                fs.title = "Telegram";
+                fs.title = "Edify";
                 fs.subtitle = telegramPath.toString();
                 fs.icon = R.drawable.ic_directory;
                 fs.file = telegramPath;

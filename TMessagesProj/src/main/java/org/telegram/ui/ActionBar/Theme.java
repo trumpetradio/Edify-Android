@@ -1901,6 +1901,7 @@ public class Theme {
 
         ThemeInfo themeInfo = new ThemeInfo();
         themeInfo.name = "Default";
+        themeInfo.assetName = "edifylight.attheme";
         themeInfo.previewBackgroundColor = 0xffcfd9e3;
         themeInfo.previewInColor = 0xffffffff;
         themeInfo.previewOutColor = 0xfff0fee0;

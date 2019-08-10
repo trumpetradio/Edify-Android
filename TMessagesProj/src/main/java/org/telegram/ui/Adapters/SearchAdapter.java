@@ -208,7 +208,7 @@ public class SearchAdapter extends RecyclerListView.SelectionAdapter {
     @Override
     public int getItemCount() {
         int count = searchResult.size();
-        int globalCount = searchAdapterHelper.getGlobalSearch().size();
+        int globalCount = 0;//searchAdapterHelper.getGlobalSearch().size();
         if (globalCount != 0) {
             count += globalCount + 1;
         }
@@ -221,7 +221,7 @@ public class SearchAdapter extends RecyclerListView.SelectionAdapter {
 
     public boolean isGlobalSearch(int i) {
         int localCount = searchResult.size();
-        int globalCount = searchAdapterHelper.getGlobalSearch().size();
+        int globalCount = 0;//searchAdapterHelper.getGlobalSearch().size();
         int phoneCount = searchAdapterHelper.getPhoneSearch().size();
         if (i >= 0 && i < localCount) {
             return false;
@@ -235,7 +235,7 @@ public class SearchAdapter extends RecyclerListView.SelectionAdapter {
 
     public Object getItem(int i) {
         int localCount = searchResult.size();
-        int globalCount = searchAdapterHelper.getGlobalSearch().size();
+        int globalCount = 0;// searchAdapterHelper.getGlobalSearch().size();
         int phoneCount = searchAdapterHelper.getPhoneSearch().size();
         if (i >= 0 && i < localCount) {
             return searchResult.get(i);

@@ -77,7 +77,7 @@ public class DataAutoDownloadActivity extends BaseFragment {
     private int usageSectionRow;
     private int typeHeaderRow;
     private int photosRow;
-    private int videosRow;
+//    private int videosRow;
     private int filesRow;
     private int typeSectionRow;
 
@@ -400,15 +400,15 @@ public class DataAutoDownloadActivity extends BaseFragment {
                 cell.setChecked(!checked);
                 DownloadController.getInstance(currentAccount).checkAutodownloadSettings();
                 wereAnyChanges = true;
-            } else if (position == photosRow || position == videosRow || position == filesRow) {
+            } else if (position == photosRow || position == filesRow) {
                 if (!view.isEnabled()) {
                     return;
                 }
                 int type;
                 if (position == photosRow) {
                     type = DownloadController.AUTODOWNLOAD_TYPE_PHOTO;
-                } else if (position == videosRow) {
-                    type = DownloadController.AUTODOWNLOAD_TYPE_VIDEO;
+//                } else if (position == videosRow) {
+//                    type = DownloadController.AUTODOWNLOAD_TYPE_VIDEO;
                 } else {
                     type = DownloadController.AUTODOWNLOAD_TYPE_DOCUMENT;
                 }
@@ -495,8 +495,8 @@ public class DataAutoDownloadActivity extends BaseFragment {
                     HeaderCell headerCell = new HeaderCell(getParentActivity(), true, 21, 15, false);
                     if (position == photosRow) {
                         headerCell.setText(LocaleController.getString("AutoDownloadPhotosTitle", R.string.AutoDownloadPhotosTitle));
-                    } else if (position == videosRow) {
-                        headerCell.setText(LocaleController.getString("AutoDownloadVideosTitle", R.string.AutoDownloadVideosTitle));
+//                    } else if (position == videosRow) {
+//                        headerCell.setText(LocaleController.getString("AutoDownloadVideosTitle", R.string.AutoDownloadVideosTitle));
                     } else {
                         headerCell.setText(LocaleController.getString("AutoDownloadFilesTitle", R.string.AutoDownloadFilesTitle));
                     }
@@ -531,30 +531,30 @@ public class DataAutoDownloadActivity extends BaseFragment {
                                     break;
                                 }
                             }
-                            if (position == videosRow && sizeCell[0].isEnabled() != hasAny) {
-                                ArrayList<Animator> animators = new ArrayList<>();
-                                sizeCell[0].setEnabled(hasAny, animators);
-                                if (sizeCell[0].getSize() > 2 * 1024 * 1024) {
-                                    checkCell[0].setEnabled(hasAny, animators);
-                                }
-
-                                if (animatorSet[0] != null) {
-                                    animatorSet[0].cancel();
-                                    animatorSet[0] = null;
-                                }
-                                animatorSet[0] = new AnimatorSet();
-                                animatorSet[0].playTogether(animators);
-                                animatorSet[0].addListener(new AnimatorListenerAdapter() {
-                                    @Override
-                                    public void onAnimationEnd(Animator animator) {
-                                        if (animator.equals(animatorSet[0])) {
-                                            animatorSet[0] = null;
-                                        }
-                                    }
-                                });
-                                animatorSet[0].setDuration(150);
-                                animatorSet[0].start();
-                            }
+//                            if (position == videosRow && sizeCell[0].isEnabled() != hasAny) {
+//                                ArrayList<Animator> animators = new ArrayList<>();
+//                                sizeCell[0].setEnabled(hasAny, animators);
+//                                if (sizeCell[0].getSize() > 2 * 1024 * 1024) {
+//                                    checkCell[0].setEnabled(hasAny, animators);
+//                                }
+//
+//                                if (animatorSet[0] != null) {
+//                                    animatorSet[0].cancel();
+//                                    animatorSet[0] = null;
+//                                }
+//                                animatorSet[0] = new AnimatorSet();
+//                                animatorSet[0].playTogether(animators);
+//                                animatorSet[0].addListener(new AnimatorListenerAdapter() {
+//                                    @Override
+//                                    public void onAnimationEnd(Animator animator) {
+//                                        if (animator.equals(animatorSet[0])) {
+//                                            animatorSet[0] = null;
+//                                        }
+//                                    }
+//                                });
+//                                animatorSet[0].setDuration(150);
+//                                animatorSet[0].start();
+//                            }
                         });
                         linearLayout.addView(cells[a], LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, 50));
                     }
@@ -565,31 +565,31 @@ public class DataAutoDownloadActivity extends BaseFragment {
                         sizeCell[0] = new MaxFileSizeCell(getParentActivity()) {
                             @Override
                             protected void didChangedSizeValue(int value) {
-                                if (position == videosRow) {
-                                    infoCell.setText(LocaleController.formatString("AutoDownloadPreloadVideoInfo", R.string.AutoDownloadPreloadVideoInfo, AndroidUtilities.formatFileSize(value)));
-                                    boolean enabled = value > 2 * 1024 * 1024;
-                                    if (enabled != checkCell[0].isEnabled()) {
-                                        ArrayList<Animator> animators = new ArrayList<>();
-                                        checkCell[0].setEnabled(enabled, animators);
-
-                                        if (animatorSet[0] != null) {
-                                            animatorSet[0].cancel();
-                                            animatorSet[0] = null;
-                                        }
-                                        animatorSet[0] = new AnimatorSet();
-                                        animatorSet[0].playTogether(animators);
-                                        animatorSet[0].addListener(new AnimatorListenerAdapter() {
-                                            @Override
-                                            public void onAnimationEnd(Animator animator) {
-                                                if (animator.equals(animatorSet[0])) {
-                                                    animatorSet[0] = null;
-                                                }
-                                            }
-                                        });
-                                        animatorSet[0].setDuration(150);
-                                        animatorSet[0].start();
-                                    }
-                                }
+//                                if (position == videosRow) {
+//                                    infoCell.setText(LocaleController.formatString("AutoDownloadPreloadVideoInfo", R.string.AutoDownloadPreloadVideoInfo, AndroidUtilities.formatFileSize(value)));
+//                                    boolean enabled = value > 2 * 1024 * 1024;
+//                                    if (enabled != checkCell[0].isEnabled()) {
+//                                        ArrayList<Animator> animators = new ArrayList<>();
+//                                        checkCell[0].setEnabled(enabled, animators);
+//
+//                                        if (animatorSet[0] != null) {
+//                                            animatorSet[0].cancel();
+//                                            animatorSet[0] = null;
+//                                        }
+//                                        animatorSet[0] = new AnimatorSet();
+//                                        animatorSet[0].playTogether(animators);
+//                                        animatorSet[0].addListener(new AnimatorListenerAdapter() {
+//                                            @Override
+//                                            public void onAnimationEnd(Animator animator) {
+//                                                if (animator.equals(animatorSet[0])) {
+//                                                    animatorSet[0] = null;
+//                                                }
+//                                            }
+//                                        });
+//                                        animatorSet[0].setDuration(150);
+//                                        animatorSet[0].start();
+//                                    }
+//                                }
                             }
                         };
                         sizeCell[0].setSize(currentPreset.sizes[index]);
@@ -605,15 +605,15 @@ public class DataAutoDownloadActivity extends BaseFragment {
                         infoCell.setBackgroundDrawable(combinedDrawable);
                         linearLayout.addView(infoCell, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
 
-                        if (position == videosRow) {
-                            sizeCell[0].setText(LocaleController.getString("AutoDownloadMaxVideoSize", R.string.AutoDownloadMaxVideoSize));
-                            checkCell[0].setTextAndCheck(LocaleController.getString("AutoDownloadPreloadVideo", R.string.AutoDownloadPreloadVideo), currentPreset.preloadVideo, false);
-                            infoCell.setText(LocaleController.formatString("AutoDownloadPreloadVideoInfo", R.string.AutoDownloadPreloadVideoInfo, AndroidUtilities.formatFileSize(currentPreset.sizes[index])));
-                        } else {
+//                        if (position == videosRow) {
+//                            sizeCell[0].setText(LocaleController.getString("AutoDownloadMaxVideoSize", R.string.AutoDownloadMaxVideoSize));
+//                            checkCell[0].setTextAndCheck(LocaleController.getString("AutoDownloadPreloadVideo", R.string.AutoDownloadPreloadVideo), currentPreset.preloadVideo, false);
+//                            infoCell.setText(LocaleController.formatString("AutoDownloadPreloadVideoInfo", R.string.AutoDownloadPreloadVideoInfo, AndroidUtilities.formatFileSize(currentPreset.sizes[index])));
+//                        } else {
                             sizeCell[0].setText(LocaleController.getString("AutoDownloadMaxFileSize", R.string.AutoDownloadMaxFileSize));
                             checkCell[0].setTextAndCheck(LocaleController.getString("AutoDownloadPreloadMusic", R.string.AutoDownloadPreloadMusic), currentPreset.preloadMusic, false);
                             infoCell.setText(LocaleController.getString("AutoDownloadPreloadMusicInfo", R.string.AutoDownloadPreloadMusicInfo));
-                        }
+//                        }
                     } else {
                         sizeCell[0] = null;
                         checkCell[0] = null;
@@ -622,22 +622,22 @@ public class DataAutoDownloadActivity extends BaseFragment {
                         divider.setBackgroundColor(Theme.getColor(Theme.key_divider));
                         linearLayout.addView(divider, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1));
                     }
-                    if (position == videosRow) {
-                        boolean hasAny = false;
-                        for (int b = 0; b < cells.length; b++) {
-                            if (cells[b].isChecked()) {
-                                hasAny = true;
-                                break;
-                            }
-                        }
-                        if (!hasAny) {
-                            sizeCell[0].setEnabled(hasAny, null);
-                            checkCell[0].setEnabled(hasAny, null);
-                        }
-                        if (currentPreset.sizes[index] <= 2 * 1024 * 1024) {
-                            checkCell[0].setEnabled(false, null);
-                        }
-                    }
+//                    if (position == videosRow) {
+//                        boolean hasAny = false;
+//                        for (int b = 0; b < cells.length; b++) {
+//                            if (cells[b].isChecked()) {
+//                                hasAny = true;
+//                                break;
+//                            }
+//                        }
+//                        if (!hasAny) {
+//                            sizeCell[0].setEnabled(hasAny, null);
+//                            checkCell[0].setEnabled(hasAny, null);
+//                        }
+//                        if (currentPreset.sizes[index] <= 2 * 1024 * 1024) {
+//                            checkCell[0].setEnabled(false, null);
+//                        }
+//                    }
 
                     FrameLayout buttonsLayout = new FrameLayout(getParentActivity());
                     buttonsLayout.setPadding(AndroidUtilities.dp(8), AndroidUtilities.dp(8), AndroidUtilities.dp(8), AndroidUtilities.dp(8));
@@ -684,11 +684,11 @@ public class DataAutoDownloadActivity extends BaseFragment {
                             typePreset.sizes[index] = (int) sizeCell[0].getSize();
                         }
                         if (checkCell[0] != null) {
-                            if (position == videosRow) {
-                                typePreset.preloadVideo = checkCell[0].isChecked();
-                            } else {
+//                            if (position == videosRow) {
+//                                typePreset.preloadVideo = checkCell[0].isChecked();
+//                            } else {
                                 typePreset.preloadMusic = checkCell[0].isChecked();
-                            }
+//                            }
                         }
                         SharedPreferences.Editor editor = MessagesController.getMainSettings(currentAccount).edit();
                         editor.putString(key, typePreset.toString());
@@ -812,7 +812,7 @@ public class DataAutoDownloadActivity extends BaseFragment {
             usageSectionRow = rowCount++;
             typeHeaderRow = rowCount++;
             photosRow = rowCount++;
-            videosRow = rowCount++;
+//            videosRow = rowCount++;
             filesRow = rowCount++;
             typeSectionRow = rowCount++;
         } else {
@@ -821,7 +821,7 @@ public class DataAutoDownloadActivity extends BaseFragment {
             usageSectionRow = -1;
             typeHeaderRow = -1;
             photosRow = -1;
-            videosRow = -1;
+//            videosRow = -1;
             filesRow = -1;
             typeSectionRow = -1;
         }
@@ -870,9 +870,9 @@ public class DataAutoDownloadActivity extends BaseFragment {
                     if (position == photosRow) {
                         text = LocaleController.getString("AutoDownloadPhotos", R.string.AutoDownloadPhotos);
                         type = DownloadController.AUTODOWNLOAD_TYPE_PHOTO;
-                    } else if (position == videosRow) {
-                        text = LocaleController.getString("AutoDownloadVideos", R.string.AutoDownloadVideos);
-                        type = DownloadController.AUTODOWNLOAD_TYPE_VIDEO;
+//                    } else if (position == videosRow) {
+//                        text = LocaleController.getString("AutoDownloadVideos", R.string.AutoDownloadVideos);
+//                        type = DownloadController.AUTODOWNLOAD_TYPE_VIDEO;
                     } else {
                         text = LocaleController.getString("AutoDownloadFiles", R.string.AutoDownloadFiles);
                         type = DownloadController.AUTODOWNLOAD_TYPE_DOCUMENT;
@@ -962,7 +962,7 @@ public class DataAutoDownloadActivity extends BaseFragment {
         @Override
         public boolean isEnabled(RecyclerView.ViewHolder holder) {
             int position = holder.getAdapterPosition();
-            return position == photosRow || position == videosRow || position == filesRow;
+            return position == photosRow || position == filesRow;
         }
 
         @Override
@@ -1015,7 +1015,7 @@ public class DataAutoDownloadActivity extends BaseFragment {
                 return 2;
             } else if (position == usageProgressRow) {
                 return 3;
-            } else if (position == photosRow || position == videosRow || position == filesRow) {
+            } else if (position == photosRow || position == filesRow) {
                 return 4;
             } else {
                 return 5;
