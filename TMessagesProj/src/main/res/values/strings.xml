@@ -2287,7 +2287,7 @@
     <string name="SendMessagesTo">Send messages to %1$s?</string>
     <string name="SendGameTo">Share game to %1$s?</string>
     <string name="SendContactTo">Send contact to %1$s?</string>
-    <string name="AreYouSureLogoutX">Are you sure you want to log out?\n\nNote that you can seamlessly use Edify on all your devices at once.\n\nRemember, logging out kills all your Secret Chats.</string>
+    <string name="AreYouSureLogoutX">Are you sure you want to log out?\n\nNote that you can seamlessly use Edify on all your devices at once.</string>
     <string name="DeleteFewChatsTitle">Delete %1$s</string>
     <string name="ClearFewChatsTitle">Clear %1$s</string>
     <string name="ClearCacheFewChatsTitle">Empty cache for %1$s</string>

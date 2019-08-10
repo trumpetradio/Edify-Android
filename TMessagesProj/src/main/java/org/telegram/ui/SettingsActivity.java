@@ -152,7 +152,7 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
     private int numberSectionRow;
     private int numberRow;
     private int usernameRow;
-    private int bioRow;
+//    private int bioRow;
     private int settingsSectionRow;
     private int settingsSectionRow2;
     private int notificationRow;
@@ -219,7 +219,7 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
         numberSectionRow = rowCount++;
         numberRow = rowCount++;
         usernameRow = rowCount++;
-        bioRow = rowCount++;
+//        bioRow = rowCount++;
         settingsSectionRow = rowCount++;
         settingsSectionRow2 = rowCount++;
         notificationRow = rowCount++;
@@ -376,10 +376,10 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
                     presentFragment(new LanguageSelectActivity());
                 } else if (position == usernameRow) {
                     presentFragment(new ChangeUsernameActivity());
-                } else if (position == bioRow) {
-                    if (userInfo != null) {
-                        presentFragment(new ChangeBioActivity());
-                    }
+//                } else if (position == bioRow) {
+//                    if (userInfo != null) {
+//                        presentFragment(new ChangeBioActivity());
+//                    }
                 } else if (position == numberRow) {
                     presentFragment(new ActionIntroActivity(ActionIntroActivity.ACTION_TYPE_CHANGE_PHONE_NUMBER));
                 }
@@ -824,7 +824,7 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
             Integer uid = (Integer) args[0];
             if (uid == UserConfig.getInstance(currentAccount).getClientUserId() && listAdapter != null) {
                 userInfo = (TLRPC.UserFull) args[1];
-                listAdapter.notifyItemChanged(bioRow);
+//                listAdapter.notifyItemChanged(bioRow);
             }
         } else if (id == NotificationCenter.emojiDidLoad) {
             if (listView != null) {
@@ -1316,11 +1316,11 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
                         presentFragment(new LoginActivity(freeAccount));
                     }
                 }),
-                new SearchResult(503, LocaleController.getString("UserBio", R.string.UserBio), 0, () -> {
-                    if (userInfo != null) {
-                        presentFragment(new ChangeBioActivity());
-                    }
-                }),
+//                new SearchResult(503, LocaleController.getString("UserBio", R.string.UserBio), 0, () -> {
+//                    if (userInfo != null) {
+//                        presentFragment(new ChangeBioActivity());
+//                    }
+//                }),
 
                 new SearchResult(1, LocaleController.getString("NotificationsAndSounds", R.string.NotificationsAndSounds), R.drawable.menu_notifications, () -> presentFragment(new NotificationsSettingsActivity())),
                 new SearchResult(2, LocaleController.getString("NotificationsPrivateChats", R.string.NotificationsPrivateChats), LocaleController.getString("NotificationsAndSounds", R.string.NotificationsAndSounds), R.drawable.menu_notifications, () -> presentFragment(new NotificationsCustomSettingsActivity(NotificationsController.TYPE_PRIVATE, new ArrayList<>(), true))),
@@ -1844,14 +1844,14 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
                             value = LocaleController.getString("UsernameEmpty", R.string.UsernameEmpty);
                         }
                         textCell.setTextAndValue(value, LocaleController.getString("Username", R.string.Username), true);
-                    } else if (position == bioRow) {
-                        String value;
-                        if (userInfo == null || !TextUtils.isEmpty(userInfo.about)) {
-                            value = userInfo == null ? LocaleController.getString("Loading", R.string.Loading) : userInfo.about;
-                            textCell.setTextWithEmojiAndValue(value, LocaleController.getString("UserBio", R.string.UserBio), false);
-                        } else {
-                            textCell.setTextAndValue(LocaleController.getString("UserBio", R.string.UserBio), LocaleController.getString("UserBioDetail", R.string.UserBioDetail), false);
-                        }
+//                    } else if (position == bioRow) {
+//                        String value;
+//                        if (userInfo == null || !TextUtils.isEmpty(userInfo.about)) {
+//                            value = userInfo == null ? LocaleController.getString("Loading", R.string.Loading) : userInfo.about;
+//                            textCell.setTextWithEmojiAndValue(value, LocaleController.getString("UserBio", R.string.UserBio), false);
+//                        } else {
+//                            textCell.setTextAndValue(LocaleController.getString("UserBio", R.string.UserBio), LocaleController.getString("UserBioDetail", R.string.UserBioDetail), false);
+//                        }
                     }
                     break;
                 }
@@ -1862,7 +1862,7 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
         public boolean isEnabled(RecyclerView.ViewHolder holder) {
             int position = holder.getAdapterPosition();
             return position == notificationRow || position == numberRow || position == privacyRow ||
-                    position == languageRow || position == usernameRow || position == bioRow ||
+                    position == languageRow || position == usernameRow ||
                     position == versionRow || position == dataRow || position == chatRow ||
                     position == helpRow;
         }
@@ -1945,7 +1945,7 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
                 return 2;
             } else if (position == versionRow) {
                 return 5;
-            } else if (position == numberRow || position == usernameRow || position == bioRow) {
+            } else if (position == numberRow || position == usernameRow) {
                 return 6;
             } else if (position == settingsSectionRow2 || position == numberSectionRow) {
                 return 4;

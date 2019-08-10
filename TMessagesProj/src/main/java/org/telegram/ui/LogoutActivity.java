@@ -23,6 +23,7 @@ import org.telegram.messenger.MessagesController;
 import org.telegram.messenger.R;
 import org.telegram.messenger.SharedConfig;
 import org.telegram.messenger.UserConfig;
+import org.telegram.messenger.browser.Browser;
 import org.telegram.ui.ActionBar.ActionBar;
 import org.telegram.ui.ActionBar.AlertDialog;
 import org.telegram.ui.ActionBar.BaseFragment;
@@ -130,7 +131,8 @@ public class LogoutActivity extends BaseFragment {
             } else if (position == phoneRow) {
                 presentFragment(new ActionIntroActivity(ActionIntroActivity.ACTION_TYPE_CHANGE_PHONE_NUMBER));
             } else if (position == supportRow) {
-                showDialog(AlertsCreator.createSupportAlert(LogoutActivity.this));
+                Browser.openUrl(getParentActivity(), LocaleController.getString("TelegramFaqUrlX", R.string.TelegramFaqUrlX));
+                //showDialog(AlertsCreator.createSupportAlert(LogoutActivity.this));
             } else if (position == logoutRow) {
                 if (getParentActivity() == null) {
                     return;
@@ -206,13 +208,13 @@ public class LogoutActivity extends BaseFragment {
                     }
                     break;
                 }
-                case 4: {
-                    TextInfoPrivacyCell view = (TextInfoPrivacyCell) holder.itemView;
-                    if (position == logoutSectionRow) {
-                        view.setText(LocaleController.getString("LogOutInfo", R.string.LogOutInfo));
-                    }
-                    break;
-                }
+//                case 4: {
+//                    TextInfoPrivacyCell view = (TextInfoPrivacyCell) holder.itemView;
+//                    if (position == logoutSectionRow) {
+//                        view.setText(LocaleController.getString("LogOutInfo", R.string.LogOutInfo));
+//                    }
+//                    break;
+//                }
             }
         }
 
